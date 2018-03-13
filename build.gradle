@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://files.minecraftforge.net/maven' }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+def modVersion = '1.0.0'
+def mcfVersion = '1.12.2-14.23.2.2625'
+def mcpMappings = 'snapshot_20180311'
+
+def hwylaVersion = '1.8.23-B38_1.12'
+def jeiVersion = '1.12.2:4.8.5.159'
+
+version = "1.12-$modVersion"
+group = 'net.sleeplessdev.chromaticfoliage'
+archivesBaseName = 'ChromaticFoliage'
+sourceCompatibility = 1.8
+
+minecraft {
+    version = mcfVersion
+    mappings = mcpMappings
+    runDir = 'run'
+    replaceIn 'ChromaticFoliage.java'
+    replace '%VERSION%', modVersion
+}
+
+repositories {
+    maven { url 'http://tehnut.info/maven' }
+    maven { url 'http://dvs1.progwml6.com/files/maven' }
+}
+
+dependencies {
+    deobfCompile "mcp.mobius.waila:Hwyla:$hwylaVersion"
+    deobfCompile "mezz.jei:jei_$jeiVersion"
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info', 'pack.mcmeta'
+        expand 'version': modVersion
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info', 'pack.mcmeta'
+    }
+}
