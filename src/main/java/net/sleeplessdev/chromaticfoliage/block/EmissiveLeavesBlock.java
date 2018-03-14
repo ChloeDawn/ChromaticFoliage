@@ -43,7 +43,8 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!player.isSneaking()) return false;
         ItemStack stack = player.getHeldItem(hand);
-        if (player.canPlayerEdit(pos, facing, stack) && player.getHeldItem(hand).isEmpty()) {
+        if (world.isRemote) return stack.isEmpty();
+        if (player.canPlayerEdit(pos, facing, stack) && stack.isEmpty()) {
             IBlockState chroma = getChromaticState(state);
             if (chroma.getBlock() != Blocks.AIR && world.setBlockState(pos, chroma, 3)) {
                 world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);

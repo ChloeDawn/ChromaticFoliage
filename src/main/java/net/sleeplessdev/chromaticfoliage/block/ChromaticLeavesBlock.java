@@ -113,20 +113,23 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
         if (player.canPlayerEdit(pos, facing, stack) && !stack.isEmpty()) {
             if (ChromaGeneralConfig.inWorldIllumination && stack.getItem() == Items.GLOWSTONE_DUST) {
                 IBlockState emissive = getEmissiveState(state);
-                if (emissive.getBlock() != Blocks.AIR && world.setBlockState(pos, emissive, 3)) {
-                    world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    if (!player.isCreative()) stack.shrink(1);
-                    return true;
+                if (emissive.getBlock() != Blocks.AIR) {
+                    if (world.isRemote) return true;
+                    if (world.setBlockState(pos, emissive, 3)) {
+                        world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                        if (!player.isCreative()) stack.shrink(1);
+                        return true;
+                    }
                 }
             } else if (ChromaGeneralConfig.chromaRecoloring) {
                 Optional<ChromaColors> color = ChromaColors.getColorFor(stack);
                 if (!color.isPresent()) return false;
-                if (world.setBlockState(pos, getDefaultState().withProperty(ChromaColors.PROPERTY, color.get()))) {
+                if (color.get() == state.getValue(ChromaColors.PROPERTY)) return false;
+                if (world.isRemote) return true;
+                if (world.setBlockState(pos, state.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    player.swingArm(hand);
-                    if (!player.isCreative()) {
-                        stack.shrink(1);
-                    }
+                    if (!player.isCreative()) stack.shrink(1);
+                    return true;
                 }
             }
         }

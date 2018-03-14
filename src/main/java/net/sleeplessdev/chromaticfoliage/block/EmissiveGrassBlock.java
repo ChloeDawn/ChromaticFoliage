@@ -46,7 +46,8 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!player.isSneaking()) return false;
         ItemStack stack = player.getHeldItem(hand);
-        if (player.canPlayerEdit(pos, facing, stack) && player.getHeldItem(hand).isEmpty()) {
+        if (world.isRemote) return stack.isEmpty();
+        if (player.canPlayerEdit(pos, facing, stack) && stack.isEmpty()) {
             ChromaColors color = state.getValue(ChromaColors.PROPERTY);
             IBlockState chroma = ChromaBlocks.CHROMATIC_GRASS.getDefaultState()
                     .withProperty(ChromaColors.PROPERTY, color);

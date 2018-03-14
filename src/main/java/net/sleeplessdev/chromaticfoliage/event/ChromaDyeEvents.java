@@ -28,39 +28,39 @@ public final class ChromaDyeEvents {
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (!ChromaGeneralConfig.inWorldInteraction) return;
 
-        Optional<ChromaColors> color = ChromaColors.getColorFor(event.getItemStack());
-
-        if (!color.isPresent()) return;
-
         EntityPlayer player = event.getEntityPlayer();
         World world = event.getWorld();
         BlockPos pos = event.getPos();
         IBlockState state = world.getBlockState(pos);
 
         if (state.getBlock() == Blocks.GRASS) {
-            IBlockState grass = ChromaBlocks.CHROMATIC_GRASS.getDefaultState()
-                    .withProperty(ChromaColors.PROPERTY, color.get());
-            if (world.setBlockState(pos, grass)) {
-                world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            if (world.isRemote && !player.isSneaking()) {
                 player.swingArm(event.getHand());
-                if (!player.isCreative()) {
-                    event.getItemStack().shrink(1);
-                }
+                return;
+            }
+
+            IBlockState grass = ChromaBlocks.CHROMATIC_GRASS.getDefaultState();
+            Optional<ChromaColors> color = ChromaColors.getColorFor(event.getItemStack());
+
+            if (color.isPresent() && world.setBlockState(pos, grass.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
+                world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                if (!player.isCreative()) event.getItemStack().shrink(1);
             }
         }
 
         if (state.getBlock() == Blocks.LEAVES || state.getBlock() == Blocks.LEAVES2) {
+            if (world.isRemote && !player.isSneaking()) {
+                player.swingArm(event.getHand());
+                return;
+            }
             BlockLeaves block = (BlockLeaves) state.getBlock();
             int meta = block.getMetaFromState(state);
             IBlockState leaves = getLeavesFor(block.getWoodType(meta));
             if (leaves != Blocks.AIR.getDefaultState()) {
-                leaves = leaves.withProperty(ChromaColors.PROPERTY, color.get());
-                if (world.setBlockState(pos, leaves)) {
+                Optional<ChromaColors> color = ChromaColors.getColorFor(event.getItemStack());
+                if (color.isPresent() && world.setBlockState(pos, leaves.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    player.swingArm(event.getHand());
-                    if (!player.isCreative()) {
-                        event.getItemStack().shrink(1);
-                    }
+                    if (!player.isCreative()) event.getItemStack().shrink(1);
                 }
             }
         }

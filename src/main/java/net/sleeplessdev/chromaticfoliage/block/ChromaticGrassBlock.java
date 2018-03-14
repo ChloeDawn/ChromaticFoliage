@@ -63,9 +63,9 @@ public class ChromaticGrassBlock extends BlockGrass {
         ItemStack stack = player.getHeldItem(hand);
         if (player.canPlayerEdit(pos, facing, stack) && !stack.isEmpty()) {
             if (ChromaGeneralConfig.inWorldIllumination && stack.getItem() == Items.GLOWSTONE_DUST) {
-                ChromaColors color = state.getValue(ChromaColors.PROPERTY);
+                if (world.isRemote) return true;
                 IBlockState emissive = ChromaBlocks.EMISSIVE_GRASS.getDefaultState()
-                        .withProperty(ChromaColors.PROPERTY, color);
+                        .withProperty(ChromaColors.PROPERTY, state.getValue(ChromaColors.PROPERTY));
                 if (world.setBlockState(pos, emissive, 3)) {
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
                     if (!player.isCreative()) stack.shrink(1);
@@ -74,12 +74,13 @@ public class ChromaticGrassBlock extends BlockGrass {
             } else if (ChromaGeneralConfig.chromaRecoloring) {
                 Optional<ChromaColors> color = ChromaColors.getColorFor(stack);
                 if (!color.isPresent()) return false;
-                if (world.setBlockState(pos, getDefaultState().withProperty(ChromaColors.PROPERTY, color.get()))) {
+                if (color.get() == state.getValue(ChromaColors.PROPERTY)) return false;
+                if (world.isRemote) return true;
+                IBlockState colorState = state.withProperty(ChromaColors.PROPERTY, color.get());
+                if (world.setBlockState(pos, colorState, 3)) {
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    player.swingArm(hand);
-                    if (!player.isCreative()) {
-                        stack.shrink(1);
-                    }
+                    if (!player.isCreative()) stack.shrink(1);
+                    return true;
                 }
             }
         }
