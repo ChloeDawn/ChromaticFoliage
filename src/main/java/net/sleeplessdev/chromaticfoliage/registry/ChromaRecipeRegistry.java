@@ -33,7 +33,7 @@ public final class ChromaRecipeRegistry {
         OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
         OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
 
-        registerOreEntries(ChromaItems.CHROMATIC_GRASS, "grass", "grassColored");
+        registerOreEntries(ChromaItems.CHROMATIC_GRASS, "grass");
         registerOreEntries(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeaves", "treeLeavesOak");
         registerOreEntries(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeaves", "treeLeavesSpruce");
         registerOreEntries(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeaves", "treeLeavesBirch");
