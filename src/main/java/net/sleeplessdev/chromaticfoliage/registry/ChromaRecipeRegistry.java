@@ -26,13 +26,21 @@ public final class ChromaRecipeRegistry {
 
     @SubscribeEvent
     public static void onRecipeRegistry(RegistryEvent.Register<IRecipe> event) {
-        registerOreEntries(ChromaItems.CHROMATIC_GRASS, "grass");
-        registerOreEntries(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeaves");
-        registerOreEntries(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeaves");
-        registerOreEntries(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeaves");
-        registerOreEntries(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeaves");
-        registerOreEntries(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeaves");
-        registerOreEntries(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves");
+        OreDictionary.registerOre("treeLeavesOak", new ItemStack(Blocks.LEAVES, 1, 0));
+        OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(Blocks.LEAVES, 1, 1));
+        OreDictionary.registerOre("treeLeavesBirch", new ItemStack(Blocks.LEAVES, 1, 2));
+        OreDictionary.registerOre("treeLeavesJungle", new ItemStack(Blocks.LEAVES, 1, 3));
+        OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
+        OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
+
+        registerOreEntries(ChromaItems.CHROMATIC_GRASS, "grass", "grassColored");
+        registerOreEntries(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeaves", "treeLeavesOak");
+        registerOreEntries(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeaves", "treeLeavesSpruce");
+        registerOreEntries(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeaves", "treeLeavesBirch");
+        registerOreEntries(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeaves", "treeLeavesJungle");
+        registerOreEntries(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeaves", "treeLeavesAcacia");
+        registerOreEntries(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves", "treeLeavesDarkOak");
+
         registerDyeRecipes(ChromaItems.CHROMATIC_GRASS, new ItemStack(Blocks.GRASS));
         registerDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, new ItemStack(Blocks.LEAVES, 1, 0));
         registerDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES, new ItemStack(Blocks.LEAVES, 1, 1));
@@ -40,25 +48,29 @@ public final class ChromaRecipeRegistry {
         registerDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES, new ItemStack(Blocks.LEAVES, 1, 3));
         registerDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES, new ItemStack(Blocks.LEAVES2, 1, 0));
         registerDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, new ItemStack(Blocks.LEAVES2, 1, 1));
+
         if (ChromaGeneralConfig.chromaRecoloring) {
             registerReDyeRecipes(ChromaItems.CHROMATIC_GRASS, "grass");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeaves");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeaves");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeaves");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeaves");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeaves");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeavesOak");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeavesSpruce");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeavesBirch");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeavesJungle");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeavesAcacia");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeavesDarkOak");
         }
     }
 
-    private static void registerOreEntries(Item item, String prefix) {
+    private static void registerOreEntries(Item item, String... prefixes) {
         Converter<String, String> converter = CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL);
         ItemStack wildcard = new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE);
-        OreDictionary.registerOre(prefix, wildcard);
-        for (ChromaColors color : ChromaColors.VALUES) {
-            ItemStack stack = new ItemStack(item, 1, color.ordinal());
-            String suffix = converter.convert(color.getName());
-            OreDictionary.registerOre(prefix + suffix, stack);
+        for (String prefix : prefixes) {
+            OreDictionary.registerOre(prefix, wildcard);
+            OreDictionary.registerOre(prefix + "Colored", wildcard);
+            for (ChromaColors color : ChromaColors.VALUES) {
+                ItemStack stack = new ItemStack(item, 1, color.ordinal());
+                String suffix = converter.convert(color.getName());
+                OreDictionary.registerOre(prefix + suffix, stack);
+            }
         }
     }
 
