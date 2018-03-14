@@ -34,13 +34,16 @@ import java.util.Random;
 
 public class ChromaticGrassBlock extends BlockGrass {
 
-    private final boolean checkSnow;
+    private final boolean checkSnow, spreadDirt, spreadGrass;
 
     public ChromaticGrassBlock() {
+        this.checkSnow = !ChromaClientConfig.BLOCKS.snowLayers;
+        this.spreadDirt = ChromaGeneralConfig.grassSpreadDirt;
+        this.spreadGrass = ChromaGeneralConfig.grassSpreadGrass;
         setHardness(0.6F);
         setSoundType(SoundType.PLANT);
         setUnlocalizedName(ChromaticFoliage.ID + ".chromatic_grass");
-        this.checkSnow = !ChromaClientConfig.BLOCKS.snowLayers;
+        setTickRandomly(spreadDirt || spreadGrass);
     }
 
     @Override
@@ -105,6 +108,7 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+        if (!spreadDirt && !spreadGrass) return;
         if (world.isRemote) return;
         if (!world.isAreaLoaded(pos, 3)) return;
         if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
@@ -170,11 +174,11 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     protected boolean canSpreadInto(World world, BlockPos pos) {
         IBlockState state = world.getBlockState(pos);
-        if (state.getBlock() == Blocks.DIRT) {
+        if (spreadDirt && state.getBlock() == Blocks.DIRT) {
             DirtType type = state.getValue(BlockDirt.VARIANT);
             return type == DirtType.DIRT;
         }
-        return false;
+        return spreadGrass && state.getBlock() == Blocks.GRASS;
     }
 
 }

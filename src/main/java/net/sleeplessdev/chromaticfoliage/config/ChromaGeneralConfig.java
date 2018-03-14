@@ -24,6 +24,16 @@ public final class ChromaGeneralConfig {
                      "Illuminated blocks will drop their glowstone dust when broken"})
     public static boolean inWorldIllumination = true;
 
+    @Config.Name("grass_spreads_to_dirt")
+    @Config.Comment("Chromatic grass blocks spread onto dirt over time")
+    @Config.RequiresMcRestart
+    public static boolean grassSpreadDirt = true;
+
+    @Config.Name("grass_spreads_to_grass")
+    @Config.Comment("Chromatic grass blocks spread onto regular grass blocks over time")
+    @Config.RequiresMcRestart
+    public static boolean grassSpreadGrass = false;
+
     private ChromaGeneralConfig() {}
 
 }
