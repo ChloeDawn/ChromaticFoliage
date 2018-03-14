@@ -2,6 +2,7 @@ package net.sleeplessdev.chromaticfoliage.registry;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Converter;
+import com.google.common.collect.Lists;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,6 +19,9 @@ import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = ChromaticFoliage.ID)
 public final class ChromaRecipeRegistry {
@@ -84,13 +88,18 @@ public final class ChromaRecipeRegistry {
         }
     }
 
-    private static void registerReDyeRecipes(Item output) {
-        String prefix = output.getRegistryName() + "_recolor_";
-        ItemStack input = new ItemStack(output, 1, OreDictionary.WILDCARD_VALUE);
+    private static void registerReDyeRecipes(Item item) {
+        String prefix = item.getRegistryName() + "_recolor_";
+        List<ItemStack> stacks = new ArrayList<>();
+        for (ChromaColors color : ChromaColors.VALUES) {
+            stacks.add(new ItemStack(item, 1, color.ordinal()));
+        }
         for (ChromaColors color : ChromaColors.VALUES) {
             ResourceLocation name = new ResourceLocation(prefix + color.getName());
-            GameRegistry.addShapelessRecipe(name, null, new ItemStack(output, 1, color.ordinal()),
-                    Ingredient.fromStacks(input), new OreIngredient(color.getOreName())
+            List<ItemStack> inputs = Lists.newArrayList(stacks);
+            GameRegistry.addShapelessRecipe(name, null, inputs.remove(color.ordinal()),
+                    Ingredient.fromStacks(inputs.toArray(new ItemStack[0])),
+                    new OreIngredient(color.getOreName())
             );
         }
     }
