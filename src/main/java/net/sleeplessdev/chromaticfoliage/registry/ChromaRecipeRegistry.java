@@ -50,13 +50,13 @@ public final class ChromaRecipeRegistry {
         registerDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, new ItemStack(Blocks.LEAVES2, 1, 1));
 
         if (ChromaGeneralConfig.chromaRecoloring) {
-            registerReDyeRecipes(ChromaItems.CHROMATIC_GRASS, "grass");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeavesOak");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeavesSpruce");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeavesBirch");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeavesJungle");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeavesAcacia");
-            registerReDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeavesDarkOak");
+            registerReDyeRecipes(ChromaItems.CHROMATIC_GRASS);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_BIRCH_LEAVES);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES);
         }
     }
 
@@ -84,12 +84,13 @@ public final class ChromaRecipeRegistry {
         }
     }
 
-    private static void registerReDyeRecipes(Item output, String input) {
+    private static void registerReDyeRecipes(Item output) {
         String prefix = output.getRegistryName() + "_recolor_";
+        ItemStack input = new ItemStack(output, 1, OreDictionary.WILDCARD_VALUE);
         for (ChromaColors color : ChromaColors.VALUES) {
             ResourceLocation name = new ResourceLocation(prefix + color.getName());
             GameRegistry.addShapelessRecipe(name, null, new ItemStack(output, 1, color.ordinal()),
-                    new OreIngredient(input), new OreIngredient(color.getOreName())
+                    Ingredient.fromStacks(input), new OreIngredient(color.getOreName())
             );
         }
     }
