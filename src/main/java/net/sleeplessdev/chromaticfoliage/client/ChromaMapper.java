@@ -5,8 +5,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 
+@SideOnly(Side.CLIENT)
 public final class ChromaMapper extends StateMapperBase {
 
     private final ResourceLocation path;
