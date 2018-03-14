@@ -18,7 +18,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.biome.BiomeColorHelper;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -113,8 +112,7 @@ public final class ChromaClientRegistry {
                     if (below.getBlock() instanceof ChromaticGrassBlock) {
                         return below.getValue(ChromaColors.PROPERTY).getColorValue();
                     } else if (below.getBlock() == Blocks.SNOW_LAYER) {
-                        int pass = MinecraftForgeClient.getRenderPass();
-                        return event.getBlockColors().colorMultiplier(below, world, pos.down(), pass);
+                        return event.getBlockColors().colorMultiplier(below, world, pos.down(), tintIndex);
                     }
                 }
                 return -1;
