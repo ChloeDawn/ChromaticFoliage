@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -147,6 +148,13 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
             case DARK_OAK: return new ItemStack(ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES, 1, getMetaFromState(state));
         }
         return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
+        for (ChromaColors color : ChromaColors.VALUES) {
+            items.add(new ItemStack(this, 1, color.ordinal()));
+        }
     }
 
     @Override
