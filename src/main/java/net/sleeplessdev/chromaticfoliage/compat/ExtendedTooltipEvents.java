@@ -2,7 +2,6 @@ package net.sleeplessdev.chromaticfoliage.compat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -22,15 +21,15 @@ public final class ExtendedTooltipEvents {
     public static void onItemTooltip(ItemTooltipEvent event) {
         if (!ChromaClientConfig.INFO.itemTooltip) return;
         ResourceLocation name = event.getItemStack().getItem().getRegistryName();
-        if (name != null && "inspirations".equals(name.getResourceDomain())) {
+        if (name != null && "inspirations:enlightened_bush".equals(name.toString())) {
             NBTTagCompound nbt = event.getItemStack().getTagCompound();
             if (nbt != null && nbt.hasKey("texture")) {
-                NBTTagCompound tex = nbt.getCompoundTag("texture");
-                ItemStack stack = new ItemStack(tex);
-                ResourceLocation name1 = stack.getItem().getRegistryName();
-                if (name1 != null && ChromaticFoliage.ID.equals(name1.getResourceDomain())) {
-                    ChromaColors color = ChromaColors.VALUES[stack.getMetadata() & 15];
-                    event.getToolTip().add(createTooltipFor(color));
+                NBTTagCompound item = nbt.getCompoundTag("texture");
+                if (item.getString("id").contains(ChromaticFoliage.ID)) {
+                    int damage = Math.max(0, item.getShort("Damage"));
+                    ChromaColors color = ChromaColors.VALUES[damage & 15];
+                    String line = createTooltipFor(color);
+                    event.getToolTip().add(line);
                 }
             }
         }
