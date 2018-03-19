@@ -47,30 +47,37 @@ public final class ChromaClientRegistry {
     public static void onModelRegistry(ModelRegistryEvent event) {
         if (ChromaFeatureConfig.grassBlocks) {
             registerModelsFor(ChromaBlocks.CHROMATIC_GRASS);
+            registerMapperFor(ChromaBlocks.CHROMATIC_GRASS);
             registerMapperFor(ChromaBlocks.EMISSIVE_GRASS);
         }
         if (ChromaFeatureConfig.oakLeaves) {
             registerModelsFor(ChromaBlocks.CHROMATIC_OAK_LEAVES);
+            registerMapperFor(ChromaBlocks.CHROMATIC_OAK_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_OAK_LEAVES);
         }
         if (ChromaFeatureConfig.spruceLeaves) {
             registerModelsFor(ChromaBlocks.CHROMATIC_SPRUCE_LEAVES);
+            registerMapperFor(ChromaBlocks.CHROMATIC_SPRUCE_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_SPRUCE_LEAVES);
         }
         if (ChromaFeatureConfig.birchLeaves) {
             registerModelsFor(ChromaBlocks.CHROMATIC_BIRCH_LEAVES);
+            registerMapperFor(ChromaBlocks.CHROMATIC_BIRCH_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_BIRCH_LEAVES);
         }
         if (ChromaFeatureConfig.jungleLeaves) {
             registerModelsFor(ChromaBlocks.CHROMATIC_JUNGLE_LEAVES);
+            registerMapperFor(ChromaBlocks.CHROMATIC_JUNGLE_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_JUNGLE_LEAVES);
         }
         if (ChromaFeatureConfig.acaciaLeaves) {
             registerModelsFor(ChromaBlocks.CHROMATIC_ACACIA_LEAVES);
+            registerMapperFor(ChromaBlocks.CHROMATIC_ACACIA_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_ACACIA_LEAVES);
         }
         if (ChromaFeatureConfig.darkOakLeaves) {
             registerModelsFor(ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES);
+            registerMapperFor(ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_DARK_OAK_LEAVES);
         }
     }
@@ -203,12 +210,16 @@ public final class ChromaClientRegistry {
     }
 
     private static void registerModelsFor(Block block) {
+        ResourceLocation name = block.getRegistryName();
         Item item = Item.getItemFromBlock(block);
-        for (IBlockState state : block.getBlockState().getValidStates()) {
-            String[] str = state.toString().split("\\[");
-            String variant = str[1].substring(0, str[1].length() - 1);
-            ModelResourceLocation mrl = new ModelResourceLocation(str[0], variant);
-            ModelLoader.setCustomModelResourceLocation(item, block.getMetaFromState(state), mrl);
+        for (ChromaColors color : ChromaColors.VALUES) {
+            int meta = color.ordinal();
+            String variant = "color=" + color.getName();
+            if (block instanceof ChromaticGrassBlock) {
+                variant += ",snowy=false";
+            }
+            ModelResourceLocation mrl = new ModelResourceLocation(name, variant);
+            ModelLoader.setCustomModelResourceLocation(item, meta, mrl);
         }
     }
 

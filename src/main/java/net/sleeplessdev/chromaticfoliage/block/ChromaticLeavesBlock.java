@@ -1,10 +1,9 @@
 package net.sleeplessdev.chromaticfoliage.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -33,24 +32,27 @@ import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
 
-import javax.annotation.Nonnull;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class ChromaticLeavesBlock extends Block implements IShearable {
+public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
 
     protected final EnumType type;
 
     public ChromaticLeavesBlock(EnumType type) {
-        super(Material.LEAVES);
         this.type = type;
         String name = ".chromatic_" + type.getName() + "_leaves";
         setUnlocalizedName(ChromaticFoliage.ID + name);
+        setTickRandomly(false);
         setHardness(0.2F);
         setLightOpacity(1);
         setSoundType(SoundType.PLANT);
+        setDefaultState(getDefaultState()
+                .withProperty(CHECK_DECAY, false)
+                .withProperty(DECAYABLE, false)
+        );
     }
 
     private boolean isFancyGraphics() {
@@ -59,7 +61,7 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
 
     @Override
     @Deprecated
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+    public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
         return state.getValue(ChromaColors.PROPERTY).getMapColor();
     }
 
@@ -72,40 +74,6 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
     @Override
     public int getMetaFromState(IBlockState state) {
         return state.getValue(ChromaColors.PROPERTY).ordinal();
-    }
-
-    @Override
-    @Deprecated
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-        return (isFancyGraphics() || world.getBlockState(pos.offset(side)).getBlock() != this)
-                && super.shouldSideBeRendered(state, world, pos, side);
-    }
-
-    @Override
-    @Deprecated
-    public boolean isOpaqueCube(IBlockState state) {
-        return !isFancyGraphics();
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
-        if (world.isRainingAt(pos.up())) {
-            IBlockState below = world.getBlockState(pos.down());
-            BlockFaceShape shape = below.getBlockFaceShape(world, pos.down(), EnumFacing.UP);
-            if (shape != BlockFaceShape.SOLID && rand.nextInt(15) == 1) {
-                double x = (double) ((float) pos.getX() + rand.nextFloat());
-                double y = (double) pos.getY() - 0.05D;
-                double z = (double) ((float) pos.getZ() + rand.nextFloat());
-                world.spawnParticle(EnumParticleTypes.DRIP_WATER, x, y, z, 0.0D, 0.0D, 0.0D);
-            }
-        }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
-        return isFancyGraphics() ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
     }
 
     @Override
@@ -159,17 +127,7 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, ChromaColors.PROPERTY);
-    }
-
-    @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-
-    }
-
-    @Override
-    public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return true;
+        return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE, ChromaColors.PROPERTY);
     }
 
     @Override
@@ -180,6 +138,67 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
         return getDefaultState().withProperty(ChromaColors.PROPERTY, ChromaColors.VALUES[meta & 15]);
+    }
+
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state) {
+
+    }
+
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+        if (world.isRainingAt(pos.up())) {
+            IBlockState below = world.getBlockState(pos.down());
+            BlockFaceShape shape = below.getBlockFaceShape(world, pos.down(), EnumFacing.UP);
+            if (shape != BlockFaceShape.SOLID && rand.nextInt(15) == 1) {
+                double x = (double) ((float) pos.getX() + rand.nextFloat());
+                double y = (double) pos.getY() - 0.05D;
+                double z = (double) ((float) pos.getZ() + rand.nextFloat());
+                world.spawnParticle(EnumParticleTypes.DRIP_WATER, x, y, z, 0.0D, 0.0D, 0.0D);
+            }
+        }
+    }
+
+    @Override
+    @Deprecated
+    public boolean isOpaqueCube(IBlockState state) {
+        return !isFancyGraphics();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer() {
+        return isFancyGraphics() ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
+    }
+
+    @Override
+    public EnumType getWoodType(int meta) {
+        return type;
+    }
+
+    @Override
+    public void beginLeavesDecay(IBlockState state, World world, BlockPos pos) {
+
+    }
+
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+
+    }
+
+    @Override
+    @Deprecated
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+        BlockPos posAt = pos.offset(side);
+        IBlockState stateAt = world.getBlockState(posAt);
+        return isFancyGraphics() && stateAt.getBlock() == this || !stateAt.doesSideBlockRendering(world, posAt, side.getOpposite());
+
     }
 
     protected IBlockState getEmissiveState(IBlockState state) {
@@ -212,12 +231,6 @@ public class ChromaticLeavesBlock extends Block implements IShearable {
         return Blocks.AIR.getDefaultState();
     }
 
-    @Override
-    public boolean isShearable(@Nonnull ItemStack item, IBlockAccess world, BlockPos pos) {
-        return true;
-    }
-
-    @Nonnull
     @Override
     public List<ItemStack> onSheared(ItemStack held, IBlockAccess world, BlockPos pos, int fortune) {
         return Collections.singletonList(new ItemStack(this));
