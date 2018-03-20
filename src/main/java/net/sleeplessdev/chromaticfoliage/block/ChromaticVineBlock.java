@@ -181,6 +181,7 @@ public class ChromaticVineBlock extends BlockVine {
         EnumFacing randSide = EnumFacing.random(rand);
         BlockPos posUp = pos.up();
         if (randSide == EnumFacing.UP && pos.getY() < 255 && world.isAirBlock(posUp)) {
+            state = state.getActualState(world, pos);
             IBlockState stateAt = state;
             for (EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
                 if (rand.nextBoolean() && canAttachTo(world, posUp, side.getOpposite())) {
@@ -268,6 +269,7 @@ public class ChromaticVineBlock extends BlockVine {
     }
 
     private boolean recheckGrownSides(World world, BlockPos pos, IBlockState state) {
+        state = state.getActualState(world, pos);
         IBlockState originalState = state;
         for (EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
             PropertyBool prop = getPropertyFor(side);
