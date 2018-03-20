@@ -307,7 +307,7 @@ public class ChromaticVineBlock extends BlockVine {
         public void readFromNBT(NBTTagCompound compound) {
             super.readFromNBT(compound);
             int index = compound.getInteger(NBT_KEY);
-            color = ChromaColors.VALUES[index & 15];
+            color = ChromaColors.VALUES[index];
         }
 
         @Override
@@ -343,7 +343,7 @@ public class ChromaticVineBlock extends BlockVine {
         @Override
         public void handleUpdateTag(NBTTagCompound compound) {
             int index = compound.getInteger(NBT_KEY);
-            color = ChromaColors.VALUES[index & 15];
+            color = ChromaColors.VALUES[index];
         }
     }
 
