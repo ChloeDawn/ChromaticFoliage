@@ -36,7 +36,7 @@ public final class ChromaGeneralConfig {
 
     @Config.Name("replaceable_vines")
     @Config.Comment({"Allow vines to be replaced by other blocks, including themselves",
-                     "Set true value to false for vanilla behaviour"})
+                     "Set this value to true for vanilla behaviour"})
     public static boolean replaceableVines = false;
 
     private ChromaGeneralConfig() {}
