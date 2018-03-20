@@ -15,6 +15,7 @@ public final class ChromaItems {
     public static final Item CHROMATIC_JUNGLE_LEAVES = Items.AIR;
     public static final Item CHROMATIC_ACACIA_LEAVES = Items.AIR;
     public static final Item CHROMATIC_DARK_OAK_LEAVES = Items.AIR;
+    public static final Item CHROMATIC_VINE = Items.AIR;
 
     private ChromaItems() {}
     

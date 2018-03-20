@@ -44,6 +44,7 @@ public final class ChromaRecipeRegistry {
         registerOreEntries(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeaves", "treeLeavesJungle");
         registerOreEntries(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeaves", "treeLeavesAcacia");
         registerOreEntries(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves", "treeLeavesDarkOak");
+        registerOreEntries(ChromaItems.CHROMATIC_VINE, "vine");
 
         registerDyeRecipes(ChromaItems.CHROMATIC_GRASS, new ItemStack(Blocks.GRASS));
         registerDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, new ItemStack(Blocks.LEAVES, 1, 0));
@@ -52,6 +53,7 @@ public final class ChromaRecipeRegistry {
         registerDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES, new ItemStack(Blocks.LEAVES, 1, 3));
         registerDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES, new ItemStack(Blocks.LEAVES2, 1, 0));
         registerDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, new ItemStack(Blocks.LEAVES2, 1, 1));
+        registerDyeRecipes(ChromaItems.CHROMATIC_VINE, new ItemStack(Blocks.VINE));
 
         if (ChromaGeneralConfig.chromaRecoloring) {
             registerReDyeRecipes(ChromaItems.CHROMATIC_GRASS);
@@ -61,6 +63,7 @@ public final class ChromaRecipeRegistry {
             registerReDyeRecipes(ChromaItems.CHROMATIC_JUNGLE_LEAVES);
             registerReDyeRecipes(ChromaItems.CHROMATIC_ACACIA_LEAVES);
             registerReDyeRecipes(ChromaItems.CHROMATIC_DARK_OAK_LEAVES);
+            registerReDyeRecipes(ChromaItems.CHROMATIC_VINE);
         }
     }
 

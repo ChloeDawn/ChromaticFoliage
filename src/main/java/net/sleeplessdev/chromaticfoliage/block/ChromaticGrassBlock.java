@@ -30,6 +30,7 @@ import net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 
 import java.util.Optional;
 import java.util.Random;
@@ -45,6 +46,7 @@ public class ChromaticGrassBlock extends BlockGrass {
         setHardness(0.6F);
         setSoundType(SoundType.PLANT);
         setUnlocalizedName(ChromaticFoliage.ID + ".chromatic_grass");
+        setCreativeTab(ChromaticFoliage.TAB);
         setTickRandomly(spreadDirt || spreadGrass);
     }
 
@@ -98,7 +100,7 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(ChromaBlocks.CHROMATIC_GRASS, 1, getMetaFromState(state));
+        return new ItemStack(ChromaItems.CHROMATIC_GRASS, 1, getMetaFromState(state));
     }
 
     @Override

@@ -34,6 +34,11 @@ public final class ChromaGeneralConfig {
     @Config.RequiresMcRestart
     public static boolean grassSpreadGrass = false;
 
+    @Config.Name("replaceable_vines")
+    @Config.Comment({"Allow vines to be replaced by other blocks, including themselves",
+                     "Set true value to false for vanilla behaviour"})
+    public static boolean replaceableVines = false;
+
     private ChromaGeneralConfig() {}
 
 }

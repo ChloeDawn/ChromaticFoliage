@@ -49,6 +49,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
         setHardness(0.2F);
         setLightOpacity(1);
         setSoundType(SoundType.PLANT);
+        setCreativeTab(ChromaticFoliage.TAB);
         setDefaultState(getDefaultState()
                 .withProperty(CHECK_DECAY, false)
                 .withProperty(DECAYABLE, false)
@@ -233,7 +234,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
 
     @Override
     public List<ItemStack> onSheared(ItemStack held, IBlockAccess world, BlockPos pos, int fortune) {
-        return Collections.singletonList(new ItemStack(this));
+        return Collections.singletonList(getSilkTouchDrop(world.getBlockState(pos)));
     }
 
 }

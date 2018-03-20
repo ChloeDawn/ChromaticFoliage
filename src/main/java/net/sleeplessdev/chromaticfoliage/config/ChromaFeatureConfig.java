@@ -41,6 +41,10 @@ public final class ChromaFeatureConfig {
     @Config.RequiresMcRestart
     public static boolean darkOakLeaves = true;
 
+    @Config.Name("vines")
+    @Config.Comment("Register chromatic vines")
+    public static boolean vines = true;
+
     private ChromaFeatureConfig() {}
 
 }

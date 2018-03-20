@@ -80,6 +80,11 @@ public final class ChromaClientRegistry {
             registerMapperFor(ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES);
             registerMapperFor(ChromaBlocks.EMISSIVE_DARK_OAK_LEAVES);
         }
+        if (ChromaFeatureConfig.vines) {
+            registerModelsFor(ChromaBlocks.CHROMATIC_VINE);
+            registerMapperFor(ChromaBlocks.CHROMATIC_VINE);
+            registerMapperFor(ChromaBlocks.EMISSIVE_VINE);
+        }
     }
 
     @SubscribeEvent
@@ -111,6 +116,10 @@ public final class ChromaClientRegistry {
         if (ChromaFeatureConfig.darkOakLeaves) {
             registerColorFor(event, ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES);
             registerColorFor(event, ChromaBlocks.EMISSIVE_DARK_OAK_LEAVES);
+        }
+        if (ChromaFeatureConfig.vines) {
+            registerColorFor(event, ChromaBlocks.CHROMATIC_VINE);
+            registerColorFor(event, ChromaBlocks.EMISSIVE_VINE);
         }
         if (ChromaClientConfig.BLOCKS.snowLayers) {
             event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> {
@@ -184,12 +193,16 @@ public final class ChromaClientRegistry {
         if (ChromaFeatureConfig.darkOakLeaves) {
             registerColorFor(event, ChromaItems.CHROMATIC_DARK_OAK_LEAVES);
         }
+        if (ChromaFeatureConfig.vines) {
+            registerColorFor(event, ChromaItems.CHROMATIC_VINE);
+        }
     }
 
     @SubscribeEvent
     public static void onModelBake(ModelBakeEvent event) {
         if (ChromaClientConfig.BLOCKS.snowLayers) {
-            ChromaticFoliage.LOGGER.info("Injecting tint index data for {}", Blocks.SNOW_LAYER.getRegistryName());
+            ChromaticFoliage.LOGGER.info("Injecting tint index data for {}",
+                    Blocks.SNOW_LAYER.getRegistryName());
             ResourceLocation name = Blocks.SNOW_LAYER.getRegistryName();
             String prefix = BlockSnow.LAYERS.getName() + "=";
             for (int value : BlockSnow.LAYERS.getAllowedValues()) {
