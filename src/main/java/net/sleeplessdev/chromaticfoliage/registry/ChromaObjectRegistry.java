@@ -14,6 +14,7 @@ import net.sleeplessdev.chromaticfoliage.block.ChromaticVineBlock;
 import net.sleeplessdev.chromaticfoliage.block.EmissiveGrassBlock;
 import net.sleeplessdev.chromaticfoliage.block.EmissiveLeavesBlock;
 import net.sleeplessdev.chromaticfoliage.block.EmissiveVineBlock;
+import net.sleeplessdev.chromaticfoliage.block.entity.ChromaBlockEntity;
 import net.sleeplessdev.chromaticfoliage.config.ChromaFeatureConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.item.ChromaBlockItem;
@@ -83,7 +84,7 @@ public final class ChromaObjectRegistry {
         }
         if (ChromaFeatureConfig.vines) {
             GameRegistry.registerTileEntity(
-                    ChromaticVineBlock.VineBlockEntity.class,
+                    ChromaBlockEntity.class,
                     ChromaticFoliage.ID + ":chromatic_vine"
             );
             event.getRegistry().register(new ChromaticVineBlock()

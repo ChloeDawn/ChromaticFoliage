@@ -14,7 +14,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
-import net.sleeplessdev.chromaticfoliage.block.ChromaticVineBlock;
+import net.sleeplessdev.chromaticfoliage.block.entity.ChromaBlockEntity;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
@@ -84,7 +84,7 @@ public final class ChromaDyeEvents {
                     chroma = chroma.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
                 }
                 if (world.setBlockState(pos, chroma.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
-                    world.setTileEntity(pos, new ChromaticVineBlock.VineBlockEntity().withColor(color.get()));
+                    world.setTileEntity(pos, new ChromaBlockEntity().withColor(color.get()));
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
                     if (!player.isCreative()) event.getItemStack().shrink(1);
                 }
