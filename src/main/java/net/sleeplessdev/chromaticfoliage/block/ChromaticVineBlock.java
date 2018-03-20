@@ -290,6 +290,8 @@ public class ChromaticVineBlock extends BlockVine {
     }
 
     public static final class VineBlockEntity extends TileEntity {
+        private static final String NBT_KEY = "color";
+
         private ChromaColors color;
 
         public ChromaColors getColor() {
@@ -304,14 +306,15 @@ public class ChromaticVineBlock extends BlockVine {
         @Override
         public void readFromNBT(NBTTagCompound compound) {
             super.readFromNBT(compound);
-            int index = compound.getInteger("color");
+            int index = compound.getInteger(NBT_KEY);
             color = ChromaColors.VALUES[index & 15];
         }
 
         @Override
         public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-            compound.setInteger("color", color.ordinal());
-            return super.writeToNBT(compound);
+            super.writeToNBT(compound);
+            compound.setInteger(NBT_KEY, color.ordinal());
+            return compound;
         }
 
         @Override
@@ -322,7 +325,7 @@ public class ChromaticVineBlock extends BlockVine {
         @Override
         public NBTTagCompound getUpdateTag() {
             NBTTagCompound compound = new NBTTagCompound();
-            compound.setInteger("color", color.ordinal());
+            compound.setInteger(NBT_KEY, color.ordinal());
             return compound;
         }
 
@@ -339,7 +342,7 @@ public class ChromaticVineBlock extends BlockVine {
 
         @Override
         public void handleUpdateTag(NBTTagCompound compound) {
-            int index = compound.getInteger("color");
+            int index = compound.getInteger(NBT_KEY);
             color = ChromaColors.VALUES[index & 15];
         }
     }
