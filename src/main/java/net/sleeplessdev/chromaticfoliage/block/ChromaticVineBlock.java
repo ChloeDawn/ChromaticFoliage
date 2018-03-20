@@ -324,7 +324,7 @@ public class ChromaticVineBlock extends BlockVine {
 
         @Override
         public NBTTagCompound getUpdateTag() {
-            NBTTagCompound compound = new NBTTagCompound();
+            NBTTagCompound compound = super.getUpdateTag();
             compound.setInteger(NBT_KEY, color.ordinal());
             return compound;
         }
@@ -338,12 +338,6 @@ public class ChromaticVineBlock extends BlockVine {
         @Override
         public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
             handleUpdateTag(pkt.getNbtCompound());
-        }
-
-        @Override
-        public void handleUpdateTag(NBTTagCompound compound) {
-            int index = compound.getInteger(NBT_KEY);
-            color = ChromaColors.VALUES[index];
         }
     }
 
