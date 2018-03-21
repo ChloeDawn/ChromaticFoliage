@@ -26,6 +26,7 @@ public final class ChromaObjectRegistry {
 
     @SubscribeEvent
     public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
+        ChromaticFoliage.LOGGER.debug("Registering blocks...");
         if (ChromaFeatureConfig.grassBlocks) {
             event.getRegistry().register(new ChromaticGrassBlock()
                     .setRegistryName("chromatic_grass")
@@ -83,19 +84,21 @@ public final class ChromaObjectRegistry {
             );
         }
         if (ChromaFeatureConfig.vines) {
-            GameRegistry.registerTileEntity(
-                    ChromaBlockEntity.class,
-                    ChromaticFoliage.ID + ":chromatic_vine"
-            );
             event.getRegistry().register(new ChromaticVineBlock()
                     .setRegistryName("chromatic_vine"));
             event.getRegistry().register(new EmissiveVineBlock()
                     .setRegistryName("emissive_vine"));
+            ChromaticFoliage.LOGGER.debug("Registering chroma block entity...");
+            GameRegistry.registerTileEntity(
+                    ChromaBlockEntity.class,
+                    ChromaticFoliage.ID + ":block_entity"
+            );
         }
     }
 
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event) {
+        ChromaticFoliage.LOGGER.debug("Registering items...");
         if (ChromaFeatureConfig.grassBlocks) {
             event.getRegistry().register(new ChromaBlockItem(ChromaBlocks.CHROMATIC_GRASS)
                     .setRegistryName("chromatic_grass")

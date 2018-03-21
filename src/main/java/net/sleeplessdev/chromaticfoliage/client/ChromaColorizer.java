@@ -8,7 +8,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
 
 import javax.annotation.Nullable;
@@ -29,12 +28,7 @@ public final class ChromaColorizer {
                 return ChromaColors.VALUES[meta].getColorValue();
             }
 
-            ChromaticFoliage.LOGGER.warn(
-                    "Something went wrong, failed to infer a dye color!",
-                    new IllegalStateException()
-            );
-
-            return -1;
+            throw new IllegalStateException("Something went wrong! Failed to infer a color from the given object");
         }
     };
 

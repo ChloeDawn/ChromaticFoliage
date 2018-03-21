@@ -60,7 +60,7 @@ public final class ChromaClientConfig {
 
         public void onConfigPost() {
             if (lastColors != (colors = toList())) {
-                ChromaticFoliage.LOGGER.info("Reloading renderers...");
+                ChromaticFoliage.LOGGER.debug("Reloading world renderers...");
                 FMLCommonHandler.instance().reloadRenderers();
             }
         }

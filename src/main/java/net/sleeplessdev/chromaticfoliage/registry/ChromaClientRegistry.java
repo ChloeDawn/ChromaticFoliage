@@ -45,6 +45,7 @@ public final class ChromaClientRegistry {
 
     @SubscribeEvent
     public static void onModelRegistry(ModelRegistryEvent event) {
+        ChromaticFoliage.LOGGER.debug("Registering models and state mappers...");
         if (ChromaFeatureConfig.grassBlocks) {
             registerModelsFor(ChromaBlocks.CHROMATIC_GRASS);
             registerMapperFor(ChromaBlocks.CHROMATIC_GRASS);
@@ -89,6 +90,7 @@ public final class ChromaClientRegistry {
 
     @SubscribeEvent
     public static void onBlockColorRegistry(ColorHandlerEvent.Block event) {
+        ChromaticFoliage.LOGGER.debug("Registering block color multipliers...");
         if (ChromaFeatureConfig.grassBlocks) {
             registerColorFor(event, ChromaBlocks.CHROMATIC_GRASS);
             registerColorFor(event, ChromaBlocks.EMISSIVE_GRASS);
@@ -172,6 +174,7 @@ public final class ChromaClientRegistry {
 
     @SubscribeEvent
     public static void onItemColorRegistry(ColorHandlerEvent.Item event) {
+        ChromaticFoliage.LOGGER.debug("Registering item color multipliers...");
         if (ChromaFeatureConfig.grassBlocks) {
             registerColorFor(event, ChromaItems.CHROMATIC_GRASS);
         }
@@ -201,8 +204,10 @@ public final class ChromaClientRegistry {
     @SubscribeEvent
     public static void onModelBake(ModelBakeEvent event) {
         if (ChromaClientConfig.BLOCKS.snowLayers) {
-            ChromaticFoliage.LOGGER.info("Injecting tint index data for {}",
-                    Blocks.SNOW_LAYER.getRegistryName());
+            ChromaticFoliage.LOGGER.debug(
+                    "Injecting tint index data for <{}>...",
+                    Blocks.SNOW_LAYER.getRegistryName()
+            );
             ResourceLocation name = Blocks.SNOW_LAYER.getRegistryName();
             String prefix = BlockSnow.LAYERS.getName() + "=";
             for (int value : BlockSnow.LAYERS.getAllowedValues()) {
@@ -252,8 +257,9 @@ public final class ChromaClientRegistry {
         try {
             ReflectionHelper.setPrivateValue(BakedQuad.class, quad, 0, "field_178213_b", "tintIndex");
             return false;
-        } catch (Exception e) {
-            ChromaticFoliage.LOGGER.error("Failed to inject tint index for \"" + model.toString() + "\"!", e);
+        } catch (Exception exception) {
+            ChromaticFoliage.LOGGER.error("Something went wrong! Failed to inject tint index for model <{}>!", model.toString());
+            ChromaticFoliage.LOGGER.debug("Tint index injection failed for the following reason:", exception);
             return true;
         }
     }

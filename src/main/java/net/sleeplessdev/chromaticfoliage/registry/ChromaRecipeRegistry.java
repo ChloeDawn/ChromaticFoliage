@@ -26,10 +26,12 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = ChromaticFoliage.ID)
 public final class ChromaRecipeRegistry {
 
-    private ChromaRecipeRegistry() {} // TODO Convert generated recipes to JSON before production
+    private ChromaRecipeRegistry() {}
 
     @SubscribeEvent
     public static void onRecipeRegistry(RegistryEvent.Register<IRecipe> event) {
+        ChromaticFoliage.LOGGER.debug("Registering ore dictionary entries...");
+
         OreDictionary.registerOre("treeLeavesOak", new ItemStack(Blocks.LEAVES, 1, 0));
         OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(Blocks.LEAVES, 1, 1));
         OreDictionary.registerOre("treeLeavesBirch", new ItemStack(Blocks.LEAVES, 1, 2));
@@ -46,6 +48,8 @@ public final class ChromaRecipeRegistry {
         registerOreEntries(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves", "treeLeavesDarkOak");
         registerOreEntries(ChromaItems.CHROMATIC_VINE, "vine");
 
+        ChromaticFoliage.LOGGER.debug("Registering item coloring recipes...");
+
         registerDyeRecipes(ChromaItems.CHROMATIC_GRASS, new ItemStack(Blocks.GRASS));
         registerDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, new ItemStack(Blocks.LEAVES, 1, 0));
         registerDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES, new ItemStack(Blocks.LEAVES, 1, 1));
@@ -56,6 +60,8 @@ public final class ChromaRecipeRegistry {
         registerDyeRecipes(ChromaItems.CHROMATIC_VINE, new ItemStack(Blocks.VINE));
 
         if (ChromaGeneralConfig.chromaRecoloring) {
+            ChromaticFoliage.LOGGER.debug("Registering item recoloring recipes...");
+
             registerReDyeRecipes(ChromaItems.CHROMATIC_GRASS);
             registerReDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES);
             registerReDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES);
