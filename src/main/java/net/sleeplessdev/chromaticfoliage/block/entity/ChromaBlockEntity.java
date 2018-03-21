@@ -11,7 +11,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
 
-public final class ChromaBlockEntity extends TileEntity {
+public class ChromaBlockEntity extends TileEntity {
 
     public static final String NBT_KEY_COLOR = "color";
 
