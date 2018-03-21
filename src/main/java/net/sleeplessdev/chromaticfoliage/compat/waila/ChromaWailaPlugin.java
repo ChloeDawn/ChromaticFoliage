@@ -11,8 +11,10 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.sleeplessdev.chromaticfoliage.block.ChromaticGrassBlock;
 import net.sleeplessdev.chromaticfoliage.block.ChromaticLeavesBlock;
+import net.sleeplessdev.chromaticfoliage.block.ChromaticVineBlock;
 import net.sleeplessdev.chromaticfoliage.block.EmissiveGrassBlock;
 import net.sleeplessdev.chromaticfoliage.block.EmissiveLeavesBlock;
+import net.sleeplessdev.chromaticfoliage.block.EmissiveVineBlock;
 import net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
 
@@ -47,8 +49,10 @@ public final class ChromaWailaPlugin implements IWailaPlugin {
     public void register(IWailaRegistrar registrar) {
         registrar.registerBodyProvider(CHROMATIC_BODY_PROVIDER, ChromaticGrassBlock.class);
         registrar.registerBodyProvider(CHROMATIC_BODY_PROVIDER, ChromaticLeavesBlock.class);
+        registrar.registerBodyProvider(CHROMATIC_BODY_PROVIDER, ChromaticVineBlock.class);
         registrar.registerBodyProvider(EMISSIVE_BODY_PROVIDER, EmissiveGrassBlock.class);
         registrar.registerBodyProvider(EMISSIVE_BODY_PROVIDER, EmissiveLeavesBlock.class);
+        registrar.registerBodyProvider(EMISSIVE_BODY_PROVIDER, EmissiveVineBlock.class);
     }
 
 }
