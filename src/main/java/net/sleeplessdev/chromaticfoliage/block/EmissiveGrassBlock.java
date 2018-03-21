@@ -21,10 +21,6 @@ import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
 
 public class EmissiveGrassBlock extends ChromaticGrassBlock {
 
-    public EmissiveGrassBlock() {
-        setLightLevel(0.5F);
-    }
-
     @Override
     @Deprecated
     @SideOnly(Side.CLIENT)

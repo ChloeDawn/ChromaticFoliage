@@ -25,7 +25,6 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
 
     public EmissiveLeavesBlock(EnumType type) {
         super(type);
-        setLightLevel(0.5F);
     }
 
     @Override

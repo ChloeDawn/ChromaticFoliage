@@ -23,10 +23,6 @@ import java.util.Map.Entry;
 
 public class EmissiveVineBlock extends ChromaticVineBlock {
 
-    public EmissiveVineBlock() {
-        setLightLevel(0.5F);
-    }
-
     @Override
     @Deprecated
     @SideOnly(Side.CLIENT)
