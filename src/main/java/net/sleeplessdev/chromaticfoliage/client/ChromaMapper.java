@@ -11,7 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.block.ChromaticGrassBlock;
 import net.sleeplessdev.chromaticfoliage.block.ChromaticVineBlock;
-import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+
+import static net.sleeplessdev.chromaticfoliage.data.ChromaColors.PROPERTY;
 
 @SideOnly(Side.CLIENT)
 public final class ChromaMapper extends StateMapperBase {
@@ -27,14 +28,14 @@ public final class ChromaMapper extends StateMapperBase {
 
     @Override
     protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+        String variant;
         if (state.getBlock() instanceof ChromaticVineBlock) {
-            String[] str = state.toString().split("\\[");
-            String variant = str[1].substring(0, str[1].length() - 1);
-            return new ModelResourceLocation(path, variant);
-        }
-        String variant = "color=" + state.getValue(ChromaColors.PROPERTY).getName();
-        if (state.getBlock() instanceof ChromaticGrassBlock) {
-            variant += ",snowy=" + state.getValue(BlockGrass.SNOWY);
+            variant = getPropertyString(state.getProperties());
+        } else {
+            variant = "color=" + state.getValue(PROPERTY).getName();
+            if (state.getBlock() instanceof ChromaticGrassBlock) {
+                variant += ",snowy=" + state.getValue(BlockGrass.SNOWY);
+            }
         }
         return new ModelResourceLocation(path, variant);
     }
