@@ -11,11 +11,10 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 def modVersion = '1.1.0'
-def mcfVersion = '1.12.2-14.23.2.2625'
-def mcpMappings = 'snapshot_20180311'
-
-def hwylaVersion = '1.8.23-B38_1.12'
-def jeiVersion = '1.12.2:4.8.5.159'
+def mcfVersion = '1.12.2-14.23.4.2705'
+def mcpMappings = 'snapshot_20180710'
+def hwylaVersion = '1.8.26-B41_1.12.2'
+def jeiVersion = '1.12.2:4.11.0.204'
 
 version = "1.12-$modVersion"
 group = 'net.sleeplessdev.chromaticfoliage'
