@@ -2,6 +2,8 @@ package net.sleeplessdev.chromaticfoliage.compat;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -31,8 +33,10 @@ public final class ExtendedTooltipEvents {
                 if (item.getString("id").contains(ChromaticFoliage.ID)) {
                     final int damage = Math.max(0, item.getShort("Damage"));
                     final ChromaColor color = ChromaColor.VALUES[damage & 15];
-                    final String line = color.getTooltip(TextFormatting.DARK_GRAY);
-                    event.getToolTip().add(line);
+                    final String key = "color.chromaticfoliage." + color.getName() + ".name";
+                    final ITextComponent component = new TextComponentTranslation(key);
+                    component.getStyle().setColor(TextFormatting.DARK_GRAY);
+                    event.getToolTip().add(component.getFormattedText());
                 }
             }
         }

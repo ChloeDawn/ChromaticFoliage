@@ -7,12 +7,8 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.oredict.DyeUtils;
 
-import javax.annotation.Nullable;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
@@ -86,17 +82,6 @@ public enum ChromaColor implements IStringSerializable {
 
     public int getColorValue() {
         return this.colorValue.getAsInt();
-    }
-
-    public String getTooltip(@Nullable TextFormatting color) {
-        final String key = "color.chromaticfoliage." + this.getName() + ".name";
-        final ITextComponent component = new TextComponentTranslation(key);
-        if (color != null) component.getStyle().setColor(color);
-        return component.getFormattedText();
-    }
-
-    public String getTooltip() {
-        return this.getTooltip(null);
     }
 
     @Override

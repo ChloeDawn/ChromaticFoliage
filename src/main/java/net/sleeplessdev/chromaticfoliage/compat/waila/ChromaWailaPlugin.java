@@ -27,7 +27,9 @@ public final class ChromaWailaPlugin implements IWailaPlugin {
         @Override
         public List<String> getWailaBody(ItemStack stack, List<String> tooltip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
             if (ChromaClientConfig.INFO.wailaColor) {
-                tooltip.add(ChromaColor.VALUES[stack.getMetadata() & 15].getTooltip());
+                final ChromaColor color = ChromaColor.VALUES[stack.getMetadata() & 15];
+                final String key = "color.chromaticfoliage." + color.getName() + ".name";
+                tooltip.add(new TextComponentTranslation(key).getFormattedText());
             }
             return tooltip;
         }
