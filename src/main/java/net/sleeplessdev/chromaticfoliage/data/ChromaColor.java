@@ -23,22 +23,22 @@ import java.util.stream.Stream;
 import static net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig.COLORS;
 
 public enum ChromaColor implements IStringSerializable {
-    BLACK("dyeBlack", MapColor.BLACK, EnumDyeColor.BLACK, () -> COLORS.black),
-    RED("dyeRed", MapColor.RED, EnumDyeColor.RED, () -> COLORS.red),
-    GREEN("dyeGreen", MapColor.GREEN, EnumDyeColor.GREEN, () -> COLORS.green),
-    BROWN("dyeBrown", MapColor.BROWN, EnumDyeColor.BROWN, () -> COLORS.brown),
-    BLUE("dyeBlue", MapColor.BLUE, EnumDyeColor.BLUE, () -> COLORS.blue),
-    PURPLE("dyePurple", MapColor.PURPLE, EnumDyeColor.PURPLE, () -> COLORS.purple),
-    CYAN("dyeCyan", MapColor.CYAN, EnumDyeColor.CYAN, () -> COLORS.cyan),
-    LIGHT_GRAY("dyeLightGray", MapColor.SILVER, EnumDyeColor.SILVER, () -> COLORS.lightGray),
-    GRAY("dyeGray", MapColor.GRAY, EnumDyeColor.GRAY, () -> COLORS.gray),
-    PINK("dyePink", MapColor.PINK, EnumDyeColor.PINK, () -> COLORS.pink),
-    LIME("dyeLime", MapColor.LIME, EnumDyeColor.LIME, () -> COLORS.lime),
-    YELLOW("dyeYellow", MapColor.YELLOW, EnumDyeColor.YELLOW, () -> COLORS.yellow),
-    LIGHT_BLUE("dyeLightBlue", MapColor.LIGHT_BLUE, EnumDyeColor.LIGHT_BLUE, () -> COLORS.lightBlue),
-    MAGENTA("dyeMagenta", MapColor.MAGENTA, EnumDyeColor.MAGENTA, () -> COLORS.magenta),
-    ORANGE("dyeOrange", MapColor.GOLD, EnumDyeColor.ORANGE, () -> COLORS.orange),
-    WHITE("dyeWhite", MapColor.SNOW, EnumDyeColor.WHITE, () -> COLORS.white);
+    BLACK      ( "dyeBlack",     MapColor.BLACK,      EnumDyeColor.BLACK,      () -> COLORS.black     ),
+    RED        ( "dyeRed",       MapColor.RED,        EnumDyeColor.RED,        () -> COLORS.red       ),
+    GREEN      ( "dyeGreen",     MapColor.GREEN,      EnumDyeColor.GREEN,      () -> COLORS.green     ),
+    BROWN      ( "dyeBrown",     MapColor.BROWN,      EnumDyeColor.BROWN,      () -> COLORS.brown     ),
+    BLUE       ( "dyeBlue",      MapColor.BLUE,       EnumDyeColor.BLUE,       () -> COLORS.blue      ),
+    PURPLE     ( "dyePurple",    MapColor.PURPLE,     EnumDyeColor.PURPLE,     () -> COLORS.purple    ),
+    CYAN       ( "dyeCyan",      MapColor.CYAN,       EnumDyeColor.CYAN,       () -> COLORS.cyan      ),
+    LIGHT_GRAY ( "dyeLightGray", MapColor.SILVER,     EnumDyeColor.SILVER,     () -> COLORS.lightGray ),
+    GRAY       ( "dyeGray",      MapColor.GRAY,       EnumDyeColor.GRAY,       () -> COLORS.gray      ),
+    PINK       ( "dyePink",      MapColor.PINK,       EnumDyeColor.PINK,       () -> COLORS.pink      ),
+    LIME       ( "dyeLime",      MapColor.LIME,       EnumDyeColor.LIME,       () -> COLORS.lime      ),
+    YELLOW     ( "dyeYellow",    MapColor.YELLOW,     EnumDyeColor.YELLOW,     () -> COLORS.yellow    ),
+    LIGHT_BLUE ( "dyeLightBlue", MapColor.LIGHT_BLUE, EnumDyeColor.LIGHT_BLUE, () -> COLORS.lightBlue ),
+    MAGENTA    ( "dyeMagenta",   MapColor.MAGENTA,    EnumDyeColor.MAGENTA,    () -> COLORS.magenta   ),
+    ORANGE     ( "dyeOrange",    MapColor.GOLD,       EnumDyeColor.ORANGE,     () -> COLORS.orange    ),
+    WHITE      ( "dyeWhite",     MapColor.SNOW,       EnumDyeColor.WHITE,      () -> COLORS.white     );
 
     public static final ChromaColor[] VALUES = ChromaColor.values();
 
