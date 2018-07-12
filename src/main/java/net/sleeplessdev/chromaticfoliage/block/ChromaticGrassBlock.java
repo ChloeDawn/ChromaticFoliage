@@ -29,71 +29,87 @@ import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
-import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 
 import java.util.Optional;
 import java.util.Random;
 
 public class ChromaticGrassBlock extends BlockGrass {
-
-    private final boolean checkSnow, spreadDirt, spreadGrass;
+    private final boolean checkSnow;
+    private final boolean spreadDirt;
+    private final boolean spreadGrass;
 
     public ChromaticGrassBlock() {
         this.checkSnow = !ChromaClientConfig.BLOCKS.snowLayers;
         this.spreadDirt = ChromaGeneralConfig.grassSpreadDirt;
         this.spreadGrass = ChromaGeneralConfig.grassSpreadGrass;
-        setHardness(0.6F);
-        setSoundType(SoundType.PLANT);
-        setUnlocalizedName(ChromaticFoliage.ID + ".chromatic_grass");
-        setCreativeTab(ChromaticFoliage.TAB);
-        setTickRandomly(spreadDirt || spreadGrass);
+        this.setHardness(0.6F);
+        this.setSoundType(SoundType.PLANT);
+        this.setCreativeTab(ChromaticFoliage.TAB);
+        this.setTickRandomly(this.spreadDirt || this.spreadGrass);
     }
 
     @Override
     @Deprecated
-    public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return state.getValue(ChromaColors.PROPERTY).getMapColor();
+    public MapColor getMapColor(IBlockState state, IBlockAccess access, BlockPos pos) {
+        return state.getValue(ChromaColor.PROPERTY).getMapColor();
     }
 
     @Override
     @Deprecated
     public IBlockState getStateFromMeta(int meta) {
-        return getDefaultState().withProperty(ChromaColors.PROPERTY, ChromaColors.VALUES[meta & 15]);
+        return getDefaultState().withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
     }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        ItemStack stack = player.getHeldItem(hand);
-        if (player.canPlayerEdit(pos, facing, stack) && !stack.isEmpty()) {
-            if (ChromaGeneralConfig.inWorldIllumination && stack.getItem() == Items.GLOWSTONE_DUST) {
-                if (world.isRemote) return true;
-                IBlockState emissive = ChromaBlocks.EMISSIVE_GRASS.getDefaultState()
-                        .withProperty(ChromaColors.PROPERTY, state.getValue(ChromaColors.PROPERTY));
-                if (world.setBlockState(pos, emissive, 3)) {
-                    world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    if (!player.isCreative()) stack.shrink(1);
-                    return true;
-                }
-            } else if (ChromaGeneralConfig.chromaRecoloring) {
-                Optional<ChromaColors> color = ChromaColors.getColorFor(stack);
-                if (!color.isPresent()) return false;
-                if (color.get() == state.getValue(ChromaColors.PROPERTY)) return false;
-                if (world.isRemote) return true;
-                IBlockState colorState = state.withProperty(ChromaColors.PROPERTY, color.get());
-                if (world.setBlockState(pos, colorState, 3)) {
-                    world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    if (!player.isCreative()) stack.shrink(1);
-                    return true;
-                }
+        final ItemStack stack = player.getHeldItem(hand);
+
+        if (!player.canPlayerEdit(pos, facing, stack)) return false;
+        if (stack.isEmpty()) return false;
+
+        if (ChromaGeneralConfig.inWorldIllumination && stack.getItem() == Items.GLOWSTONE_DUST) {
+            if (world.isRemote) return true;
+
+            final IBlockState emissive = ChromaBlocks.EMISSIVE_GRASS.getDefaultState()
+                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
+
+            if (!world.setBlockState(pos, emissive, 3)) return false;
+
+            world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+
+            if (!player.capabilities.isCreativeMode) {
+                stack.shrink(1);
             }
+
+            return true;
+        } else if (ChromaGeneralConfig.chromaRecoloring) {
+            final Optional<ChromaColor> optionalColor = ChromaColor.from(stack);
+
+            if (!optionalColor.isPresent()) return false;
+
+            final ChromaColor color = optionalColor.get();
+
+            if (color == state.getValue(ChromaColor.PROPERTY)) return false;
+            if (world.isRemote) return true;
+            if (!world.setBlockState(pos, state.withProperty(ChromaColor.PROPERTY, color), 3)) return false;
+
+            world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+
+            if (!player.capabilities.isCreativeMode) {
+                stack.shrink(1);
+            }
+
+            return true;
         }
+
         return false;
     }
 
     @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-        for (ChromaColors color : ChromaColors.VALUES) {
+        for (final ChromaColor color : ChromaColor.VALUES) {
             items.add(new ItemStack(this, 1, color.ordinal()));
         }
     }
@@ -104,45 +120,52 @@ public class ChromaticGrassBlock extends BlockGrass {
     }
 
     @Override
-    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side, IPlantable plant) {
-        return Blocks.GRASS.canSustainPlant(Blocks.GRASS.getDefaultState(), world, pos, side, plant);
+    public boolean canSustainPlant(IBlockState state, IBlockAccess access, BlockPos pos, EnumFacing side, IPlantable plant) {
+        return Blocks.GRASS.canSustainPlant(Blocks.GRASS.getDefaultState(), access, pos, side, plant);
     }
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return getDefaultState().withProperty(ChromaColors.PROPERTY, ChromaColors.VALUES[meta & 15]);
+        return this.getDefaultState().withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
     }
 
     @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return checkSnow ? super.getActualState(state, world, pos) : state.withProperty(SNOWY, false);
+    public IBlockState getActualState(IBlockState state, IBlockAccess access, BlockPos pos) {
+        return this.checkSnow ? super.getActualState(state, access, pos) : state.withProperty(SNOWY, false);
     }
 
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-        if (!spreadDirt && !spreadGrass) return;
+        if (!this.spreadDirt && !this.spreadGrass) return;
         if (world.isRemote) return;
         if (!world.isAreaLoaded(pos, 3)) return;
-        if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
-            world.setBlockState(pos, Blocks.DIRT.getDefaultState());
-        } else if (world.getLightFromNeighbors(pos.up()) >= 9) {
-            ChromaColors color = state.getValue(ChromaColors.PROPERTY);
-            IBlockState spreader = ChromaBlocks.CHROMATIC_GRASS
-                    .getDefaultState().withProperty(ChromaColors.PROPERTY, color);
+
+        final BlockPos up = pos.up();
+        final int lightOpacity = world.getBlockState(up).getLightOpacity(world, up);
+
+        if (lightOpacity <= 2 || world.getLightFromNeighbors(up) >= 4) {
+            if (world.getLightFromNeighbors(up) < 9) return;
+
             for (int i = 0; i < 4; ++i) {
-                BlockPos target = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                if (world.isOutsideBuildHeight(target) || !world.isBlockLoaded(target)) return;
-                if (canSpreadInto(world, target) && world.getLightFromNeighbors(target.up()) >= 4
-                        && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) <= 2) {
-                    world.setBlockState(target, spreader, 3);
-                }
+                final int x = rand.nextInt(3) - 1;
+                final int y = rand.nextInt(5) - 3;
+                final int z = rand.nextInt(3) - 1;
+                final BlockPos offset = pos.add(x, y, z);
+
+                if (world.isOutsideBuildHeight(offset)) return;
+                if (!world.isBlockLoaded(offset)) return;
+                if (!canSpreadInto(world, offset)) continue;
+                if (world.getLightFromNeighbors(offset.up()) < 4) continue;
+                if (lightOpacity > 2) continue;
+
+                world.setBlockState(offset, state, 3);
             }
-        }
+        } else world.setBlockState(pos, Blocks.DIRT.getDefaultState());
     }
 
-    @Override // TODO Cleanup this copypasta
+    @Override // TODO Cleanup
     public void grow(World world, Random rand, BlockPos pos, IBlockState state) {
-        BlockPos above = pos.up();
+        final BlockPos above = pos.up();
         for (int i = 0; i < 128; ++i) {
             BlockPos targetPos = above;
             int j = 0;
@@ -152,10 +175,10 @@ public class ChromaticGrassBlock extends BlockGrass {
                         if (rand.nextInt(8) == 0) {
                             world.getBiome(targetPos).plantFlower(world, rand, targetPos);
                         } else {
-                            IBlockState iblockstate1 = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, EnumType.GRASS);
-
-                            if (Blocks.TALLGRASS.canBlockStay(world, targetPos, iblockstate1)) {
-                                world.setBlockState(targetPos, iblockstate1, 3);
+                            IBlockState tallGrass = Blocks.TALLGRASS.getDefaultState()
+                                .withProperty(BlockTallGrass.TYPE, EnumType.GRASS);
+                            if (Blocks.TALLGRASS.canBlockStay(world, targetPos, tallGrass)) {
+                                world.setBlockState(targetPos, tallGrass, 3);
                             }
                         }
                     }
@@ -176,21 +199,24 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return state.getValue(ChromaColors.PROPERTY).ordinal();
+        return state.getValue(ChromaColor.PROPERTY).ordinal();
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, BlockGrass.SNOWY, ChromaColors.PROPERTY);
+        return new BlockStateContainer.Builder(this)
+            .add(ChromaColor.PROPERTY)
+            .add(BlockGrass.SNOWY)
+            .build();
     }
 
-    protected boolean canSpreadInto(World world, BlockPos pos) {
-        IBlockState state = world.getBlockState(pos);
-        if (spreadDirt && state.getBlock() == Blocks.DIRT) {
-            DirtType type = state.getValue(BlockDirt.VARIANT);
-            return type == DirtType.DIRT;
+    protected boolean canSpreadInto(IBlockAccess access, BlockPos pos) {
+        final IBlockState state = access.getBlockState(pos);
+        if (this.spreadDirt && state.getBlock() == Blocks.DIRT) {
+            if (DirtType.DIRT == state.getValue(BlockDirt.VARIANT)) {
+                return true;
+            }
         }
-        return spreadGrass && state.getBlock() == Blocks.GRASS;
+        return this.spreadGrass && Blocks.GRASS == state.getBlock();
     }
-
 }

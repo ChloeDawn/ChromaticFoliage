@@ -11,30 +11,28 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.block.entity.ChromaBlockEntity;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
-import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 
-import java.util.Map;
-import java.util.Optional;
+import java.util.Map.Entry;
 
-@Mod.EventBusSubscriber(modid = ChromaticFoliage.ID)
+@EventBusSubscriber(modid = ChromaticFoliage.ID)
 public final class ChromaDyeEvents {
-
     private ChromaDyeEvents() {}
 
     @SubscribeEvent
-    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+    static void onBlockRightClicked(PlayerInteractEvent.RightClickBlock event) {
         if (!ChromaGeneralConfig.inWorldInteraction) return;
 
-        EntityPlayer player = event.getEntityPlayer();
-        World world = event.getWorld();
-        BlockPos pos = event.getPos();
-        IBlockState state = world.getBlockState(pos);
+        final EntityPlayer player = event.getEntityPlayer();
+        final World world = event.getWorld();
+        final BlockPos pos = event.getPos();
+        final IBlockState state = world.getBlockState(pos);
 
         if (state.getBlock() == Blocks.GRASS) {
             if (world.isRemote && !player.isSneaking()) {
@@ -42,13 +40,13 @@ public final class ChromaDyeEvents {
                 return;
             }
 
-            IBlockState grass = ChromaBlocks.CHROMATIC_GRASS.getDefaultState();
-            Optional<ChromaColors> color = ChromaColors.getColorFor(event.getItemStack());
-
-            if (color.isPresent() && world.setBlockState(pos, grass.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
-                world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                if (!player.isCreative()) event.getItemStack().shrink(1);
-            }
+            ChromaColor.from(event.getItemStack()).ifPresent(color -> {
+                final IBlockState grass = ChromaBlocks.CHROMATIC_GRASS.getDefaultState();
+                if (world.setBlockState(pos, grass.withProperty(ChromaColor.PROPERTY, color), 3)) {
+                    world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                    if (!player.isCreative()) event.getItemStack().shrink(1);
+                }
+            });
         }
 
         if (state.getBlock() == Blocks.LEAVES || state.getBlock() == Blocks.LEAVES2) {
@@ -56,16 +54,15 @@ public final class ChromaDyeEvents {
                 player.swingArm(event.getHand());
                 return;
             }
-            BlockLeaves block = (BlockLeaves) state.getBlock();
-            int meta = block.getMetaFromState(state);
-            IBlockState leaves = getLeavesFor(block.getWoodType(meta));
-            if (leaves != Blocks.AIR.getDefaultState()) {
-                Optional<ChromaColors> color = ChromaColors.getColorFor(event.getItemStack());
-                if (color.isPresent() && world.setBlockState(pos, leaves.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
+
+            ChromaColor.from(event.getItemStack()).ifPresent(color -> {
+                final BlockLeaves block = (BlockLeaves) state.getBlock();
+                final IBlockState leaves = getLeavesFor(block.getWoodType(block.getMetaFromState(state)));
+                if (world.setBlockState(pos, leaves.withProperty(ChromaColor.PROPERTY, color), 3)) {
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
                     if (!player.isCreative()) event.getItemStack().shrink(1);
                 }
-            }
+            });
         }
 
         if (state.getBlock() == Blocks.VINE) {
@@ -74,21 +71,19 @@ public final class ChromaDyeEvents {
                 return;
             }
 
-            Optional<ChromaColors> color = ChromaColors.getColorFor(event.getItemStack());
-
-            if (color.isPresent()) {
-                state = state.getActualState(world, pos);
+            ChromaColor.from(event.getItemStack()).ifPresent(color -> {
+                final IBlockState actualState = state.getActualState(world, pos);
                 IBlockState chroma = ChromaBlocks.CHROMATIC_VINE.getDefaultState();
-                for (Map.Entry<IProperty<?>, Comparable<?>> prop : state.getProperties().entrySet()) {
+                for (final Entry<IProperty<?>, Comparable<?>> entry : actualState.getProperties().entrySet()) {
                     //noinspection unchecked,RedundantCast
-                    chroma = chroma.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
+                    chroma = chroma.withProperty((IProperty) entry.getKey(), (Comparable) entry.getValue());
                 }
-                if (world.setBlockState(pos, chroma.withProperty(ChromaColors.PROPERTY, color.get()), 3)) {
-                    world.setTileEntity(pos, new ChromaBlockEntity().withColor(color.get()));
+                if (world.setBlockState(pos, chroma.withProperty(ChromaColor.PROPERTY, color), 3)) {
+                    world.setTileEntity(pos, new ChromaBlockEntity().withColor(color));
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
                     if (!player.isCreative()) event.getItemStack().shrink(1);
                 }
-            }
+            });
         }
     }
 
@@ -101,7 +96,6 @@ public final class ChromaDyeEvents {
             case ACACIA: return ChromaBlocks.CHROMATIC_ACACIA_LEAVES.getDefaultState();
             case DARK_OAK: return ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES.getDefaultState();
         }
-        return Blocks.AIR.getDefaultState();
+        throw new IllegalStateException("Unable to determine leaves for type \"" + type.getName() + "\"");
     }
-
 }

@@ -10,45 +10,48 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
-import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-@Mod.EventBusSubscriber(modid = ChromaticFoliage.ID)
+import static net.minecraftforge.oredict.OreDictionary.registerOre;
+
+@EventBusSubscriber(modid = ChromaticFoliage.ID)
 public final class ChromaRecipeRegistry {
+    private static final Converter<String, String> CAMEL_CONVERTER =
+        CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL);
 
-    private ChromaRecipeRegistry() {}
+    private ChromaRecipeRegistry() {
+        throw new UnsupportedOperationException("Cannot instantiate " + this.getClass());
+    }
 
     @SubscribeEvent
-    public static void onRecipeRegistry(RegistryEvent.Register<IRecipe> event) {
-        ChromaticFoliage.LOGGER.debug("Registering ore dictionary entries...");
+    static void onRecipeRegistry(RegistryEvent.Register<IRecipe> event) {
+        registerOre("treeLeavesOak", new ItemStack(Blocks.LEAVES, 1, 0));
+        registerOre("treeLeavesSpruce", new ItemStack(Blocks.LEAVES, 1, 1));
+        registerOre("treeLeavesBirch", new ItemStack(Blocks.LEAVES, 1, 2));
+        registerOre("treeLeavesJungle", new ItemStack(Blocks.LEAVES, 1, 3));
+        registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
+        registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
 
-        OreDictionary.registerOre("treeLeavesOak", new ItemStack(Blocks.LEAVES, 1, 0));
-        OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(Blocks.LEAVES, 1, 1));
-        OreDictionary.registerOre("treeLeavesBirch", new ItemStack(Blocks.LEAVES, 1, 2));
-        OreDictionary.registerOre("treeLeavesJungle", new ItemStack(Blocks.LEAVES, 1, 3));
-        OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
-        OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
-
-        registerOreEntries(ChromaItems.CHROMATIC_GRASS, "grass");
-        registerOreEntries(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeaves", "treeLeavesOak");
-        registerOreEntries(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeaves", "treeLeavesSpruce");
-        registerOreEntries(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeaves", "treeLeavesBirch");
-        registerOreEntries(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeaves", "treeLeavesJungle");
-        registerOreEntries(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeaves", "treeLeavesAcacia");
-        registerOreEntries(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves", "treeLeavesDarkOak");
-        registerOreEntries(ChromaItems.CHROMATIC_VINE, "vine");
-
-        ChromaticFoliage.LOGGER.debug("Registering item coloring recipes...");
+        registerOreNames(ChromaItems.CHROMATIC_GRASS, "grass");
+        registerOreNames(ChromaItems.CHROMATIC_OAK_LEAVES, "treeLeaves", "treeLeavesOak");
+        registerOreNames(ChromaItems.CHROMATIC_SPRUCE_LEAVES, "treeLeaves", "treeLeavesSpruce");
+        registerOreNames(ChromaItems.CHROMATIC_BIRCH_LEAVES, "treeLeaves", "treeLeavesBirch");
+        registerOreNames(ChromaItems.CHROMATIC_JUNGLE_LEAVES, "treeLeaves", "treeLeavesJungle");
+        registerOreNames(ChromaItems.CHROMATIC_ACACIA_LEAVES, "treeLeaves", "treeLeavesAcacia");
+        registerOreNames(ChromaItems.CHROMATIC_DARK_OAK_LEAVES, "treeLeaves", "treeLeavesDarkOak");
+        registerOreNames(ChromaItems.CHROMATIC_VINE, "vine");
 
         registerDyeRecipes(ChromaItems.CHROMATIC_GRASS, new ItemStack(Blocks.GRASS));
         registerDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES, new ItemStack(Blocks.LEAVES, 1, 0));
@@ -60,8 +63,6 @@ public final class ChromaRecipeRegistry {
         registerDyeRecipes(ChromaItems.CHROMATIC_VINE, new ItemStack(Blocks.VINE));
 
         if (ChromaGeneralConfig.chromaRecoloring) {
-            ChromaticFoliage.LOGGER.debug("Registering item recoloring recipes...");
-
             registerReDyeRecipes(ChromaItems.CHROMATIC_GRASS);
             registerReDyeRecipes(ChromaItems.CHROMATIC_OAK_LEAVES);
             registerReDyeRecipes(ChromaItems.CHROMATIC_SPRUCE_LEAVES);
@@ -73,44 +74,44 @@ public final class ChromaRecipeRegistry {
         }
     }
 
-    private static void registerOreEntries(Item item, String... prefixes) {
-        Converter<String, String> converter = CaseFormat.LOWER_CAMEL.converterTo(CaseFormat.UPPER_CAMEL);
-        ItemStack wildcard = new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE);
-        for (String prefix : prefixes) {
-            OreDictionary.registerOre(prefix, wildcard);
-            OreDictionary.registerOre(prefix + "Colored", wildcard);
-            for (ChromaColors color : ChromaColors.VALUES) {
-                ItemStack stack = new ItemStack(item, 1, color.ordinal());
-                String suffix = converter.convert(color.getName());
-                OreDictionary.registerOre(prefix + suffix, stack);
+    private static void registerOreNames(Item item, String... prefixes) {
+        final ItemStack wildcard = new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE);
+        for (final String prefix : prefixes) {
+            registerOre(prefix, wildcard);
+            registerOre(prefix + "Colored", wildcard);
+            for (final ChromaColor color : ChromaColor.VALUES) {
+                final ItemStack stack = new ItemStack(item, 1, color.ordinal());
+                final String suffix = CAMEL_CONVERTER.convert(color.getName());
+                registerOre(prefix + suffix, stack);
             }
         }
     }
 
     private static void registerDyeRecipes(Item output, ItemStack input) {
-        String prefix = output.getRegistryName() + "_";
-        for (ChromaColors color : ChromaColors.VALUES) {
-            ResourceLocation name = new ResourceLocation(prefix + color.getName());
-            GameRegistry.addShapelessRecipe(name, null, new ItemStack(output, 1, color.ordinal()),
-                    Ingredient.fromStacks(input), new OreIngredient(color.getOreName())
+        final String prefix = output.getRegistryName() + "_";
+        for (final ChromaColor color : ChromaColor.VALUES) {
+            final ResourceLocation name = new ResourceLocation(prefix + color.getName());
+            GameRegistry.addShapelessRecipe(name, null,
+                new ItemStack(output, 1, color.ordinal()),
+                Ingredient.fromStacks(input),
+                new OreIngredient(color.getOreName())
             );
         }
     }
 
     private static void registerReDyeRecipes(Item item) {
-        String prefix = item.getRegistryName() + "_recolor_";
-        List<ItemStack> stacks = new ArrayList<>();
-        for (ChromaColors color : ChromaColors.VALUES) {
-            stacks.add(new ItemStack(item, 1, color.ordinal()));
-        }
-        for (ChromaColors color : ChromaColors.VALUES) {
-            ResourceLocation name = new ResourceLocation(prefix + color.getName());
-            List<ItemStack> inputs = Lists.newArrayList(stacks);
-            GameRegistry.addShapelessRecipe(name, null, inputs.remove(color.ordinal()),
-                    Ingredient.fromStacks(inputs.toArray(new ItemStack[0])),
-                    new OreIngredient(color.getOreName())
+        final String prefix = item.getRegistryName() + "_recolor_";
+        final List<ItemStack> stacks = Stream.of(ChromaColor.VALUES)
+            .map(color -> new ItemStack(item, 1, color.ordinal()))
+            .collect(Collectors.toList());
+        for (final ChromaColor color : ChromaColor.VALUES) {
+            final ResourceLocation name = new ResourceLocation(prefix + color.getName());
+            final List<ItemStack> inputs = Lists.newArrayList(stacks);
+            GameRegistry.addShapelessRecipe(name, null,
+                inputs.remove(color.ordinal()),
+                Ingredient.fromStacks(inputs.toArray(new ItemStack[0])),
+                new OreIngredient(color.getOreName())
             );
         }
     }
-
 }

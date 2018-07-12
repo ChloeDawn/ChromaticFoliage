@@ -2,12 +2,11 @@ package net.sleeplessdev.chromaticfoliage.data;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 
-@GameRegistry.ObjectHolder(ChromaticFoliage.ID)
+@ObjectHolder(ChromaticFoliage.ID)
 public final class ChromaItems {
-    
     public static final Item CHROMATIC_GRASS = Items.AIR;
     public static final Item CHROMATIC_OAK_LEAVES = Items.AIR;
     public static final Item CHROMATIC_SPRUCE_LEAVES = Items.AIR;
@@ -18,5 +17,4 @@ public final class ChromaItems {
     public static final Item CHROMATIC_VINE = Items.AIR;
 
     private ChromaItems() {}
-    
 }

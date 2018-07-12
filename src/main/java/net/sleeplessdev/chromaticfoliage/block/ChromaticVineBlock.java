@@ -31,7 +31,7 @@ import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.block.entity.ChromaBlockEntity;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
-import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 
 import java.util.Map;
@@ -40,32 +40,30 @@ import java.util.Optional;
 import java.util.Random;
 
 public class ChromaticVineBlock extends BlockVine {
-
     private final boolean isReplaceable;
 
     public ChromaticVineBlock() {
-        setHardness(0.2F);
-        setSoundType(SoundType.PLANT);
-        setCreativeTab(ChromaticFoliage.TAB);
-        setUnlocalizedName(ChromaticFoliage.ID + ".chromatic_vine");
-        isReplaceable = ChromaGeneralConfig.replaceableVines;
+        this.setHardness(0.2F);
+        this.setSoundType(SoundType.PLANT);
+        this.setCreativeTab(ChromaticFoliage.TAB);
+        this.isReplaceable = ChromaGeneralConfig.replaceableVines;
     }
 
     @Override
     @Deprecated
-    public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return state.getActualState(world, pos).getValue(ChromaColors.PROPERTY).getMapColor();
+    public MapColor getMapColor(IBlockState state, IBlockAccess access, BlockPos pos) {
+        return state.getActualState(access, pos).getValue(ChromaColor.PROPERTY).getMapColor();
     }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        ItemStack stack = player.getHeldItem(hand);
+        final ItemStack stack = player.getHeldItem(hand);
         if (player.canPlayerEdit(pos, facing, stack) && !stack.isEmpty()) {
             if (ChromaGeneralConfig.inWorldIllumination && stack.getItem() == Items.GLOWSTONE_DUST) {
                 if (world.isRemote) return true;
-                state = state.getActualState(world, pos);
+                final IBlockState actualState = state.getActualState(world, pos);
                 IBlockState emissive = ChromaBlocks.EMISSIVE_VINE.getDefaultState();
-                for (Map.Entry<IProperty<?>, Comparable<?>> prop : state.getProperties().entrySet()) {
+                for (Map.Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
                     //noinspection unchecked,RedundantCast
                     emissive = emissive.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
                 }
@@ -75,16 +73,18 @@ public class ChromaticVineBlock extends BlockVine {
                     return true;
                 }
             } else if (ChromaGeneralConfig.chromaRecoloring) {
-                Optional<ChromaColors> color = ChromaColors.getColorFor(stack);
-                if (!color.isPresent()) return false;
-                state = state.getActualState(world, pos);
-                if (color.get() == state.getValue(ChromaColors.PROPERTY)) return false;
-                if (world.isRemote) return true;
-                IBlockState colorState = state.withProperty(ChromaColors.PROPERTY, color.get());
-                if (world.setBlockState(pos, colorState, 3)) {
-                    world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
-                    if (!player.isCreative()) stack.shrink(1);
-                    return true;
+                Optional<ChromaColor> optionalColor = ChromaColor.from(stack);
+                if (optionalColor.isPresent()) {
+                    final IBlockState actualState = state.getActualState(world, pos);
+                    final ChromaColor color = optionalColor.get();
+                    if (color != actualState.getValue(ChromaColor.PROPERTY)) {
+                        if (world.isRemote) return true;
+                        if (world.setBlockState(pos, actualState.withProperty(ChromaColor.PROPERTY, color), 3)) {
+                            world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                            if (!player.capabilities.isCreativeMode) stack.shrink(1);
+                            return true;
+                        }
+                    }
                 }
             }
         }
@@ -93,7 +93,7 @@ public class ChromaticVineBlock extends BlockVine {
 
     @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-        for (ChromaColors color : ChromaColors.VALUES) {
+        for (final ChromaColor color : ChromaColor.VALUES) {
             items.add(new ItemStack(this, 1, color.ordinal()));
         }
     }
@@ -105,56 +105,55 @@ public class ChromaticVineBlock extends BlockVine {
 
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return new ChromaBlockEntity().withColor(state.getValue(ChromaColors.PROPERTY));
+        return new ChromaBlockEntity().withColor(state.getValue(ChromaColor.PROPERTY));
     }
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        int meta = state.getActualState(world, pos).getValue(ChromaColors.PROPERTY).ordinal();
-        return new ItemStack(ChromaItems.CHROMATIC_VINE, 1, meta);
+        final IBlockState actualState = state.getActualState(world, pos);
+        final ChromaColor color = actualState.getValue(ChromaColor.PROPERTY);
+        return new ItemStack(ChromaItems.CHROMATIC_VINE, 1, color.ordinal());
     }
 
     private boolean isAcceptableNeighbor(World world, BlockPos pos, EnumFacing side) {
-        IBlockState state = world.getBlockState(pos);
-        return state.getBlockFaceShape(world, pos, side) == BlockFaceShape.SOLID
-                && !isExceptBlockForAttaching(state.getBlock());
+        final IBlockState state = world.getBlockState(pos);
+        final BlockFaceShape shape = state.getBlockFaceShape(world, pos, side);
+        return shape == BlockFaceShape.SOLID && !isExceptBlockForAttaching(state.getBlock());
     }
 
     @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
-        TileEntity tile = world.getTileEntity(pos);
-        if (tile instanceof ChromaBlockEntity) {
-            ChromaColors color = ((ChromaBlockEntity) tile).getColor();
-            state = state.withProperty(ChromaColors.PROPERTY, color);
+    public IBlockState getActualState(IBlockState state, IBlockAccess access, BlockPos pos) {
+        final IBlockState actualState = super.getActualState(state, access, pos);
+        final TileEntity tileEntity = access.getTileEntity(pos);
+        if (tileEntity instanceof ChromaBlockEntity) {
+            final ChromaColor color = ((ChromaBlockEntity) tileEntity).getColor();
+            return actualState.withProperty(ChromaColor.PROPERTY, color);
         }
-        return super.getActualState(state, world, pos);
+        return actualState;
     }
 
     @Override
-    public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
-        return isReplaceable;
+    public boolean isReplaceable(IBlockAccess access, BlockPos pos) {
+        return this.isReplaceable;
     }
 
     @Override
     public boolean canAttachTo(World world, BlockPos pos, EnumFacing side) {
         Block block = world.getBlockState(pos.up()).getBlock();
-        return isAcceptableNeighbor(world, pos.offset(side.getOpposite()), side)
-                && (block == Blocks.AIR || block instanceof BlockVine
-                || isAcceptableNeighbor(world, pos.up(), EnumFacing.UP));
+        return this.isAcceptableNeighbor(world, pos.offset(side.getOpposite()), side)
+            && (block == Blocks.AIR || block instanceof BlockVine
+            || this.isAcceptableNeighbor(world, pos.up(), EnumFacing.UP));
     }
 
-    /**
-     * Called when a neighboring block was changed and marks that this state should perform any checks during a neighbor
-     * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
-     * block, etc.
-     */
+    @Override
     public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
         if (!world.isRemote && !recheckGrownSides(world, pos, state)) {
-            dropBlockAsItem(world, pos, state, 0);
+            this.dropBlockAsItem(world, pos, state, 0);
             world.setBlockToAir(pos);
         }
     }
 
+    @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         if (world.isRemote || world.rand.nextInt(4) != 0 || !world.isAreaLoaded(pos, 4)) return;
         int j = 5;
@@ -184,8 +183,8 @@ public class ChromaticVineBlock extends BlockVine {
                     stateAt = stateAt.withProperty(getPropertyFor(side), true);
                 } else stateAt = stateAt.withProperty(getPropertyFor(side), false);
             }
-            if (stateAt.getValue(NORTH) || stateAt.getValue(EAST)
-                    || stateAt.getValue(SOUTH) || stateAt.getValue(WEST)) {
+            if (stateAt.getValue(BlockVine.NORTH) || stateAt.getValue(BlockVine.EAST)
+                || stateAt.getValue(BlockVine.SOUTH) || stateAt.getValue(BlockVine.WEST)) {
                 world.setBlockState(posUp, stateAt, 2);
             }
         } else if (randSide.getAxis().isHorizontal() && !state.getValue(getPropertyFor(randSide))) {
@@ -200,8 +199,8 @@ public class ChromaticVineBlock extends BlockVine {
                 boolean valRotYCCW = state.getValue(getPropertyFor(rotYCCW));
                 BlockPos posRotY = blockpos4.offset(rotY);
                 BlockPos posRotYCCW = blockpos4.offset(rotYCCW);
-                ChromaColors color = state.getActualState(world, pos).getValue(ChromaColors.PROPERTY);
-                IBlockState retState = getDefaultState().withProperty(ChromaColors.PROPERTY, color);
+                ChromaColor color = state.getActualState(world, pos).getValue(ChromaColor.PROPERTY);
+                IBlockState retState = getDefaultState().withProperty(ChromaColor.PROPERTY, color);
                 if (valRotY && canAttachTo(world, posRotY.offset(rotY), rotY)) {
                     world.setBlockState(blockpos4, retState.withProperty(getPropertyFor(rotY), true), 2);
                 } else if (valRotYCCW && canAttachTo(world, posRotYCCW.offset(rotYCCW), rotYCCW)) {
@@ -225,8 +224,8 @@ public class ChromaticVineBlock extends BlockVine {
                         originalState = originalState.withProperty(getPropertyFor(enumfacing), false);
                     }
                 }
-                if (originalState.getValue(NORTH) || originalState.getValue(EAST)
-                        || originalState.getValue(SOUTH) || originalState.getValue(WEST)) {
+                if (originalState.getValue(BlockVine.NORTH) || originalState.getValue(BlockVine.EAST)
+                    || originalState.getValue(BlockVine.SOUTH) || originalState.getValue(BlockVine.WEST)) {
                     world.setBlockState(posDown, originalState, 2);
                 }
             } else if (block instanceof BlockVine) {
@@ -237,8 +236,8 @@ public class ChromaticVineBlock extends BlockVine {
                         originalState = originalState.withProperty(prop, true);
                     }
                 }
-                if (originalState.getValue(NORTH) || originalState.getValue(EAST)
-                        || originalState.getValue(SOUTH) || originalState.getValue(WEST)) {
+                if (originalState.getValue(BlockVine.NORTH) || originalState.getValue(BlockVine.EAST)
+                    || originalState.getValue(BlockVine.SOUTH) || originalState.getValue(BlockVine.WEST)) {
                     world.setBlockState(posDown, originalState, 2);
                 }
             }
@@ -246,43 +245,54 @@ public class ChromaticVineBlock extends BlockVine {
     }
 
     @Override
-    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer)
-                .withProperty(ChromaColors.PROPERTY, ChromaColors.VALUES[meta & 15]);
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+        return super.getStateForPlacement(world, pos, side, hitX, hitY, hitZ, meta, placer)
+            .withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
     }
 
     @Override
-    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity te, ItemStack stack) {
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack stack) {
         if (!world.isRemote && stack.getItem() == Items.SHEARS) {
             player.addStat(Objects.requireNonNull(StatList.getBlockStats(this)));
-            spawnAsEntity(world, pos, new ItemStack(ChromaItems.CHROMATIC_VINE, 1, 0));
-        } else super.harvestBlock(world, player, pos, state, te, stack);
+            Block.spawnAsEntity(world, pos, new ItemStack(ChromaItems.CHROMATIC_VINE, 1, 0));
+        } else super.harvestBlock(world, player, pos, state, tile, stack);
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, ChromaColors.PROPERTY, UP, NORTH, EAST, SOUTH, WEST);
+        return new BlockStateContainer.Builder(this)
+            .add(ChromaColor.PROPERTY)
+            .add(BlockVine.UP)
+            .add(BlockVine.NORTH)
+            .add(BlockVine.SOUTH)
+            .add(BlockVine.WEST)
+            .add(BlockVine.EAST)
+            .build();
     }
 
     private boolean recheckGrownSides(World world, BlockPos pos, IBlockState state) {
-        state = state.getActualState(world, pos);
-        IBlockState originalState = state;
-        for (EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
-            PropertyBool prop = getPropertyFor(side);
-            if (state.getValue(prop) && !canAttachTo(world, pos, side.getOpposite())) {
-                IBlockState above = world.getBlockState(pos.up());
-                if ((!(above.getBlock() instanceof BlockVine)) || !above.getValue(prop)) {
-                    state = state.withProperty(prop, false);
+        IBlockState actualState = state.getActualState(world, pos);
+        final IBlockState originalState = actualState;
+
+        for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
+            final PropertyBool property = BlockVine.getPropertyFor(side);
+
+            if (actualState.getValue(property) && !canAttachTo(world, pos, side.getOpposite())) {
+                final IBlockState above = world.getBlockState(pos.up());
+
+                if ((!(above.getBlock() instanceof BlockVine)) || !above.getValue(property)) {
+                    actualState = actualState.withProperty(property, false);
                 }
             }
         }
-        if (getNumGrownFaces(state) != 0) {
-            if (originalState != state) {
-                world.setBlockState(pos, state, 2);
+        if (getNumGrownFaces(actualState) != 0) {
+            if (originalState != actualState) {
+                world.setBlockState(pos, actualState, 2);
             }
+
             return true;
         }
+
         return false;
     }
-
 }

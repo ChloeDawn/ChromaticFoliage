@@ -1,6 +1,8 @@
 package net.sleeplessdev.chromaticfoliage.block.entity;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -9,19 +11,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
-import net.sleeplessdev.chromaticfoliage.data.ChromaColors;
+import net.minecraftforge.common.util.Constants;
+import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
+
+import static com.google.common.base.Preconditions.checkState;
 
 public class ChromaBlockEntity extends TileEntity {
-
     public static final String NBT_KEY_COLOR = "color";
 
-    private ChromaColors color;
+    private ChromaColor color;
 
-    public ChromaColors getColor() {
+    public ChromaColor getColor() {
         return color;
     }
 
-    public ChromaBlockEntity withColor(ChromaColors color) {
+    public ChromaBlockEntity withColor(ChromaColor color) {
         this.color = color;
         return this;
     }
@@ -29,33 +33,38 @@ public class ChromaBlockEntity extends TileEntity {
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
-        int index = compound.getInteger(NBT_KEY_COLOR);
-        color = ChromaColors.VALUES[index];
+        this.requireCompoundKey(compound, ChromaBlockEntity.NBT_KEY_COLOR, Constants.NBT.TAG_INT);
+        this.color = ChromaColor.VALUES[compound.getInteger(ChromaBlockEntity.NBT_KEY_COLOR)];
     }
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
-        compound.setInteger(NBT_KEY_COLOR, color.ordinal());
+        checkState(this.color != null, "ChromaBlockEntity is missing a ChromaColor reference");
+        compound.setInteger(ChromaBlockEntity.NBT_KEY_COLOR, this.color.ordinal());
         return compound;
     }
 
     @Override
     public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
+        final BlockPos pos = this.pos;
+        checkState(pos != null, "ChromaBlockEntity is missing a BlockPos reference");
+        return new SPacketUpdateTileEntity(pos, 0, this.getUpdateTag());
     }
 
     @Override
     public NBTTagCompound getUpdateTag() {
-        NBTTagCompound compound = super.getUpdateTag();
-        compound.setInteger(NBT_KEY_COLOR, color.ordinal());
+        final NBTTagCompound compound = super.getUpdateTag();
+        checkState(this.color != null, "ChromaBlockEntity is missing a ChromaColor reference");
+        compound.setInteger(ChromaBlockEntity.NBT_KEY_COLOR, this.color.ordinal());
         return compound;
     }
 
     @Override
     public ITextComponent getDisplayName() {
-        String name = getBlockType().getUnlocalizedName() + ".name";
-        return new TextComponentTranslation(name);
+        final Block block = this.blockType;
+        checkState(block != null, "ChromaBlockEntity is missing a Block reference");
+        return new TextComponentTranslation(block.getUnlocalizedName() + ".name");
     }
 
     @Override
@@ -68,4 +77,9 @@ public class ChromaBlockEntity extends TileEntity {
         return oldState.getBlock() != newState.getBlock();
     }
 
+    private void requireCompoundKey(NBTTagCompound compound, String key, int type) {
+        final String typeName = NBTBase.getTagTypeName(type);
+        checkState(!"UNKNOWN".equals(typeName), "Unknown tag type ordinal \"" + Integer.toString(type) + "\"");
+        checkState(compound.hasKey(key, type), "Missing " + typeName + "\"" + key + "\" in compound " + compound);
+    }
 }

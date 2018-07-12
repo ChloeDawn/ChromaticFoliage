@@ -1,10 +1,9 @@
 [
-    {
-        "modid": "chromaticfoliage",
-        "name": "Chromatic Foliage",
-        "description": "A mod of a colourful nature",
-        "version": "${version}",
-        "mcversion": "[1.12,1.13)",
-        "authorList": [ "InsomniaKitten" ]
-    }
+  {
+    "modid": "chromaticfoliage",
+    "name": "Chromatic Foliage",
+    "description": "A mod of a colourful nature",
+    "version": "${version}",
+    "authorList": [ "InsomniaKitten" ]
+  }
 ]

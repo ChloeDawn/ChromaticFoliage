@@ -1,44 +1,47 @@
 package net.sleeplessdev.chromaticfoliage.config;
 
 import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.Config.Comment;
+import net.minecraftforge.common.config.Config.Name;
+import net.minecraftforge.common.config.Config.RequiresMcRestart;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 
 @Config(modid = ChromaticFoliage.ID, name = ChromaticFoliage.ID + "/general")
 public final class ChromaGeneralConfig {
-
-    @Config.Name("chroma_recoloring")
-    @Config.Comment({"Register shapeless recipes that allow recoloring of chromatic blocks",
-                     "In-world recoloring requires the in-world interaction to be enabled"})
-    @Config.RequiresMcRestart
+    @Name("chroma_recoloring")
+    @Comment({ "Register shapeless recipes that allow recoloring of chromatic blocks",
+               "In-world recoloring requires the in-world interaction to be enabled" })
+    @RequiresMcRestart
     public static boolean chromaRecoloring = true;
 
-    @Config.Name("in_world_interaction")
-    @Config.Comment({"Allow coloring of blocks when right-clicking them with dyes",
-                     "Only functions on blocks with a chromatic variant",
-                     "This config does not control in-world illumination"})
+    @Name("in_world_interaction")
+    @Comment({ "Allow coloring of blocks when right-clicking them with dyes",
+               "Only functions on blocks with a chromatic variant",
+               "This config does not control in-world illumination" })
     public static boolean inWorldInteraction = true;
 
-    @Config.Name("in_world_illumination")
-    @Config.Comment({"Allow right-clicking glowstone dust on chromatic blocks to illuminated them",
-                     "Produces a small amount of light, and allows the block to glow in the dark",
-                     "Illuminated blocks will drop their glowstone dust when broken"})
+    @Name("in_world_illumination")
+    @Comment({ "Allow right-clicking glowstone dust on chromatic blocks to illuminated them",
+               "Produces a small amount of light, and allows the block to glow in the dark",
+               "Illuminated blocks will drop their glowstone dust when broken" })
     public static boolean inWorldIllumination = true;
 
-    @Config.Name("grass_spreads_to_dirt")
-    @Config.Comment("Chromatic grass blocks spread onto dirt over time")
-    @Config.RequiresMcRestart
+    @Name("grass_spreads_to_dirt")
+    @Comment("Chromatic grass blocks spread onto dirt over time")
+    @RequiresMcRestart
     public static boolean grassSpreadDirt = true;
 
-    @Config.Name("grass_spreads_to_grass")
-    @Config.Comment("Chromatic grass blocks spread onto regular grass blocks over time")
-    @Config.RequiresMcRestart
+    @Name("grass_spreads_to_grass")
+    @Comment("Chromatic grass blocks spread onto regular grass blocks over time")
+    @RequiresMcRestart
     public static boolean grassSpreadGrass = false;
 
-    @Config.Name("replaceable_vines")
-    @Config.Comment({"Allow vines to be replaced by other blocks, including themselves",
-                     "Set this value to true for vanilla behaviour"})
+    @Name("replaceable_vines")
+    @Comment({ "Allow vines to be replaced by other blocks, including themselves",
+               "Set this value to true for vanilla behaviour" })
     public static boolean replaceableVines = false;
 
-    private ChromaGeneralConfig() {}
-
+    private ChromaGeneralConfig() {
+        throw new UnsupportedOperationException("Cannot instantiate " + this.getClass());
+    }
 }
