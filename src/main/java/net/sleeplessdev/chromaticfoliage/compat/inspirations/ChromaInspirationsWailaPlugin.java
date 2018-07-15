@@ -48,8 +48,10 @@ public final class ChromaInspirationsWailaPlugin implements IWailaPlugin {
     public void register(IWailaRegistrar registrar) {
         if (Loader.isModLoaded("inspirations")) try {
             //noinspection unchecked
-            final Class<? extends Block> clazz = (Class<? extends Block>) Class.forName(BUSH_BLOCK_CLASS);
-            registrar.registerBodyProvider(BUSH_BODY_PROVIDER, clazz);
+            final Class<?> clazz = Class.forName(BUSH_BLOCK_CLASS);
+            if (clazz != null && Block.class.isAssignableFrom(clazz)) {
+                registrar.registerBodyProvider(BUSH_BODY_PROVIDER, clazz);
+            } else throw new IllegalStateException(clazz + " is not an instance of " + Block.class);
         } catch (Exception exception) {
             throw new RuntimeException("Failed to register Waila body provider", exception);
         }
