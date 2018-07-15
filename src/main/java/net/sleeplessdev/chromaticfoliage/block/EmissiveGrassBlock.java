@@ -13,15 +13,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 
 public class EmissiveGrassBlock extends ChromaticGrassBlock {
-    public EmissiveGrassBlock() {
-        this.setLightLevel(0.5F);
-    }
-
     @Override
     public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack stack) {
         Block.spawnAsEntity(world, pos, new ItemStack(Items.GLOWSTONE_DUST));
@@ -31,6 +28,11 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
     @Override
     protected ItemStack getSilkTouchDrop(IBlockState state) {
         return new ItemStack(ChromaBlocks.CHROMATIC_GRASS, 1, state.getValue(ChromaColor.PROPERTY).ordinal());
+    }
+
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return 7;
     }
 
     @Override

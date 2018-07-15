@@ -14,14 +14,16 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 
 import java.util.Map.Entry;
 
 public class EmissiveVineBlock extends ChromaticVineBlock {
-    public EmissiveVineBlock() {
-        this.setLightLevel(0.5F);
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return 7;
     }
 
     @Override

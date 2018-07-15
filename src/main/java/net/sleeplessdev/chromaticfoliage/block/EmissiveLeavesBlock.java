@@ -14,6 +14,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
@@ -21,13 +22,17 @@ import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
     public EmissiveLeavesBlock(EnumType type) {
         super(type);
-        this.setLightLevel(0.5F);
     }
 
     @Override
     public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack stack) {
         Block.spawnAsEntity(world, pos, new ItemStack(Items.GLOWSTONE_DUST));
         super.harvestBlock(world, player, pos, state, tile, stack);
+    }
+
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return 7;
     }
 
     @Override
