@@ -1,4 +1,4 @@
-package net.sleeplessdev.chromaticfoliage.compat;
+package net.sleeplessdev.chromaticfoliage.compat.inspirations;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -17,8 +17,13 @@ import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(modid = ChromaticFoliage.ID, value = Side.CLIENT)
-public final class ExtendedTooltipEvents {
-    private ExtendedTooltipEvents() {
+public final class ChromaInspirationsTooltips {
+    private static final String ID_ENLIGHTENED_BUSH = "inspirations:enlightened_bush";
+    private static final String KEY_TEXTURE = "texture";
+    private static final String KEY_ID = "id";
+    private static final String KEY_DAMAGE = "Damage";
+
+    private ChromaInspirationsTooltips() {
         throw new UnsupportedOperationException("Cannot instantiate " + this.getClass());
     }
 
@@ -26,12 +31,12 @@ public final class ExtendedTooltipEvents {
     static void onItemTooltip(ItemTooltipEvent event) {
         if (!ChromaClientConfig.INFO.itemTooltip) return;
         final ResourceLocation name = event.getItemStack().getItem().getRegistryName();
-        if (name != null && "inspirations:enlightened_bush".equals(name.toString())) {
+        if (name != null && ID_ENLIGHTENED_BUSH.equals(name.toString())) {
             final NBTTagCompound compound = event.getItemStack().getTagCompound();
-            if (compound != null && compound.hasKey("texture", Constants.NBT.TAG_COMPOUND)) {
-                final NBTTagCompound item = compound.getCompoundTag("texture");
-                if (item.getString("id").contains(ChromaticFoliage.ID)) {
-                    final int damage = Math.max(0, item.getShort("Damage"));
+            if (compound != null && compound.hasKey(KEY_TEXTURE, Constants.NBT.TAG_COMPOUND)) {
+                final NBTTagCompound item = compound.getCompoundTag(KEY_TEXTURE);
+                if (item.getString(KEY_ID).contains(ChromaticFoliage.ID)) {
+                    final int damage = Math.max(0, item.getShort(KEY_DAMAGE));
                     final ChromaColor color = ChromaColor.VALUES[damage & 15];
                     final String key = "color.chromaticfoliage." + color.getName() + ".name";
                     final ITextComponent component = new TextComponentTranslation(key);
