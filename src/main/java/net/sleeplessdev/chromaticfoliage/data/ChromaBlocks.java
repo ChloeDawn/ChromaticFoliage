@@ -25,5 +25,7 @@ public final class ChromaBlocks {
     public static final Block EMISSIVE_DARK_OAK_LEAVES = Blocks.AIR;
     public static final Block EMISSIVE_VINE = Blocks.AIR;
 
-    private ChromaBlocks() {}
+    private ChromaBlocks() {
+        throw new UnsupportedOperationException("Cannot instantiate " + this.getClass());
+    }
 }

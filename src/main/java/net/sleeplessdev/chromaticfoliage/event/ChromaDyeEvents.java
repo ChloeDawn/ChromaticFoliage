@@ -23,7 +23,9 @@ import java.util.Map.Entry;
 
 @EventBusSubscriber(modid = ChromaticFoliage.ID)
 public final class ChromaDyeEvents {
-    private ChromaDyeEvents() {}
+    private ChromaDyeEvents() {
+        throw new UnsupportedOperationException("Cannot instantiate " + this.getClass());
+    }
 
     @SubscribeEvent
     static void onBlockRightClicked(PlayerInteractEvent.RightClickBlock event) {

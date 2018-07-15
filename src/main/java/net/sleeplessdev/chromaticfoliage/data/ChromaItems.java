@@ -16,5 +16,7 @@ public final class ChromaItems {
     public static final Item CHROMATIC_DARK_OAK_LEAVES = Items.AIR;
     public static final Item CHROMATIC_VINE = Items.AIR;
 
-    private ChromaItems() {}
+    private ChromaItems() {
+        throw new UnsupportedOperationException("Cannot instantiate " + this.getClass());
+    }
 }
