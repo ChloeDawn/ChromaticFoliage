@@ -1,8 +1,8 @@
 package net.sleeplessdev.chromaticfoliage;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig;
-import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
+import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,23 +46,24 @@ public final class ChromaticFoliage {
         @Override
         @SideOnly(Side.CLIENT)
         public ItemStack getIconItemStack() {
-            final Minecraft mc = FMLClientHandler.instance().getClient();
-            if (icon.isEmpty()) icon = getTabIconItem();
-            if (mc.world != null) {
-                final long tick = mc.world.getTotalWorldTime();
-                if (tick % 20 == 0 && lastTick != tick) {
-                    final int meta = (icon.getMetadata() + 1) % 16;
-                    icon = new ItemStack(ChromaBlocks.CHROMATIC_GRASS, 1, meta);
-                    lastTick = tick;
-                }
+            if (this.icon.isEmpty()) this.icon = this.getTabIconItem();
+
+            final World world = FMLClientHandler.instance().getWorldClient();
+            final long tick = world != null ? world.getTotalWorldTime() : this.lastTick;
+
+            if (this.lastTick != tick && tick % 20 == 0) {
+                final int dmg = this.icon.getItemDamage();
+                this.icon.setItemDamage(1 + dmg & 15);
+                this.lastTick = tick;
             }
-            return icon;
+
+            return this.icon;
         }
 
         @Override
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(ChromaBlocks.CHROMATIC_GRASS, 1, 0);
+            return new ItemStack(ChromaItems.CHROMATIC_GRASS, 1, 0);
         }
     };
 

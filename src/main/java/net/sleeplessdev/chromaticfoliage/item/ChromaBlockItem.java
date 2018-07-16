@@ -32,8 +32,8 @@ public final class ChromaBlockItem extends ItemBlock {
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (isInCreativeTab(tab)) {
-            for (ChromaColor color : ChromaColor.VALUES) {
+        if (this.isInCreativeTab(tab)) {
+            for (final ChromaColor color : ChromaColor.VALUES) {
                 items.add(new ItemStack(this, 1, color.ordinal()));
             }
         }
