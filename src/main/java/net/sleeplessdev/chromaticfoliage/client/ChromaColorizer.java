@@ -20,12 +20,12 @@ public final class ChromaColorizer implements IBlockColor, IItemColor {
 
     @Override
     public int colorMultiplier(@Nullable IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex) {
-        return apply(state, ItemStack.EMPTY);
+        return this.apply(state, ItemStack.EMPTY);
     }
 
     @Override
     public int colorMultiplier(ItemStack stack, int tintIndex) {
-        return apply(null, stack);
+        return this.apply(null, stack);
     }
 
     private int apply(@Nullable IBlockState state, ItemStack stack) {

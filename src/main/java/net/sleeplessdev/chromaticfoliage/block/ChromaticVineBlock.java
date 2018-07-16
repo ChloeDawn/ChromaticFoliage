@@ -34,7 +34,7 @@ import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
@@ -63,7 +63,7 @@ public class ChromaticVineBlock extends BlockVine {
                 if (world.isRemote) return true;
                 final IBlockState actualState = state.getActualState(world, pos);
                 IBlockState emissive = ChromaBlocks.EMISSIVE_VINE.getDefaultState();
-                for (Map.Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
+                for (final Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
                     //noinspection unchecked,RedundantCast
                     emissive = emissive.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
                 }
@@ -147,7 +147,7 @@ public class ChromaticVineBlock extends BlockVine {
 
     @Override
     public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if (!world.isRemote && !recheckGrownSides(world, pos, state)) {
+        if (!world.isRemote && !this.recheckGrownSides(world, pos, state)) {
             this.dropBlockAsItem(world, pos, state, 0);
             world.setBlockToAir(pos);
         }
@@ -277,7 +277,7 @@ public class ChromaticVineBlock extends BlockVine {
         for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
             final PropertyBool property = BlockVine.getPropertyFor(side);
 
-            if (actualState.getValue(property) && !canAttachTo(world, pos, side.getOpposite())) {
+            if (actualState.getValue(property) && !this.canAttachTo(world, pos, side.getOpposite())) {
                 final IBlockState above = world.getBlockState(pos.up());
 
                 if ((!(above.getBlock() instanceof BlockVine)) || !above.getValue(property)) {
@@ -285,7 +285,7 @@ public class ChromaticVineBlock extends BlockVine {
                 }
             }
         }
-        if (getNumGrownFaces(actualState) != 0) {
+        if (BlockVine.getNumGrownFaces(actualState) != 0) {
             if (originalState != actualState) {
                 world.setBlockState(pos, actualState, 2);
             }

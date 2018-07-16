@@ -1,116 +1,116 @@
 {
   "variants": {
     "color=black,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=blue,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=brown,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=cyan,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=gray,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=green,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=light_blue,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=light_gray,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=lime,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=magenta,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=orange,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=pink,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=purple,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=red,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=white,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
     "color=yellow,snowy=false": [
-      { "model": "grass_normal" },
-      { "model": "grass_normal", "y": 90 },
-      { "model": "grass_normal", "y": 180 },
-      { "model": "grass_normal", "y": 270 }
+      { "model": "chromaticfoliage:chromatic_grass" },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 90 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 180 },
+      { "model": "chromaticfoliage:chromatic_grass", "y": 270 }
     ],
-    "color=black,snowy=true": { "model": "grass_snowed" },
-    "color=blue,snowy=true": { "model": "grass_snowed" },
-    "color=brown,snowy=true": { "model": "grass_snowed" },
-    "color=cyan,snowy=true": { "model": "grass_snowed" },
-    "color=gray,snowy=true": { "model": "grass_snowed" },
-    "color=green,snowy=true": { "model": "grass_snowed" },
-    "color=light_blue,snowy=true": { "model": "grass_snowed" },
-    "color=light_gray,snowy=true": { "model": "grass_snowed" },
-    "color=lime,snowy=true": { "model": "grass_snowed" },
-    "color=magenta,snowy=true": { "model": "grass_snowed" },
-    "color=orange,snowy=true": { "model": "grass_snowed" },
-    "color=pink,snowy=true": { "model": "grass_snowed" },
-    "color=purple,snowy=true": { "model": "grass_snowed" },
-    "color=red,snowy=true": { "model": "grass_snowed" },
-    "color=white,snowy=true": { "model": "grass_snowed" },
-    "color=yellow,snowy=true": { "model": "grass_snowed" }
+    "color=black,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=blue,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=brown,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=cyan,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=gray,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=green,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=light_blue,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=light_gray,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=lime,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=magenta,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=orange,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=pink,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=purple,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=red,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=white,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" },
+    "color=yellow,snowy=true": { "model": "chromaticfoliage:chromatic_grass_snowy" }
   }
 }

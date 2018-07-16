@@ -220,6 +220,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
 
     @Override
     @SideOnly(Side.CLIENT)
+    @Deprecated
     public boolean shouldSideBeRendered(IBlockState state, IBlockAccess access, BlockPos pos, EnumFacing side) {
         final BlockPos offset = pos.offset(side);
         return !access.getBlockState(offset).doesSideBlockRendering(access, offset, side.getOpposite());

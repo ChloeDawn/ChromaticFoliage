@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/vine_2_opposite",
+  "ctm_version": 1,
+  "ctm_overrides": {
+    "0": {
+      "type": "normal",
+      "extra": {
+        "light": 15
+      }
+    }
+  }
+}

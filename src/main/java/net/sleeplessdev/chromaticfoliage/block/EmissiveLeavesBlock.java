@@ -32,7 +32,7 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return 7;
+        return 0; // 7
     }
 
     @Override

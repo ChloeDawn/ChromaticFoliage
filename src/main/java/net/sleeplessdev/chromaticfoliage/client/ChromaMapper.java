@@ -21,15 +21,14 @@ public final class ChromaMapper extends StateMapperBase {
 
     public ChromaMapper(Block block) {
         Preconditions.checkState(block.getRegistryName() != null, "Block 'block' requires a registry name");
-        final String name = block.getRegistryName().getResourcePath().replace("emissive", "chromatic");
-        this.path = new ResourceLocation(ChromaticFoliage.ID, name);
+        this.path = new ResourceLocation(ChromaticFoliage.ID, block.getRegistryName().getResourcePath());
     }
 
     @Override
     protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
         final StringBuilder variant = new StringBuilder();
         if (state.getBlock() instanceof ChromaticVineBlock) {
-            variant.append(getPropertyString(state.getProperties()));
+            variant.append(this.getPropertyString(state.getProperties()));
         } else {
             variant.append("color=").append(state.getValue(PROPERTY).getName());
             if (state.getBlock() instanceof ChromaticGrassBlock) {

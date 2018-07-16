@@ -23,7 +23,7 @@ import java.util.Map.Entry;
 public class EmissiveVineBlock extends ChromaticVineBlock {
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return 7;
+        return 0; // 7
     }
 
     @Override
@@ -39,7 +39,7 @@ public class EmissiveVineBlock extends ChromaticVineBlock {
         final IBlockState actualState = state.getActualState(world, pos);
         IBlockState chroma = ChromaBlocks.CHROMATIC_VINE.getDefaultState();
 
-        for (Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
+        for (final Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
             //noinspection unchecked,RedundantCast
             chroma = chroma.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
         }

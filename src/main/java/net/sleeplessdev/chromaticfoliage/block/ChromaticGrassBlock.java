@@ -1,5 +1,6 @@
 package net.sleeplessdev.chromaticfoliage.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDirt.DirtType;
 import net.minecraft.block.BlockGrass;
@@ -16,6 +17,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
@@ -25,6 +27,8 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig;
 import net.sleeplessdev.chromaticfoliage.config.ChromaGeneralConfig;
@@ -59,7 +63,7 @@ public class ChromaticGrassBlock extends BlockGrass {
     @Override
     @Deprecated
     public IBlockState getStateFromMeta(int meta) {
-        return getDefaultState().withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
+        return this.getDefaultState().withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
     }
 
     @Override
@@ -116,7 +120,7 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(ChromaItems.CHROMATIC_GRASS, 1, getMetaFromState(state));
+        return new ItemStack(ChromaItems.CHROMATIC_GRASS, 1, this.getMetaFromState(state));
     }
 
     @Override
@@ -131,7 +135,7 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess access, BlockPos pos) {
-        return this.checkSnow ? super.getActualState(state, access, pos) : state.withProperty(SNOWY, false);
+        return state.withProperty(SNOWY, this.checkSnow && this.isSnowBlock(access, pos.up()));
     }
 
     @Override
@@ -198,6 +202,12 @@ public class ChromaticGrassBlock extends BlockGrass {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT_MIPPED;
+    }
+
+    @Override
     public int getMetaFromState(IBlockState state) {
         return state.getValue(ChromaColor.PROPERTY).ordinal();
     }
@@ -210,7 +220,7 @@ public class ChromaticGrassBlock extends BlockGrass {
             .build();
     }
 
-    protected boolean canSpreadInto(IBlockAccess access, BlockPos pos) {
+    protected final boolean canSpreadInto(IBlockAccess access, BlockPos pos) {
         final IBlockState state = access.getBlockState(pos);
         if (this.spreadDirt && state.getBlock() == Blocks.DIRT) {
             if (DirtType.DIRT == state.getValue(BlockDirt.VARIANT)) {
@@ -218,5 +228,10 @@ public class ChromaticGrassBlock extends BlockGrass {
             }
         }
         return this.spreadGrass && Blocks.GRASS == state.getBlock();
+    }
+
+    protected final boolean isSnowBlock(IBlockAccess access, BlockPos pos) {
+        final Block block = access.getBlockState(pos).getBlock();
+        return Blocks.SNOW == block || Blocks.SNOW_LAYER == block;
     }
 }
