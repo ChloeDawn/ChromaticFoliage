@@ -34,8 +34,8 @@ public final class ChromaticFoliage {
     public static final Logger LOGGER = LogManager.getLogger(ChromaticFoliage.ID);
 
     public static final CreativeTabs TAB = new CreativeTabs(ChromaticFoliage.ID) {
-        private volatile ItemStack icon = ItemStack.EMPTY;
-        private volatile long lastTick;
+        private ItemStack icon = ItemStack.EMPTY;
+        private long lastTick;
 
         @Override
         @SideOnly(Side.CLIENT)
