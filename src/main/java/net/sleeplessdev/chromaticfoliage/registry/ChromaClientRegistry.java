@@ -249,18 +249,13 @@ public final class ChromaClientRegistry {
                 final ModelResourceLocation mrl = new ModelResourceLocation(name, variant);
                 final IBakedModel model = event.getModelManager().getModel(mrl);
                 for (final BakedQuad quad : model.getQuads(state, null, 0)) {
-                    if (tintQuadOrError(model, quad)) {
-                        return;
-                    }
+                    tintQuadOrError(model, quad);
                 }
                 for (final EnumFacing side : EnumFacing.VALUES) {
                     for (BakedQuad quad : model.getQuads(state, side, 0)) {
-                        if (tintQuadOrError(model, quad)) {
-                            return;
-                        }
+                        tintQuadOrError(model, quad);
                     }
                 }
-
             }
         }
     }
@@ -303,18 +298,13 @@ public final class ChromaClientRegistry {
         itemColors.registerItemColorHandler(ChromaColorizer.INSTANCE, item);
     }
 
-    private static boolean tintQuadOrError(IBakedModel model, BakedQuad quad) {
+    private static void tintQuadOrError(IBakedModel model, BakedQuad quad) {
         try {
-            final String fieldName = getTintIndexFieldName();
-            checkState(fieldName != null && !fieldName.isEmpty(), "String 'fieldName' cannot be null or empty");
-            final Field field = BakedQuad.class.getDeclaredField(fieldName);
+            final Field field = BakedQuad.class.getDeclaredField(getTintIndexFieldName());
             field.setAccessible(true);
             field.set(quad, 0);
-            return false;
         } catch (Exception exception) {
-            ChromaticFoliage.LOGGER.error("Failed to inject tint index for model <{}>", model.toString());
-            ChromaticFoliage.LOGGER.debug("Tint index injection failed for the following reason:", exception);
-            return true;
+            throw new RuntimeException("Failed to inject tint index for model " + model.toString(), exception);
         }
     }
 
