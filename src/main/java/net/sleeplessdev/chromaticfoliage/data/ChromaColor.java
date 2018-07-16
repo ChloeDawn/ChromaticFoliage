@@ -64,7 +64,7 @@ public enum ChromaColor implements IStringSerializable {
      */
     public static Optional<ChromaColor> from(ItemStack stack) {
         if (!stack.isEmpty()) {
-            return DyeUtils.colorFromStack(stack).map(DYE_TO_CHROMA_MAP::get);
+            return DyeUtils.colorFromStack(stack).map(ChromaColor.DYE_TO_CHROMA_MAP::get);
         } else return Optional.empty();
     }
 

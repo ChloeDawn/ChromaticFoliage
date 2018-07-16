@@ -118,7 +118,7 @@ public class ChromaticVineBlock extends BlockVine {
     private boolean isAcceptableNeighbor(World world, BlockPos pos, EnumFacing side) {
         final IBlockState state = world.getBlockState(pos);
         final BlockFaceShape shape = state.getBlockFaceShape(world, pos, side);
-        return shape == BlockFaceShape.SOLID && !isExceptBlockForAttaching(state.getBlock());
+        return shape == BlockFaceShape.SOLID && !BlockVine.isExceptBlockForAttaching(state.getBlock());
     }
 
     @Override
@@ -246,8 +246,7 @@ public class ChromaticVineBlock extends BlockVine {
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        return super.getStateForPlacement(world, pos, side, hitX, hitY, hitZ, meta, placer)
-            .withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
+        return super.getStateForPlacement(world, pos, side, hitX, hitY, hitZ, meta, placer).withProperty(ChromaColor.PROPERTY, ChromaColor.VALUES[meta & 15]);
     }
 
     @Override

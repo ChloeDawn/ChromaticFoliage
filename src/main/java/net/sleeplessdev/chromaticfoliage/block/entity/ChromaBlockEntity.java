@@ -69,7 +69,7 @@ public class ChromaBlockEntity extends TileEntity {
 
     @Override
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-        handleUpdateTag(pkt.getNbtCompound());
+        this.handleUpdateTag(pkt.getNbtCompound());
     }
 
     @Override

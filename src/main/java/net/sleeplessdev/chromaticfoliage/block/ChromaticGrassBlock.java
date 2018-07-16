@@ -112,6 +112,11 @@ public class ChromaticGrassBlock extends BlockGrass {
     }
 
     @Override
+    protected ItemStack getSilkTouchDrop(IBlockState state) {
+        return new ItemStack(ChromaItems.CHROMATIC_GRASS, 1, state.getValue(ChromaColor.PROPERTY).ordinal());
+    }
+
+    @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
         for (final ChromaColor color : ChromaColor.VALUES) {
             items.add(new ItemStack(this, 1, color.ordinal()));
@@ -135,7 +140,7 @@ public class ChromaticGrassBlock extends BlockGrass {
 
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess access, BlockPos pos) {
-        return state.withProperty(SNOWY, this.checkSnow && this.isSnowBlock(access, pos.up()));
+        return state.withProperty(BlockGrass.SNOWY, this.checkSnow && this.isSnowBlock(access, pos.up()));
     }
 
     @Override

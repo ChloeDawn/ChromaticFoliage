@@ -59,7 +59,7 @@ public final class ChromaDyeEvents {
 
             ChromaColor.from(event.getItemStack()).ifPresent(color -> {
                 final BlockLeaves block = (BlockLeaves) state.getBlock();
-                final IBlockState leaves = getLeavesFor(block.getWoodType(block.getMetaFromState(state)));
+                final IBlockState leaves = getLeavesForType(block.getWoodType(block.getMetaFromState(state)));
                 if (world.setBlockState(pos, leaves.withProperty(ChromaColor.PROPERTY, color), 3)) {
                     world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
                     if (!player.isCreative()) event.getItemStack().shrink(1);
@@ -89,7 +89,7 @@ public final class ChromaDyeEvents {
         }
     }
 
-    private static IBlockState getLeavesFor(EnumType type) {
+    private static IBlockState getLeavesForType(EnumType type) {
         switch (type) {
             case OAK: return ChromaBlocks.CHROMATIC_OAK_LEAVES.getDefaultState();
             case SPRUCE: return ChromaBlocks.CHROMATIC_SPRUCE_LEAVES.getDefaultState();

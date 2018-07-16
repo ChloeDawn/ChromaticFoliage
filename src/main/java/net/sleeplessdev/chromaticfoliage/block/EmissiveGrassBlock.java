@@ -26,11 +26,6 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
     }
 
     @Override
-    protected ItemStack getSilkTouchDrop(IBlockState state) {
-        return new ItemStack(ChromaBlocks.CHROMATIC_GRASS, 1, state.getValue(ChromaColor.PROPERTY).ordinal());
-    }
-
-    @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         return 0; // 7
     }

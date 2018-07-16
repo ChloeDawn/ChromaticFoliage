@@ -118,17 +118,13 @@ public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
     @Override
     protected ItemStack getSilkTouchDrop(IBlockState state) {
         final int meta = this.getMetaFromState(state);
+
         switch (this.type) {
             case OAK: return new ItemStack(ChromaBlocks.CHROMATIC_OAK_LEAVES, 1, meta);
-
             case SPRUCE: return new ItemStack(ChromaBlocks.CHROMATIC_SPRUCE_LEAVES, 1, meta);
-
             case BIRCH: return new ItemStack(ChromaBlocks.CHROMATIC_BIRCH_LEAVES, 1, meta);
-
             case JUNGLE: return new ItemStack(ChromaBlocks.CHROMATIC_JUNGLE_LEAVES, 1, meta);
-
             case ACACIA: return new ItemStack(ChromaBlocks.CHROMATIC_ACACIA_LEAVES, 1, meta);
-
             case DARK_OAK: return new ItemStack(ChromaBlocks.CHROMATIC_DARK_OAK_LEAVES, 1, meta);
         }
 
@@ -227,24 +223,15 @@ public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
     }
 
     protected final IBlockState getEmissiveState(IBlockState state) {
+        final ChromaColor color = state.getValue(ChromaColor.PROPERTY);
+
         switch (this.type) {
-            case OAK: return ChromaBlocks.EMISSIVE_OAK_LEAVES.getDefaultState()
-                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
-
-            case SPRUCE: return ChromaBlocks.EMISSIVE_SPRUCE_LEAVES.getDefaultState()
-                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
-
-            case BIRCH: return ChromaBlocks.EMISSIVE_BIRCH_LEAVES.getDefaultState()
-                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
-
-            case JUNGLE: return ChromaBlocks.EMISSIVE_JUNGLE_LEAVES.getDefaultState()
-                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
-
-            case ACACIA: return ChromaBlocks.EMISSIVE_ACACIA_LEAVES.getDefaultState()
-                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
-
-            case DARK_OAK: return ChromaBlocks.EMISSIVE_DARK_OAK_LEAVES.getDefaultState()
-                .withProperty(ChromaColor.PROPERTY, state.getValue(ChromaColor.PROPERTY));
+            case OAK: return ChromaBlocks.EMISSIVE_OAK_LEAVES.getDefaultState().withProperty(ChromaColor.PROPERTY, color);
+            case SPRUCE: return ChromaBlocks.EMISSIVE_SPRUCE_LEAVES.getDefaultState().withProperty(ChromaColor.PROPERTY, color);
+            case BIRCH: return ChromaBlocks.EMISSIVE_BIRCH_LEAVES.getDefaultState().withProperty(ChromaColor.PROPERTY, color);
+            case JUNGLE: return ChromaBlocks.EMISSIVE_JUNGLE_LEAVES.getDefaultState().withProperty(ChromaColor.PROPERTY, color);
+            case ACACIA: return ChromaBlocks.EMISSIVE_ACACIA_LEAVES.getDefaultState().withProperty(ChromaColor.PROPERTY, color);
+            case DARK_OAK: return ChromaBlocks.EMISSIVE_DARK_OAK_LEAVES.getDefaultState().withProperty(ChromaColor.PROPERTY, color);
         }
 
         throw new IllegalStateException("Unable to determine emissive state for type " + this.type);

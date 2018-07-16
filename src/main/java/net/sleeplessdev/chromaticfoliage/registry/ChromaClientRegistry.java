@@ -30,7 +30,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
@@ -42,6 +41,8 @@ import net.sleeplessdev.chromaticfoliage.config.ChromaFeatureConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaBlocks;
 import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
+
+import java.lang.reflect.Field;
 
 import static com.google.common.base.Preconditions.checkState;
 
@@ -304,9 +305,11 @@ public final class ChromaClientRegistry {
 
     private static boolean tintQuadOrError(IBakedModel model, BakedQuad quad) {
         try {
-            final String fieldName = ChromaClientRegistry.getTintIndexFieldName();
+            final String fieldName = getTintIndexFieldName();
             checkState(fieldName != null && !fieldName.isEmpty(), "String 'fieldName' cannot be null or empty");
-            ReflectionHelper.setPrivateValue(BakedQuad.class, quad, 0, fieldName);
+            final Field field = BakedQuad.class.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(quad, 0);
             return false;
         } catch (Exception exception) {
             ChromaticFoliage.LOGGER.error("Failed to inject tint index for model <{}>", model.toString());
@@ -316,15 +319,16 @@ public final class ChromaClientRegistry {
     }
 
     private static String getTintIndexFieldName() {
-        if (tintIndexFieldName == null) {
-            try {
-                FMLDeobfuscatingRemapper remapper = FMLDeobfuscatingRemapper.INSTANCE;
-                final String clazz = remapper.unmap("net/minecraft/client/renderer/block/model/BakedQuad");
-                tintIndexFieldName = remapper.mapFieldName(clazz, "field_178213_b", null);
-            } catch (Exception exception) {
-                throw new RuntimeException("Failed to map obfuscated field name `field_178213_b`", exception);
-            }
+        if (tintIndexFieldName != null) return tintIndexFieldName;
+
+        try {
+            final FMLDeobfuscatingRemapper remapper = FMLDeobfuscatingRemapper.INSTANCE;
+            final String clazz = remapper.unmap("net/minecraft/client/renderer/block/model/BakedQuad");
+            tintIndexFieldName = remapper.mapFieldName(clazz, "field_178213_b", null);
+        } catch (Exception exception) {
+            throw new RuntimeException("Failed to map obfuscated field name `field_178213_b`", exception);
         }
+
         return tintIndexFieldName;
     }
 }

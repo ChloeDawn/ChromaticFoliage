@@ -12,8 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.sleeplessdev.chromaticfoliage.ChromaticFoliage;
 import net.sleeplessdev.chromaticfoliage.block.ChromaticGrassBlock;
 import net.sleeplessdev.chromaticfoliage.block.ChromaticVineBlock;
-
-import static net.sleeplessdev.chromaticfoliage.data.ChromaColor.PROPERTY;
+import net.sleeplessdev.chromaticfoliage.data.ChromaColor;
 
 @SideOnly(Side.CLIENT)
 public final class ChromaMapper extends StateMapperBase {
@@ -30,7 +29,7 @@ public final class ChromaMapper extends StateMapperBase {
         if (state.getBlock() instanceof ChromaticVineBlock) {
             variant.append(this.getPropertyString(state.getProperties()));
         } else {
-            variant.append("color=").append(state.getValue(PROPERTY).getName());
+            variant.append("color=").append(state.getValue(ChromaColor.PROPERTY).getName());
             if (state.getBlock() instanceof ChromaticGrassBlock) {
                 variant.append(",snowy=").append(state.getValue(BlockGrass.SNOWY));
             }
