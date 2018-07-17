@@ -46,7 +46,12 @@ public final class ChromaticFoliage {
         @Override
         @SideOnly(Side.CLIENT)
         public ItemStack getIconItemStack() {
-            if (this.icon.isEmpty()) this.icon = this.getTabIconItem();
+            if (this.icon.isEmpty()) {
+                this.icon = this.getTabIconItem();
+                if (this.icon.isEmpty()) {
+                    throw new IllegalStateException("Item group icon was empty after being initialized");
+                }
+            }
 
             final World world = FMLClientHandler.instance().getWorldClient();
             final long tick = world != null ? world.getTotalWorldTime() : this.lastTick;
