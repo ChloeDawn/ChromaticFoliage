@@ -39,6 +39,7 @@ public final class ChromaGeneralConfig {
     @Name("replaceable_vines")
     @Comment({ "Allow vines to be replaced by other blocks, including themselves",
                "Set this value to true for vanilla behaviour" })
+    @RequiresMcRestart
     public static boolean replaceableVines = false;
 
     private ChromaGeneralConfig() {
