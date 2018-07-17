@@ -2,6 +2,7 @@ package net.sleeplessdev.chromaticfoliage;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.launchwrapper.Launch;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -17,6 +18,8 @@ import net.sleeplessdev.chromaticfoliage.config.ChromaClientConfig;
 import net.sleeplessdev.chromaticfoliage.data.ChromaItems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.stream.Stream;
 
 @Mod(
     modid = ChromaticFoliage.ID,
@@ -72,9 +75,16 @@ public final class ChromaticFoliage {
         }
     };
 
-    private static final ChromaticFoliage INSTANCE = new ChromaticFoliage();
+    private static final ChromaticFoliage INSTANCE = new ChromaticFoliage(ChromaticFoliage.VERSION);
 
-    private ChromaticFoliage() {}
+    private ChromaticFoliage(String version) {
+        ChromaticFoliage.LOGGER.info("Initializing mod version " + version);
+        if (ChromaticFoliage.isRuntimeDeobfuscated()) {
+            Stream.of(new Exception().getStackTrace())
+                .map(traceElement -> "at " + traceElement)
+                .forEach(ChromaticFoliage.LOGGER::info);
+        }
+    }
 
     @InstanceFactory
     public static ChromaticFoliage getInstance() {
@@ -88,5 +98,11 @@ public final class ChromaticFoliage {
             ConfigManager.sync(ChromaticFoliage.ID, Config.Type.INSTANCE);
             ChromaClientConfig.COLORS.onConfigPost();
         }
+    }
+
+    private static boolean isRuntimeDeobfuscated() {
+        final String key = "fml.deobfuscatedEnvironment";
+        final Object value = Launch.blackboard.get(key);
+        return value instanceof Boolean && (Boolean) value;
     }
 }
