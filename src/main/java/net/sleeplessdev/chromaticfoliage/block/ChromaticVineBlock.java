@@ -92,6 +92,16 @@ public class ChromaticVineBlock extends BlockVine {
     }
 
     @Override
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        final TileEntity tileEntity = world.getTileEntity(pos);
+        if (tileEntity instanceof ChromaBlockEntity) {
+            final int meta = stack.getMetadata();
+            final ChromaColor color = ChromaColor.VALUES[meta & 15];
+            ((ChromaBlockEntity) tileEntity).withColor(color);
+        }
+    }
+
+    @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
         for (final ChromaColor color : ChromaColor.VALUES) {
             items.add(new ItemStack(this, 1, color.ordinal()));
