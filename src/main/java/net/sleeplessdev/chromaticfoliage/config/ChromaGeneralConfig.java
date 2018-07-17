@@ -36,6 +36,11 @@ public final class ChromaGeneralConfig {
     @RequiresMcRestart
     public static boolean grassSpreadGrass = false;
 
+    @Name("leaves_spread_to_leaves")
+    @Comment("Chromatic leaves spread onto regular leaves over time")
+    @RequiresMcRestart
+    public static boolean leavesSpreadLeaves = false;
+
     @Name("replaceable_vines")
     @Comment({ "Allow vines to be replaced by other blocks, including themselves",
                "Set this value to true for vanilla behaviour" })

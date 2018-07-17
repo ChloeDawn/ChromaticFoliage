@@ -1,6 +1,8 @@
 package net.sleeplessdev.chromaticfoliage.block;
 
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockNewLeaf;
+import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -39,10 +41,12 @@ import java.util.Random;
 
 public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
     protected final EnumType type;
+    private final boolean spreadLeaves;
 
     public ChromaticLeavesBlock(EnumType type) {
         this.type = type;
-        this.setTickRandomly(false);
+        this.spreadLeaves = ChromaGeneralConfig.leavesSpreadLeaves;
+        this.setTickRandomly(this.spreadLeaves);
         this.setHardness(0.2F);
         this.setLightOpacity(1);
         this.setSoundType(SoundType.PLANT);
@@ -169,7 +173,31 @@ public class ChromaticLeavesBlock extends BlockLeaves implements IShearable {
 
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-        // No-op
+        if (!this.spreadLeaves) return;
+        if (world.isRemote) return;
+        if (!world.isAreaLoaded(pos, 3)) return;
+
+        for (int i = 0; i < 4; ++i) {
+            final int x = rand.nextInt(3) - 1;
+            final int y = rand.nextInt(5) - 3;
+            final int z = rand.nextInt(3) - 1;
+            final BlockPos offset = pos.add(x, y, z);
+
+            if (world.isOutsideBuildHeight(offset)) return;
+            if (!world.isBlockLoaded(offset)) return;
+            if (!canSpreadInto(world, offset)) continue;
+
+            world.setBlockState(offset, state, 3);
+        }
+    }
+
+    protected final boolean canSpreadInto(IBlockAccess access, BlockPos pos) {
+        final IBlockState state = access.getBlockState(pos);
+        if (state.getBlock() == Blocks.LEAVES) {
+            return this.type == state.getValue(BlockOldLeaf.VARIANT);
+        } else if (state.getBlock() == Blocks.LEAVES2) {
+            return this.type == state.getValue(BlockNewLeaf.VARIANT);
+        } else return false;
     }
 
     @SideOnly(Side.CLIENT)
