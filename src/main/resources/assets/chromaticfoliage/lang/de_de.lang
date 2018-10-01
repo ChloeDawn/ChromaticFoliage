@@ -1,0 +1,29 @@
+item_group.chromaticfoliage.label=Chromatic Foliage
+
+tile.chromaticfoliage.chromatic_grass.name=Bunter Grasblock
+tile.chromaticfoliage.chromatic_oak_leaves.name=Bunte Eichenblätter
+tile.chromaticfoliage.chromatic_spruce_leaves.name=Bunte Fichtenblätter
+tile.chromaticfoliage.chromatic_birch_leaves.name=Bunte Buchenblätter
+tile.chromaticfoliage.chromatic_jungle_leaves.name=Bunte Tropenblätter
+tile.chromaticfoliage.chromatic_acacia_leaves.name=Bunte Akazienblätter
+tile.chromaticfoliage.chromatic_dark_oak_leaves.name=Bunte Schwarzeichenblätter
+tile.chromaticfoliage.chromatic_vine.name=Bunte Ranken
+
+color.chromaticfoliage.black.name=Schwarz
+color.chromaticfoliage.blue.name=Blau
+color.chromaticfoliage.brown.name=Braun
+color.chromaticfoliage.cyan.name=Türkis
+color.chromaticfoliage.gray.name=Grau
+color.chromaticfoliage.green.name=Grün
+color.chromaticfoliage.light_blue.name=Hellblau
+color.chromaticfoliage.light_gray.name=Hellgrau
+color.chromaticfoliage.lime.name=Hellgrün
+color.chromaticfoliage.magenta.name=Magenta
+color.chromaticfoliage.orange.name=Orange
+color.chromaticfoliage.pink.name=Rosa
+color.chromaticfoliage.purple.name=Violeet
+color.chromaticfoliage.red.name=Rot
+color.chromaticfoliage.white.name=Weiß
+color.chromaticfoliage.yellow.name=Gelb
+
+tooltip.chromaticfoliage.emissive.name=Leuchtend
