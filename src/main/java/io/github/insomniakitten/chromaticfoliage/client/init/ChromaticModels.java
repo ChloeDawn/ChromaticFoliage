@@ -49,12 +49,12 @@ final class ChromaticModels {
     LOGGER.debug("Beginning registration to '{}'", event);
     for (final Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
       if (isNamespaced(item)) {
-        register(item);
+        bindModel(item);
       }
     }
     for (EnumType type : EnumType.values()) {
-      register(ChromaticBlocks.chromaticLeaves(type));
-      register(ChromaticBlocks.emissiveLeaves(type));
+      ignoreLeafProperties(ChromaticBlocks.chromaticLeaves(type));
+      ignoreLeafProperties(ChromaticBlocks.emissiveLeaves(type));
     }
     LOGGER.debug("Completed registration to '{}'", event);
   }
@@ -86,7 +86,7 @@ final class ChromaticModels {
     }
   }
 
-  private static void register(final Item item) {
+  private static void bindModel(final Item item) {
     @Nullable final ResourceLocation path = item.getRegistryName();
     checkArgument(path != null, "Expected registry name for item %s", item);
     checkArgument(isNamespaced(path), "Unrecognized namespace in '%s'", path);
@@ -97,7 +97,8 @@ final class ChromaticModels {
     }
   }
 
-  private static void register(ChromaticLeavesBlock block) {
+  private static void ignoreLeafProperties(ChromaticLeavesBlock block) {
+    LOGGER.debug("| Ignoring leaf properties for {}", block);
     ModelLoader.setCustomStateMapper(block, new StateMap.Builder()
       .ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE)
       .build());
