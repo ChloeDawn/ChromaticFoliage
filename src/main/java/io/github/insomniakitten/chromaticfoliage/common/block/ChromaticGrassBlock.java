@@ -4,7 +4,6 @@ import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticItems;
-import io.github.insomniakitten.chromaticfoliage.common.particle.ChromaticParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDirt.DirtType;
@@ -15,9 +14,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -27,15 +24,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -116,78 +110,6 @@ public class ChromaticGrassBlock extends BlockGrass implements ChromaticBlock {
   @Override
   public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
     return getSilkTouchDrop(state);
-  }
-
-  @Override
-  public boolean addLandingEffects(final IBlockState state, final WorldServer world, final BlockPos pos, final IBlockState state1, final EntityLivingBase entity, final int n) {
-    final double x = entity.posX;
-    final double y = entity.posY;
-    final double z = entity.posZ;
-    final int id = Block.getStateId(state);
-    world.spawnParticle(EnumParticleTypes.BLOCK_DUST, x, y, z, n, 0.0, 0.0, 0.0, 0.15, id);
-    return true;
-  }
-
-  @Override
-  public boolean addRunningEffects(final IBlockState state, final World world, final BlockPos pos, final Entity entity) {
-    final double x = pos.getX() + ((double) world.rand.nextFloat() - 0.5) * (double) entity.width;
-    final double y = entity.getEntityBoundingBox().minY + 0.1D;
-    final double z = pos.getZ() + ((double) world.rand.nextFloat() - 0.5) * (double) entity.width;
-    final int id = Block.getStateId(state);
-    final double vX = -entity.motionX * 4.0;
-    final double vZ = -entity.motionZ * 4.0;
-    world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, x, y, z, vX, 1.5, vZ, id);
-    return true;
-  }
-
-  @Override
-  @SideOnly(Side.CLIENT)
-  public boolean addHitEffects(final IBlockState state, final World world, final RayTraceResult result, final ParticleManager manager) {
-    final BlockPos pos = result.getBlockPos();
-    final IBlockState target = world.getBlockState(pos);
-    final AxisAlignedBB box = target.getBoundingBox(world, pos);
-    double x = (double) pos.getX() + world.rand.nextDouble() * (box.maxX - box.minX - 0.2) + 0.1 + box.minX;
-    double y = (double) pos.getY() + world.rand.nextDouble() * (box.maxY - box.minY - 0.2) + 0.1 + box.minY;
-    double z = (double) pos.getZ() + world.rand.nextDouble() * (box.maxZ - box.minZ - 0.2) + 0.1 + box.minZ;
-    switch (result.sideHit) {
-      case DOWN:
-        y = (double) pos.getY() + box.minY - 0.1;
-        break;
-      case UP:
-        y = (double) pos.getY() + box.maxY + 0.1;
-        break;
-      case NORTH:
-        z = (double) pos.getZ() + box.minZ - 0.1;
-        break;
-      case SOUTH:
-        z = (double) pos.getZ() + box.maxZ + 0.1;
-        break;
-      case WEST:
-        x = (double) pos.getX() + box.minX - 0.1;
-        break;
-      case EAST:
-        x = (double) pos.getX() + box.maxX + 0.1;
-        break;
-    }
-    ChromaticParticles.postHitParticle(target, world, pos, x, y, z);
-    return true;
-  }
-
-  @Override // FIXME lol
-  @SideOnly(Side.CLIENT)
-  public boolean addDestroyEffects(final World world, final BlockPos pos, final ParticleManager manager) {
-    final IBlockState state = world.getBlockState(pos);
-    for (int x = 0; x < 4; ++x) {
-      for (int y = 0; y < 4; ++y) {
-        for (int z = 0; z < 4; ++z) {
-          final double vX = (x + 0.5) / 4.0;
-          final double vY = (y + 0.5) / 4.0;
-          final double vZ = (z + 0.5) / 4.0;
-          ChromaticParticles.postBreakParticle(state, world, pos, vX, vY, vZ);
-        }
-      }
-    }
-    return true;
   }
 
   @Override
