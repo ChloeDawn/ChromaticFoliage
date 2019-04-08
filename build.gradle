@@ -1,54 +1,56 @@
 buildscript {
-    repositories {
-        jcenter()
-        maven { url = 'https://files.minecraftforge.net/maven' }
+  repositories {
+    jcenter()
+    maven {
+      name = 'minecraftforge.net'
+      url = 'https://files.minecraftforge.net/maven'
     }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+  }
+  dependencies {
+    classpath "net.minecraftforge.gradle:ForgeGradle:$forgeGradleVersion"
+  }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-def modVersion = '1.1.0'
-def mcfVersion = '1.12.2-14.23.4.2705'
-def mcpMappings = 'snapshot_20180710'
-def ctmVersion = 'MC1.12.2-0.3.1.16'
-def hwylaVersion = '1.8.26-B41_1.12.2'
-def jeiVersion = '1.12.2:4.11.0.204'
-
-version = "1.12-$modVersion"
-group = 'net.sleeplessdev.chromaticfoliage'
+version = chromaticFoliageVersion
+group = 'io.github.insomniakitten'
 archivesBaseName = 'ChromaticFoliage'
 sourceCompatibility = 1.8
 
 minecraft {
-    version = mcfVersion
-    mappings = mcpMappings
-    runDir = 'run'
-    replaceIn 'ChromaticFoliage.java'
-    replace '%VERSION%', modVersion
-    replace '%CTM%', ctmVersion
+  version = forgeLoaderVersion
+  mappings = mcpMappingsVersion
 }
 
 repositories {
-    maven { url = 'http://maven.tterrag.com' }
-    maven { url = 'http://tehnut.info/maven' }
-    maven { url = 'http://dvs1.progwml6.com/files/maven' }
+  maven {
+    name = 'tterrag.com'
+    url = 'https://maven.tterrag.com'
+  }
+  maven {
+    name = 'tehnut.info'
+    url = 'https://tehnut.info/maven'
+  }
+  maven {
+    name = 'dvs1.progwml6.com'
+    url = 'https://dvs1.progwml6.com/files/maven'
+  }
 }
 
 dependencies {
-    deobfCompile "team.chisel.ctm:CTM:$ctmVersion"
-    deobfCompile "mcp.mobius.waila:Hwyla:$hwylaVersion"
-    deobfCompile "mezz.jei:jei_$jeiVersion"
+  implementation "team.chisel.ctm:CTM:$ctmVersion"
+  implementation "mcp.mobius.waila:Hwyla:$hwylaVersion"
+  implementation "mezz.jei:jei_$jeiVersion"
 }
 
 processResources {
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info', 'pack.mcmeta'
-        expand 'version': modVersion
-    }
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info', 'pack.mcmeta'
-    }
+  from(sourceSets.main.resources.srcDirs) {
+    include 'mcmod.info', 'pack.mcmeta', 'version.properties'
+    expand version: project.version
+  }
+
+  from(sourceSets.main.resources.srcDirs) {
+    exclude 'mcmod.info', 'pack.mcmeta', 'version.properties'
+  }
 }

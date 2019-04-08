@@ -1,11 +1,6 @@
 {
   "forge_marker": 1,
   "variants": {
-    "color=black": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=black,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=black,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=black,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -38,11 +33,6 @@
     "color=black,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=black,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=black,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=red": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=red,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=red,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=red,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -75,11 +65,6 @@
     "color=red,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=red,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=red,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=green": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=green,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=green,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=green,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -112,11 +97,6 @@
     "color=green,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=green,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=green,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=brown": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=brown,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=brown,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=brown,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -149,11 +129,6 @@
     "color=brown,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=brown,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=brown,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=blue": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=blue,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=blue,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=blue,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -186,11 +161,6 @@
     "color=blue,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=blue,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=blue,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=purple": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=purple,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=purple,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=purple,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -223,11 +193,6 @@
     "color=purple,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=purple,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=purple,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=cyan": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=cyan,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=cyan,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=cyan,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -260,11 +225,6 @@
     "color=cyan,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=cyan,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=cyan,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=light_gray": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=light_gray,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=light_gray,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=light_gray,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -297,11 +257,6 @@
     "color=light_gray,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=light_gray,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=light_gray,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=gray": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=gray,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=gray,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=gray,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -334,11 +289,6 @@
     "color=gray,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=gray,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=gray,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=pink": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=pink,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=pink,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=pink,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -371,11 +321,6 @@
     "color=pink,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=pink,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=pink,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=lime": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=lime,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=lime,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=lime,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -408,11 +353,6 @@
     "color=lime,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=lime,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=lime,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=yellow": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=yellow,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=yellow,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=yellow,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -445,11 +385,6 @@
     "color=yellow,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=yellow,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=yellow,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=light_blue": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=light_blue,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=light_blue,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=light_blue,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -482,11 +417,6 @@
     "color=light_blue,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=light_blue,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=light_blue,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=magenta": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=magenta,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=magenta,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=magenta,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -519,11 +449,6 @@
     "color=magenta,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=magenta,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=magenta,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=orange": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=orange,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=orange,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=orange,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
@@ -556,11 +481,6 @@
     "color=orange,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
     "color=orange,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
     "color=orange,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=white": {
-      "transform": "forge:default-item",
-      "model": "minecraft:builtin/generated",
-      "textures": { "layer0": "minecraft:blocks/vine" }
-    },
     "color=white,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=white,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=white,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
