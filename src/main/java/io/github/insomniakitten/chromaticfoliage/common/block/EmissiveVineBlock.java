@@ -1,6 +1,6 @@
 package io.github.insomniakitten.chromaticfoliage.common.block;
 
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,7 @@ public class EmissiveVineBlock extends ChromaticVineBlock {
     if (!stack.isEmpty()) return false;
     if (!player.canPlayerEdit(pos, facing, stack)) return false;
     final IBlockState actualState = state.getActualState(world, pos);
-    IBlockState vine = CFBlocks.chromaticVine().getDefaultState();
+    IBlockState vine = ChromaticBlocks.chromaticVine().getDefaultState();
     for (final Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
       //noinspection unchecked,RedundantCast
       vine = vine.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());

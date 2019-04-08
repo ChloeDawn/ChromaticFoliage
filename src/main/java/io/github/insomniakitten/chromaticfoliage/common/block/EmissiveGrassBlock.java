@@ -1,6 +1,6 @@
 package io.github.insomniakitten.chromaticfoliage.common.block;
 
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +29,7 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
     final ItemStack stack = player.getHeldItem(hand);
     if (world.isRemote) return stack.isEmpty();
     if (!stack.isEmpty() || !player.canPlayerEdit(pos, facing, stack)) return false;
-    final IBlockState grass = CFBlocks.chromaticGrass().getDefaultState();
+    final IBlockState grass = ChromaticBlocks.chromaticGrass().getDefaultState();
     if (world.setBlockState(pos, grass.withProperty(COLOR, state.getValue(COLOR)), 3)) {
       world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
       final ItemStack glowstone = new ItemStack(Items.GLOWSTONE_DUST);

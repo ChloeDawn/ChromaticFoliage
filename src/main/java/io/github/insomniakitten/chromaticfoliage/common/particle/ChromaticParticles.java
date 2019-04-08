@@ -9,10 +9,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public final class CFParticles {
+public final class ChromaticParticles {
   private static final ParticleManager PARTICLE_MANAGER = Minecraft.getMinecraft().effectRenderer;
 
-  private CFParticles() {
+  private ChromaticParticles() {
     throw new UnsupportedOperationException();
   }
 

@@ -2,8 +2,8 @@ package io.github.insomniakitten.chromaticfoliage.common.block;
 
 import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFItems;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockNewLeaf;
@@ -80,7 +80,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements ChromaticBlock 
     if (stack.isEmpty()) return false;
     if (ChromaticFoliage.getGeneralConfig().isInWorldIlluminationEnabled() && Items.GLOWSTONE_DUST == stack.getItem()) {
       if (world.isRemote) return true;
-      final IBlockState leaves = CFBlocks.emissiveLeaves(foliageType).getDefaultState();
+      final IBlockState leaves = ChromaticBlocks.emissiveLeaves(foliageType).getDefaultState();
       if (!world.setBlockState(pos, leaves.withProperty(COLOR, state.getValue(COLOR)), 3)) return false;
       world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
       if (!player.capabilities.isCreativeMode) {
@@ -104,7 +104,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements ChromaticBlock 
 
   @Override
   protected ItemStack getSilkTouchDrop(final IBlockState state) {
-    return new ItemStack(CFItems.chromaticLeaves(foliageType), 1, state.getValue(COLOR).ordinal());
+    return new ItemStack(ChromaticItems.chromaticLeaves(foliageType), 1, state.getValue(COLOR).ordinal());
   }
 
   @Override

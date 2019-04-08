@@ -26,7 +26,7 @@ import static io.github.insomniakitten.chromaticfoliage.common.base.ObjectHolder
 
 @ObjectHolder(ChromaticFoliage.MOD_ID)
 @EventBusSubscriber(modid = ChromaticFoliage.MOD_ID)
-public final class CFBlocks {
+public final class ChromaticBlocks {
   static final String CHROMATIC_GRASS = "chromatic_grass";
   static final String EMISSIVE_GRASS = "emissive_grass";
   static final String CHROMATIC_OAK_LEAVES = "chromatic_oak_leaves";
@@ -111,7 +111,7 @@ public final class CFBlocks {
   @ObjectHolder(EMISSIVE_VINE)
   private static EmissiveVineBlock emissiveVine;
 
-  private CFBlocks() {
+  private ChromaticBlocks() {
     throw new UnsupportedOperationException();
   }
 
@@ -181,24 +181,24 @@ public final class CFBlocks {
 
   public static ChromaticLeavesBlock chromaticLeaves(final EnumType type) {
     switch (type) {
-      case OAK: return CFBlocks.chromaticOakLeaves();
-      case SPRUCE: return CFBlocks.chromaticSpruceLeaves();
-      case BIRCH: return CFBlocks.chromaticBirchLeaves();
-      case JUNGLE: return CFBlocks.chromaticJungleLeaves();
-      case ACACIA: return CFBlocks.chromaticAcaciaLeaves();
-      case DARK_OAK: return CFBlocks.chromaticDarkOakLeaves();
+      case OAK: return ChromaticBlocks.chromaticOakLeaves();
+      case SPRUCE: return ChromaticBlocks.chromaticSpruceLeaves();
+      case BIRCH: return ChromaticBlocks.chromaticBirchLeaves();
+      case JUNGLE: return ChromaticBlocks.chromaticJungleLeaves();
+      case ACACIA: return ChromaticBlocks.chromaticAcaciaLeaves();
+      case DARK_OAK: return ChromaticBlocks.chromaticDarkOakLeaves();
       default: throw new Error(String.valueOf(type));
     }
   }
 
   public static EmissiveLeavesBlock emissiveLeaves(final EnumType type) {
     switch (type) {
-      case OAK: return CFBlocks.emissiveOakLeaves();
-      case SPRUCE: return CFBlocks.emissiveSpruceLeaves();
-      case BIRCH: return CFBlocks.emissiveBirchLeaves();
-      case JUNGLE: return CFBlocks.emissiveJungleLeaves();
-      case ACACIA: return CFBlocks.emissiveAcaciaLeaves();
-      case DARK_OAK: return CFBlocks.emissiveDarkOakLeaves();
+      case OAK: return ChromaticBlocks.emissiveOakLeaves();
+      case SPRUCE: return ChromaticBlocks.emissiveSpruceLeaves();
+      case BIRCH: return ChromaticBlocks.emissiveBirchLeaves();
+      case JUNGLE: return ChromaticBlocks.emissiveJungleLeaves();
+      case ACACIA: return ChromaticBlocks.emissiveAcaciaLeaves();
+      case DARK_OAK: return ChromaticBlocks.emissiveDarkOakLeaves();
       default: throw new Error(String.valueOf(type));
     }
   }

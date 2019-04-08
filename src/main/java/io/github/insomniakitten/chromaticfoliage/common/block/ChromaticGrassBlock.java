@@ -2,9 +2,9 @@ package io.github.insomniakitten.chromaticfoliage.common.block;
 
 import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFItems;
-import io.github.insomniakitten.chromaticfoliage.common.particle.CFParticles;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticItems;
+import io.github.insomniakitten.chromaticfoliage.common.particle.ChromaticParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDirt.DirtType;
@@ -76,7 +76,7 @@ public class ChromaticGrassBlock extends BlockGrass implements ChromaticBlock {
     if (stack.isEmpty()) return false;
     if (ChromaticFoliage.getGeneralConfig().isInWorldIlluminationEnabled() && Items.GLOWSTONE_DUST == stack.getItem()) {
       if (world.isRemote) return true;
-      final IBlockState grass = CFBlocks.emissiveGrass().getDefaultState();
+      final IBlockState grass = ChromaticBlocks.emissiveGrass().getDefaultState();
       if (!world.setBlockState(pos, grass.withProperty(COLOR, state.getValue(COLOR)), 3)) return false;
       world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
       if (!player.capabilities.isCreativeMode) {
@@ -100,7 +100,7 @@ public class ChromaticGrassBlock extends BlockGrass implements ChromaticBlock {
 
   @Override
   protected ItemStack getSilkTouchDrop(final IBlockState state) {
-    return new ItemStack(CFItems.chromaticGrass(), 1, state.getValue(COLOR).ordinal());
+    return new ItemStack(ChromaticItems.chromaticGrass(), 1, state.getValue(COLOR).ordinal());
   }
 
   @Override
@@ -169,7 +169,7 @@ public class ChromaticGrassBlock extends BlockGrass implements ChromaticBlock {
         x = (double) pos.getX() + box.maxX + 0.1;
         break;
     }
-    CFParticles.postHitParticle(target, world, pos, x, y, z);
+    ChromaticParticles.postHitParticle(target, world, pos, x, y, z);
     return true;
   }
 
@@ -183,7 +183,7 @@ public class ChromaticGrassBlock extends BlockGrass implements ChromaticBlock {
           final double vX = (x + 0.5) / 4.0;
           final double vY = (y + 0.5) / 4.0;
           final double vZ = (z + 0.5) / 4.0;
-          CFParticles.postBreakParticle(state, world, pos, vX, vY, vZ);
+          ChromaticParticles.postBreakParticle(state, world, pos, vX, vY, vZ);
         }
       }
     }

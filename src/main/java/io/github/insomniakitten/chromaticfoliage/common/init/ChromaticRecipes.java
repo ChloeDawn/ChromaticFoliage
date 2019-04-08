@@ -33,13 +33,13 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
 @ObjectHolder(ChromaticFoliage.MOD_ID)
 @EventBusSubscriber(modid = ChromaticFoliage.MOD_ID)
-final class CFRecipes {
+final class ChromaticRecipes {
   private static final Logger LOGGER = ChromaticFoliage.getLogger("Recipes");
 
   private static final Converter<String, String> TO_ORE_SUFFIX =
     CaseFormat.LOWER_UNDERSCORE.converterTo(CaseFormat.UPPER_CAMEL);
 
-  private CFRecipes() {
+  private ChromaticRecipes() {
     throw new UnsupportedOperationException();
   }
 
@@ -59,33 +59,33 @@ final class CFRecipes {
     registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
     registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
 
-    registerOreNames(CFItems.chromaticGrass(), "grass");
-    registerOreNames(CFItems.chromaticOakLeaves(), "treeLeaves", "treeLeavesOak");
-    registerOreNames(CFItems.chromaticSpruceLeaves(), "treeLeaves", "treeLeavesSpruce");
-    registerOreNames(CFItems.chromaticBirchLeaves(), "treeLeaves", "treeLeavesBirch");
-    registerOreNames(CFItems.chromaticJungleLeaves(), "treeLeaves", "treeLeavesJungle");
-    registerOreNames(CFItems.chromaticAcaciaLeaves(), "treeLeaves", "treeLeavesAcacia");
-    registerOreNames(CFItems.chromaticDarkOakLeaves(), "treeLeaves", "treeLeavesDarkOak");
-    registerOreNames(CFItems.chromaticVine(), "vine");
+    registerOreNames(ChromaticItems.chromaticGrass(), "grass");
+    registerOreNames(ChromaticItems.chromaticOakLeaves(), "treeLeaves", "treeLeavesOak");
+    registerOreNames(ChromaticItems.chromaticSpruceLeaves(), "treeLeaves", "treeLeavesSpruce");
+    registerOreNames(ChromaticItems.chromaticBirchLeaves(), "treeLeaves", "treeLeavesBirch");
+    registerOreNames(ChromaticItems.chromaticJungleLeaves(), "treeLeaves", "treeLeavesJungle");
+    registerOreNames(ChromaticItems.chromaticAcaciaLeaves(), "treeLeaves", "treeLeavesAcacia");
+    registerOreNames(ChromaticItems.chromaticDarkOakLeaves(), "treeLeaves", "treeLeavesDarkOak");
+    registerOreNames(ChromaticItems.chromaticVine(), "vine");
 
-    registerDyeRecipes(registry, CFItems.chromaticGrass(), new ItemStack(Blocks.GRASS));
-    registerDyeRecipes(registry, CFItems.chromaticOakLeaves(), new ItemStack(Blocks.LEAVES, 1, 0));
-    registerDyeRecipes(registry, CFItems.chromaticSpruceLeaves(), new ItemStack(Blocks.LEAVES, 1, 1));
-    registerDyeRecipes(registry, CFItems.chromaticBirchLeaves(), new ItemStack(Blocks.LEAVES, 1, 2));
-    registerDyeRecipes(registry, CFItems.chromaticJungleLeaves(), new ItemStack(Blocks.LEAVES, 1, 3));
-    registerDyeRecipes(registry, CFItems.chromaticAcaciaLeaves(), new ItemStack(Blocks.LEAVES2, 1, 0));
-    registerDyeRecipes(registry, CFItems.chromaticDarkOakLeaves(), new ItemStack(Blocks.LEAVES2, 1, 1));
-    registerDyeRecipes(registry, CFItems.chromaticVine(), new ItemStack(Blocks.VINE));
+    registerDyeRecipes(registry, ChromaticItems.chromaticGrass(), new ItemStack(Blocks.GRASS));
+    registerDyeRecipes(registry, ChromaticItems.chromaticOakLeaves(), new ItemStack(Blocks.LEAVES, 1, 0));
+    registerDyeRecipes(registry, ChromaticItems.chromaticSpruceLeaves(), new ItemStack(Blocks.LEAVES, 1, 1));
+    registerDyeRecipes(registry, ChromaticItems.chromaticBirchLeaves(), new ItemStack(Blocks.LEAVES, 1, 2));
+    registerDyeRecipes(registry, ChromaticItems.chromaticJungleLeaves(), new ItemStack(Blocks.LEAVES, 1, 3));
+    registerDyeRecipes(registry, ChromaticItems.chromaticAcaciaLeaves(), new ItemStack(Blocks.LEAVES2, 1, 0));
+    registerDyeRecipes(registry, ChromaticItems.chromaticDarkOakLeaves(), new ItemStack(Blocks.LEAVES2, 1, 1));
+    registerDyeRecipes(registry, ChromaticItems.chromaticVine(), new ItemStack(Blocks.VINE));
 
     if (ChromaticFoliage.getGeneralConfig().isChromaRecoloringEnabled()) {
-      registerReDyeRecipes(registry, CFItems.chromaticGrass());
-      registerReDyeRecipes(registry, CFItems.chromaticOakLeaves());
-      registerReDyeRecipes(registry, CFItems.chromaticSpruceLeaves());
-      registerReDyeRecipes(registry, CFItems.chromaticBirchLeaves());
-      registerReDyeRecipes(registry, CFItems.chromaticJungleLeaves());
-      registerReDyeRecipes(registry, CFItems.chromaticAcaciaLeaves());
-      registerReDyeRecipes(registry, CFItems.chromaticDarkOakLeaves());
-      registerReDyeRecipes(registry, CFItems.chromaticVine());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticGrass());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticOakLeaves());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticSpruceLeaves());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticBirchLeaves());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticJungleLeaves());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticAcaciaLeaves());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticDarkOakLeaves());
+      registerReDyeRecipes(registry, ChromaticItems.chromaticVine());
     }
   }
 

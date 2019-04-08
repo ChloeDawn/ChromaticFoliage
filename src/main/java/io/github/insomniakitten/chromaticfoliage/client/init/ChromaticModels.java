@@ -4,7 +4,7 @@ import io.github.insomniakitten.chromaticfoliage.client.invoke.BakedQuads;
 import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
 import io.github.insomniakitten.chromaticfoliage.common.block.ChromaticLeavesBlock;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
@@ -53,8 +53,8 @@ final class ChromaticModels {
       }
     }
     for (EnumType type : EnumType.values()) {
-      register(CFBlocks.chromaticLeaves(type));
-      register(CFBlocks.emissiveLeaves(type));
+      register(ChromaticBlocks.chromaticLeaves(type));
+      register(ChromaticBlocks.emissiveLeaves(type));
     }
     LOGGER.debug("Completed registration to '{}'", event);
   }

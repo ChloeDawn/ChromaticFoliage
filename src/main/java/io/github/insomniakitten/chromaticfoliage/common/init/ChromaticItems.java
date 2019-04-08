@@ -20,15 +20,15 @@ import static io.github.insomniakitten.chromaticfoliage.common.base.ObjectHolder
 
 @ObjectHolder(ChromaticFoliage.MOD_ID)
 @EventBusSubscriber(modid = ChromaticFoliage.MOD_ID)
-public final class CFItems {
-  static final String CHROMATIC_GRASS = CFBlocks.CHROMATIC_GRASS;
-  static final String CHROMATIC_OAK_LEAVES = CFBlocks.CHROMATIC_OAK_LEAVES;
-  static final String CHROMATIC_SPRUCE_LEAVES = CFBlocks.CHROMATIC_SPRUCE_LEAVES;
-  static final String CHROMATIC_BIRCH_LEAVES = CFBlocks.CHROMATIC_BIRCH_LEAVES;
-  static final String CHROMATIC_JUNGLE_LEAVES = CFBlocks.CHROMATIC_JUNGLE_LEAVES;
-  static final String CHROMATIC_ACACIA_LEAVES = CFBlocks.CHROMATIC_ACACIA_LEAVES;
-  static final String CHROMATIC_DARK_OAK_LEAVES = CFBlocks.CHROMATIC_DARK_OAK_LEAVES;
-  static final String CHROMATIC_VINE = CFBlocks.CHROMATIC_VINE;
+public final class ChromaticItems {
+  static final String CHROMATIC_GRASS = ChromaticBlocks.CHROMATIC_GRASS;
+  static final String CHROMATIC_OAK_LEAVES = ChromaticBlocks.CHROMATIC_OAK_LEAVES;
+  static final String CHROMATIC_SPRUCE_LEAVES = ChromaticBlocks.CHROMATIC_SPRUCE_LEAVES;
+  static final String CHROMATIC_BIRCH_LEAVES = ChromaticBlocks.CHROMATIC_BIRCH_LEAVES;
+  static final String CHROMATIC_JUNGLE_LEAVES = ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES;
+  static final String CHROMATIC_ACACIA_LEAVES = ChromaticBlocks.CHROMATIC_ACACIA_LEAVES;
+  static final String CHROMATIC_DARK_OAK_LEAVES = ChromaticBlocks.CHROMATIC_DARK_OAK_LEAVES;
+  static final String CHROMATIC_VINE = ChromaticBlocks.CHROMATIC_VINE;
 
   private static final Logger LOGGER = ChromaticFoliage.getLogger("Items");
 
@@ -64,7 +64,7 @@ public final class CFItems {
   @ObjectHolder(CHROMATIC_VINE)
   private static ChromaticBlockItem chromaticVine;
 
-  private CFItems() {
+  private ChromaticItems() {
     throw new UnsupportedOperationException();
   }
 
@@ -102,12 +102,12 @@ public final class CFItems {
 
   public static ChromaticBlockItem chromaticLeaves(final BlockPlanks.EnumType type) {
     switch (type) {
-      case OAK: return CFItems.chromaticOakLeaves();
-      case SPRUCE: return CFItems.chromaticSpruceLeaves();
-      case BIRCH: return CFItems.chromaticBirchLeaves();
-      case JUNGLE: return CFItems.chromaticJungleLeaves();
-      case ACACIA: return CFItems.chromaticAcaciaLeaves();
-      case DARK_OAK: return CFItems.chromaticDarkOakLeaves();
+      case OAK: return ChromaticItems.chromaticOakLeaves();
+      case SPRUCE: return ChromaticItems.chromaticSpruceLeaves();
+      case BIRCH: return ChromaticItems.chromaticBirchLeaves();
+      case JUNGLE: return ChromaticItems.chromaticJungleLeaves();
+      case ACACIA: return ChromaticItems.chromaticAcaciaLeaves();
+      case DARK_OAK: return ChromaticItems.chromaticDarkOakLeaves();
       default: throw new Error(String.valueOf(type));
     }
   }
@@ -121,14 +121,14 @@ public final class CFItems {
   }
 
   private static void registerAll(final IForgeRegistry<Item> registry) {
-    register(registry, CFBlocks.chromaticGrass());
-    register(registry, CFBlocks.chromaticOakLeaves());
-    register(registry, CFBlocks.chromaticSpruceLeaves());
-    register(registry, CFBlocks.chromaticBirchLeaves());
-    register(registry, CFBlocks.chromaticJungleLeaves());
-    register(registry, CFBlocks.chromaticAcaciaLeaves());
-    register(registry, CFBlocks.chromaticDarkOakLeaves());
-    register(registry, CFBlocks.chromaticVine());
+    register(registry, ChromaticBlocks.chromaticGrass());
+    register(registry, ChromaticBlocks.chromaticOakLeaves());
+    register(registry, ChromaticBlocks.chromaticSpruceLeaves());
+    register(registry, ChromaticBlocks.chromaticBirchLeaves());
+    register(registry, ChromaticBlocks.chromaticJungleLeaves());
+    register(registry, ChromaticBlocks.chromaticAcaciaLeaves());
+    register(registry, ChromaticBlocks.chromaticDarkOakLeaves());
+    register(registry, ChromaticBlocks.chromaticVine());
   }
 
   private static void register(final IForgeRegistry<Item> registry, final Block block) {

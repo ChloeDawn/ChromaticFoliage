@@ -3,8 +3,8 @@ package io.github.insomniakitten.chromaticfoliage.common.block;
 import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
 import io.github.insomniakitten.chromaticfoliage.common.block.entity.ChromaticBlockEntity;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFItems;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.SoundType;
@@ -62,7 +62,7 @@ public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
     if (ChromaticFoliage.getGeneralConfig().isInWorldIlluminationEnabled() && Items.GLOWSTONE_DUST == stack.getItem()) {
       if (world.isRemote) return true;
       final IBlockState actualState = state.getActualState(world, pos);
-      IBlockState vine = CFBlocks.emissiveVine().getDefaultState();
+      IBlockState vine = ChromaticBlocks.emissiveVine().getDefaultState();
       for (final Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
         //noinspection unchecked,RedundantCast
         vine = vine.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
@@ -90,7 +90,7 @@ public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
 
   @Override
   protected ItemStack getSilkTouchDrop(final IBlockState state) {
-    return new ItemStack(CFItems.chromaticVine(), 1, state.getValue(COLOR).ordinal());
+    return new ItemStack(ChromaticItems.chromaticVine(), 1, state.getValue(COLOR).ordinal());
   }
 
   @Override
@@ -264,7 +264,7 @@ public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
   public void harvestBlock(final World world, final EntityPlayer player, final BlockPos pos, final IBlockState state, final TileEntity tile, final ItemStack stack) {
     if (!world.isRemote && stack.getItem() == Items.SHEARS) {
       player.addStat(Objects.requireNonNull(StatList.getBlockStats(this)));
-      Block.spawnAsEntity(world, pos, new ItemStack(CFItems.chromaticVine(), 1, 0));
+      Block.spawnAsEntity(world, pos, new ItemStack(ChromaticItems.chromaticVine(), 1, 0));
     } else {
       super.harvestBlock(world, player, pos, state, tile, stack);
     }

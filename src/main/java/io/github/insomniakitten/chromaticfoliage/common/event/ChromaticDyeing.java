@@ -4,7 +4,7 @@ import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
 import io.github.insomniakitten.chromaticfoliage.common.block.ChromaticBlock;
 import io.github.insomniakitten.chromaticfoliage.common.block.entity.ChromaticBlockEntity;
-import io.github.insomniakitten.chromaticfoliage.common.init.CFBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -41,7 +41,7 @@ final class ChromaticDyeing {
         return;
       }
       ChromaticColor.byDyeColor(event.getItemStack()).ifPresent((final ChromaticColor color) -> {
-        final IBlockState grass = CFBlocks.chromaticGrass().getDefaultState();
+        final IBlockState grass = ChromaticBlocks.chromaticGrass().getDefaultState();
         if (world.setBlockState(pos, grass.withProperty(ChromaticBlock.COLOR, color), 3)) {
           world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
           if (!player.isCreative()) {
@@ -58,7 +58,7 @@ final class ChromaticDyeing {
       ChromaticColor.byDyeColor(event.getItemStack()).ifPresent((final ChromaticColor color) -> {
         final BlockLeaves block = (BlockLeaves) state.getBlock();
         final int meta = block.getMetaFromState(state);
-        final IBlockState leaves = CFBlocks.chromaticLeaves(block.getWoodType(meta)).getDefaultState();
+        final IBlockState leaves = ChromaticBlocks.chromaticLeaves(block.getWoodType(meta)).getDefaultState();
         if (world.setBlockState(pos, leaves.withProperty(ChromaticBlock.COLOR, color), 3)) {
           world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
           if (!player.capabilities.isCreativeMode) event.getItemStack().shrink(1);
@@ -72,7 +72,7 @@ final class ChromaticDyeing {
       }
       ChromaticColor.byDyeColor(event.getItemStack()).ifPresent(color -> {
         final IBlockState actualState = state.getActualState(world, pos);
-        IBlockState chroma = CFBlocks.chromaticVine().getDefaultState();
+        IBlockState chroma = ChromaticBlocks.chromaticVine().getDefaultState();
         for (final Entry<IProperty<?>, Comparable<?>> entry : actualState.getProperties().entrySet()) {
           //noinspection unchecked,RedundantCast
           chroma = chroma.withProperty((IProperty) entry.getKey(), (Comparable) entry.getValue());
