@@ -22,12 +22,12 @@ import static io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage.
 
 @SuppressWarnings("PublicField")
 @EventBusSubscriber(modid = MOD_ID)
-final class CFConfig {
+final class ChromaticConfig {
   static final ClientConfig CLIENT = new ClientConfigImpl();
   static final FeaturesConfig FEATURES = new FeaturesConfigImpl();
   static final GeneralConfig GENERAL = new GeneralConfigImpl();
 
-  private CFConfig() {
+  private ChromaticConfig() {
     throw new UnsupportedOperationException();
   }
 

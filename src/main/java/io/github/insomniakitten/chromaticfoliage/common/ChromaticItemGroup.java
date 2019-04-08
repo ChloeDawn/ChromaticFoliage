@@ -14,8 +14,8 @@ import javax.annotation.Nullable;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage.MOD_ID;
 
-final class CFItemGroup extends CreativeTabs {
-  static final CFItemGroup INSTANCE = new CFItemGroup();
+final class ChromaticItemGroup extends CreativeTabs {
+  static final ChromaticItemGroup INSTANCE = new ChromaticItemGroup();
 
   @Nullable
   @ObjectHolder(MOD_ID + ":chromatic_grass")
@@ -24,7 +24,7 @@ final class CFItemGroup extends CreativeTabs {
   private ItemStack icon = ItemStack.EMPTY;
   private long lastTick;
 
-  private CFItemGroup() {
+  private ChromaticItemGroup() {
     super(MOD_ID);
   }
 

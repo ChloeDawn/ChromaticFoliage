@@ -31,19 +31,19 @@ public final class ChromaticFoliage {
   }
 
   public static CreativeTabs getItemGroup() {
-    return CFItemGroup.INSTANCE;
+    return ChromaticItemGroup.INSTANCE;
   }
 
   public static ClientConfig getClientConfig() {
-    return CFConfig.CLIENT;
+    return ChromaticConfig.CLIENT;
   }
 
   public static FeaturesConfig getFeaturesConfig() {
-    return CFConfig.FEATURES;
+    return ChromaticConfig.FEATURES;
   }
 
   public static GeneralConfig getGeneralConfig() {
-    return CFConfig.GENERAL;
+    return ChromaticConfig.GENERAL;
   }
 
   public static Logger getLogger(final String topic) {
