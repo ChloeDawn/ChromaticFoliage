@@ -52,15 +52,6 @@ final class CFRecipes {
   }
 
   private static void registerAll(final IForgeRegistry<IRecipe> registry) {
-    final Item grass = ChromaticFoliage.getItem(CFItems.CHROMATIC_GRASS);
-    final Item oakLeaves = ChromaticFoliage.getItem(CFItems.CHROMATIC_OAK_LEAVES);
-    final Item spruceLeaves = ChromaticFoliage.getItem(CFItems.CHROMATIC_SPRUCE_LEAVES);
-    final Item birchLeaves = ChromaticFoliage.getItem(CFItems.CHROMATIC_BIRCH_LEAVES);
-    final Item jungleLeaves = ChromaticFoliage.getItem(CFItems.CHROMATIC_JUNGLE_LEAVES);
-    final Item acaciaLeaves = ChromaticFoliage.getItem(CFItems.CHROMATIC_ACACIA_LEAVES);
-    final Item darkOakLeaves = ChromaticFoliage.getItem(CFItems.CHROMATIC_DARK_OAK_LEAVES);
-    final Item vine = ChromaticFoliage.getItem(CFItems.CHROMATIC_VINE);
-
     registerOre("treeLeavesOak", new ItemStack(Blocks.LEAVES, 1, 0));
     registerOre("treeLeavesSpruce", new ItemStack(Blocks.LEAVES, 1, 1));
     registerOre("treeLeavesBirch", new ItemStack(Blocks.LEAVES, 1, 2));
@@ -68,33 +59,33 @@ final class CFRecipes {
     registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
     registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
 
-    registerOreNames(grass, "grass");
-    registerOreNames(oakLeaves, "treeLeaves", "treeLeavesOak");
-    registerOreNames(spruceLeaves, "treeLeaves", "treeLeavesSpruce");
-    registerOreNames(birchLeaves, "treeLeaves", "treeLeavesBirch");
-    registerOreNames(jungleLeaves, "treeLeaves", "treeLeavesJungle");
-    registerOreNames(acaciaLeaves, "treeLeaves", "treeLeavesAcacia");
-    registerOreNames(darkOakLeaves, "treeLeaves", "treeLeavesDarkOak");
-    registerOreNames(vine, "vine");
+    registerOreNames(CFItems.chromaticGrass(), "grass");
+    registerOreNames(CFItems.chromaticOakLeaves(), "treeLeaves", "treeLeavesOak");
+    registerOreNames(CFItems.chromaticSpruceLeaves(), "treeLeaves", "treeLeavesSpruce");
+    registerOreNames(CFItems.chromaticBirchLeaves(), "treeLeaves", "treeLeavesBirch");
+    registerOreNames(CFItems.chromaticJungleLeaves(), "treeLeaves", "treeLeavesJungle");
+    registerOreNames(CFItems.chromaticAcaciaLeaves(), "treeLeaves", "treeLeavesAcacia");
+    registerOreNames(CFItems.chromaticDarkOakLeaves(), "treeLeaves", "treeLeavesDarkOak");
+    registerOreNames(CFItems.chromaticVine(), "vine");
 
-    registerDyeRecipes(registry, grass, new ItemStack(Blocks.GRASS));
-    registerDyeRecipes(registry, oakLeaves, new ItemStack(Blocks.LEAVES, 1, 0));
-    registerDyeRecipes(registry, spruceLeaves, new ItemStack(Blocks.LEAVES, 1, 1));
-    registerDyeRecipes(registry, birchLeaves, new ItemStack(Blocks.LEAVES, 1, 2));
-    registerDyeRecipes(registry, jungleLeaves, new ItemStack(Blocks.LEAVES, 1, 3));
-    registerDyeRecipes(registry, acaciaLeaves, new ItemStack(Blocks.LEAVES2, 1, 0));
-    registerDyeRecipes(registry, darkOakLeaves, new ItemStack(Blocks.LEAVES2, 1, 1));
-    registerDyeRecipes(registry, vine, new ItemStack(Blocks.VINE));
+    registerDyeRecipes(registry, CFItems.chromaticGrass(), new ItemStack(Blocks.GRASS));
+    registerDyeRecipes(registry, CFItems.chromaticOakLeaves(), new ItemStack(Blocks.LEAVES, 1, 0));
+    registerDyeRecipes(registry, CFItems.chromaticSpruceLeaves(), new ItemStack(Blocks.LEAVES, 1, 1));
+    registerDyeRecipes(registry, CFItems.chromaticBirchLeaves(), new ItemStack(Blocks.LEAVES, 1, 2));
+    registerDyeRecipes(registry, CFItems.chromaticJungleLeaves(), new ItemStack(Blocks.LEAVES, 1, 3));
+    registerDyeRecipes(registry, CFItems.chromaticAcaciaLeaves(), new ItemStack(Blocks.LEAVES2, 1, 0));
+    registerDyeRecipes(registry, CFItems.chromaticDarkOakLeaves(), new ItemStack(Blocks.LEAVES2, 1, 1));
+    registerDyeRecipes(registry, CFItems.chromaticVine(), new ItemStack(Blocks.VINE));
 
     if (ChromaticFoliage.getGeneralConfig().isChromaRecoloringEnabled()) {
-      registerReDyeRecipes(registry, grass);
-      registerReDyeRecipes(registry, oakLeaves);
-      registerReDyeRecipes(registry, spruceLeaves);
-      registerReDyeRecipes(registry, birchLeaves);
-      registerReDyeRecipes(registry, jungleLeaves);
-      registerReDyeRecipes(registry, acaciaLeaves);
-      registerReDyeRecipes(registry, darkOakLeaves);
-      registerReDyeRecipes(registry, vine);
+      registerReDyeRecipes(registry, CFItems.chromaticGrass());
+      registerReDyeRecipes(registry, CFItems.chromaticOakLeaves());
+      registerReDyeRecipes(registry, CFItems.chromaticSpruceLeaves());
+      registerReDyeRecipes(registry, CFItems.chromaticBirchLeaves());
+      registerReDyeRecipes(registry, CFItems.chromaticJungleLeaves());
+      registerReDyeRecipes(registry, CFItems.chromaticAcaciaLeaves());
+      registerReDyeRecipes(registry, CFItems.chromaticDarkOakLeaves());
+      registerReDyeRecipes(registry, CFItems.chromaticVine());
     }
   }
 

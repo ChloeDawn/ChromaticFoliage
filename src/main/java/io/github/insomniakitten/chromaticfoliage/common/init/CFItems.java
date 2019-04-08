@@ -2,6 +2,7 @@ package io.github.insomniakitten.chromaticfoliage.common.init;
 
 import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.item.ChromaticBlockItem;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
 
+import static com.google.common.base.Preconditions.checkState;
 import static io.github.insomniakitten.chromaticfoliage.common.base.ObjectHolders.checkPresent;
 
 @ObjectHolder(ChromaticFoliage.MOD_ID)
@@ -119,20 +121,23 @@ public final class CFItems {
   }
 
   private static void registerAll(final IForgeRegistry<Item> registry) {
-    register(registry, CHROMATIC_GRASS);
-    register(registry, CHROMATIC_OAK_LEAVES);
-    register(registry, CHROMATIC_SPRUCE_LEAVES);
-    register(registry, CHROMATIC_BIRCH_LEAVES);
-    register(registry, CHROMATIC_JUNGLE_LEAVES);
-    register(registry, CHROMATIC_ACACIA_LEAVES);
-    register(registry, CHROMATIC_DARK_OAK_LEAVES);
-    register(registry, CHROMATIC_VINE);
+    register(registry, CFBlocks.chromaticGrass());
+    register(registry, CFBlocks.chromaticOakLeaves());
+    register(registry, CFBlocks.chromaticSpruceLeaves());
+    register(registry, CFBlocks.chromaticBirchLeaves());
+    register(registry, CFBlocks.chromaticJungleLeaves());
+    register(registry, CFBlocks.chromaticAcaciaLeaves());
+    register(registry, CFBlocks.chromaticDarkOakLeaves());
+    register(registry, CFBlocks.chromaticVine());
   }
 
-  private static void register(final IForgeRegistry<Item> registry, final String name) {
-    final Item item = new ChromaticBlockItem(ChromaticFoliage.getBlock(name));
-    item.setRegistryName(ChromaticFoliage.namespace(name));
-    item.setTranslationKey(ChromaticFoliage.namespace(name, '.'));
+  private static void register(final IForgeRegistry<Item> registry, final Block block) {
+    @Nullable final ResourceLocation name = block.getRegistryName();
+    checkState(name != null, "Expected registry name for block %s", block);
+    final Item item = new ChromaticBlockItem(block);
+    final String path = name.getPath();
+    item.setRegistryName(ChromaticFoliage.namespace(path));
+    item.setTranslationKey(ChromaticFoliage.namespace(path, '.'));
     LOGGER.debug("| Registering {} as '{}'", item, name);
     registry.register(item);
   }
