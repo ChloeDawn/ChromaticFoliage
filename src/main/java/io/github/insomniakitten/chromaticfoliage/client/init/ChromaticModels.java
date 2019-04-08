@@ -63,7 +63,7 @@ final class ChromaticModels {
   static void processBakedModels(final ModelBakeEvent event) {
     if (ChromaticFoliage.getClientConfig().getBlockConfig().isSnowLayerTintingEnabled()) {
       final Block block = Blocks.SNOW_LAYER;
-      LOGGER.debug("Beginning tint index overriding for {}", block);
+      LOGGER.debug("Beginning tint index overriding for snow layer block {}", block);
       @Nullable final ResourceLocation path = block.getRegistryName();
       checkState(path != null, "Expected registry name for block %s", block);
       for (final int value : BlockSnow.LAYERS.getAllowedValues()) {
@@ -82,7 +82,7 @@ final class ChromaticModels {
           }
         }
       }
-      LOGGER.debug("Completed tint index overriding for {}", block);
+      LOGGER.debug("Completed tint index overriding for snow layer block {}", block);
     }
   }
 
@@ -92,13 +92,13 @@ final class ChromaticModels {
     checkArgument(isNamespaced(path), "Unrecognized namespace in '%s'", path);
     for (final ChromaticColor color : ChromaticColor.colors()) {
       final ModelResourceLocation model = new ModelResourceLocation(path + "_" + color.getName(), "inventory");
-      LOGGER.debug("| Binding model {} with data value {} to item {}", model, color.ordinal(), item);
+      LOGGER.debug("| Binding model {} with data value {} to item '{}'", model, color.ordinal(), item.getRegistryName());
       ModelLoader.setCustomModelResourceLocation(item, color.ordinal(), model);
     }
   }
 
   private static void ignoreLeafProperties(ChromaticLeavesBlock block) {
-    LOGGER.debug("| Ignoring leaf properties for {}", block);
+    LOGGER.debug("| Ignoring leaf properties for block '{}'", block.getRegistryName());
     ModelLoader.setCustomStateMapper(block, new StateMap.Builder()
       .ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE)
       .build());
