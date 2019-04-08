@@ -1,5 +1,4 @@
 {
-  "forge_marker": 1,
   "variants": {
     "color=black,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
     "color=black,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
