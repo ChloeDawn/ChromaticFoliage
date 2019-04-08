@@ -65,7 +65,7 @@ final class ChromaticModels {
       final Block block = Blocks.SNOW_LAYER;
       LOGGER.debug("Beginning tint index overriding for {}", block);
       @Nullable final ResourceLocation path = block.getRegistryName();
-      checkState(path != null, "Expected registry name for item %s", block);
+      checkState(path != null, "Expected registry name for block %s", block);
       for (final int value : BlockSnow.LAYERS.getAllowedValues()) {
         final IBlockState state = block.getDefaultState().withProperty(BlockSnow.LAYERS, value);
         final String variant = BlockSnow.LAYERS.getName() + "=" + BlockSnow.LAYERS.getName(value);
