@@ -136,12 +136,7 @@ final class ChromaticRecipes {
   }
 
   private static void registerRecipe(final IForgeRegistry<IRecipe> registry, IRecipe recipe) {
-    LOGGER.debug("Registering {} as '{}'", recipe, recipe.getRegistryName());
+    LOGGER.debug("| Registering {} as '{}'", recipe, recipe.getRegistryName());
     registry.register(recipe);
-  }
-
-  private static Item item(@Nullable final Item item, final String name) {
-    checkState(item != null, "ObjectHolder not injected for '%s'", name);
-    return item;
   }
 }
