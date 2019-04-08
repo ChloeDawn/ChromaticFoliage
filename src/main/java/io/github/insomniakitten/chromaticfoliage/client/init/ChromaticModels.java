@@ -52,7 +52,7 @@ final class ChromaticModels {
         bindModel(item);
       }
     }
-    for (EnumType type : EnumType.values()) {
+    for (final EnumType type : EnumType.values()) {
       ignoreLeafProperties(ChromaticBlocks.chromaticLeaves(type));
       ignoreLeafProperties(ChromaticBlocks.emissiveLeaves(type));
     }
@@ -97,7 +97,7 @@ final class ChromaticModels {
     }
   }
 
-  private static void ignoreLeafProperties(ChromaticLeavesBlock block) {
+  private static void ignoreLeafProperties(final ChromaticLeavesBlock block) {
     LOGGER.debug("| Ignoring leaf properties for block '{}'", block.getRegistryName());
     ModelLoader.setCustomStateMapper(block, new StateMap.Builder()
       .ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE)
