@@ -240,7 +240,7 @@ public final class ChromaticBlocks {
   }
 
   private static void register(final String key, final Class<? extends TileEntity> type) {
-    LOGGER.debug("| Registering {} as '{}'", type, key);
+    LOGGER.debug("| Registering {} as '{}'", type.getSimpleName(), key);
     GameRegistry.registerTileEntity(type, ChromaticFoliage.namespace(key));
   }
 }
