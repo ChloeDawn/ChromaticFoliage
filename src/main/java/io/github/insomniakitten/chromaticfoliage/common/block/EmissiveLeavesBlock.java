@@ -1,5 +1,6 @@
 package io.github.insomniakitten.chromaticfoliage.common.block;
 
+import com.google.common.collect.Lists;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks.EnumType;
@@ -13,9 +14,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   public EmissiveLeavesBlock(final EnumType type) {
@@ -49,5 +52,10 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   @Override
   public String toString() {
     return "EmissiveLeavesBlock(" + foliageType + ')';
+  }
+
+  @Override
+  public List<ItemStack> onSheared(final ItemStack stack, final IBlockAccess access, final BlockPos pos, final int fortune) {
+    return Lists.newArrayList(getSilkTouchDrop(access.getBlockState(pos)), new ItemStack(Items.GLOWSTONE_DUST));
   }
 }
