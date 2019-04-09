@@ -109,7 +109,9 @@ public class ChromaticLeavesBlock extends BlockLeaves implements ChromaticBlock 
 
   @Override
   public void getSubBlocks(final CreativeTabs group, final NonNullList<ItemStack> items) {
-
+    for (final ChromaticColor color : ChromaticColor.colors()) {
+      items.add(new ItemStack(this, 1, color.ordinal()));
+    }
   }
 
   @Override

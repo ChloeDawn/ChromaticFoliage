@@ -4,12 +4,14 @@ import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -39,6 +41,11 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
       return true;
     }
     return false;
+  }
+
+  @Override
+  public void getSubBlocks(final CreativeTabs group, final NonNullList<ItemStack> items) {
+
   }
 
   @Override

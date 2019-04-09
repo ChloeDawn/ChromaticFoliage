@@ -102,8 +102,10 @@ public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
   }
 
   @Override
-  public void getSubBlocks(final CreativeTabs tab, final NonNullList<ItemStack> items) {
-
+  public void getSubBlocks(final CreativeTabs group, final NonNullList<ItemStack> items) {
+    for (final ChromaticColor color : ChromaticColor.colors()) {
+      items.add(new ItemStack(this, 1, color.ordinal()));
+    }
   }
 
   @Override
