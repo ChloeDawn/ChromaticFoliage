@@ -1,11 +1,11 @@
 package io.github.insomniakitten.chromaticfoliage.common.block;
 
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticSounds;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -31,7 +31,7 @@ public class EmissiveVineBlock extends ChromaticVineBlock {
       vine = vine.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
     }
     if (!world.setBlockState(pos, vine, 3)) return false;
-    world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+    world.playSound(null, pos, ChromaticSounds.blockDarkened(), SoundCategory.BLOCKS, 1.0F, 0.8F);
     final ItemStack glowstone = new ItemStack(Items.GLOWSTONE_DUST);
     if (!player.inventory.addItemStackToInventory(glowstone)) {
       spawnAsEntity(world, pos, glowstone);

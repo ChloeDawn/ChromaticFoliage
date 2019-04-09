@@ -1,0 +1,32 @@
+{
+  "block.dyed": {
+    "category": "blocks",
+    "subtitle": "subtitles.chromaticfoliage.block.dyed",
+    "sounds": [
+      "minecraft:dig/sand1",
+      "minecraft:dig/sand2",
+      "minecraft:dig/sand3",
+      "minecraft:dig/sand4"
+    ]
+  },
+  "block.illuminated": {
+    "category": "blocks",
+    "subtitle": "subtitles.chromaticfoliage.block.illuminated",
+    "sounds": [
+      "minecraft:dig/sand1",
+      "minecraft:dig/sand2",
+      "minecraft:dig/sand3",
+      "minecraft:dig/sand4"
+    ]
+  },
+  "block.darkened": {
+    "category": "blocks",
+    "subtitle": "subtitles.chromaticfoliage.block.darkened",
+    "sounds": [
+      "minecraft:dig/sand1",
+      "minecraft:dig/sand2",
+      "minecraft:dig/sand3",
+      "minecraft:dig/sand4"
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticItems;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockNewLeaf;
@@ -19,7 +20,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -82,7 +82,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements ChromaticBlock 
       if (world.isRemote) return true;
       final IBlockState leaves = ChromaticBlocks.emissiveLeaves(foliageType).getDefaultState();
       if (!world.setBlockState(pos, leaves.withProperty(COLOR, state.getValue(COLOR)), 3)) return false;
-      world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      world.playSound(null, pos, ChromaticSounds.blockIlluminated(), SoundCategory.BLOCKS, 1.0F, 0.8F);
       if (!player.capabilities.isCreativeMode) {
         stack.shrink(1);
       }
@@ -95,7 +95,7 @@ public class ChromaticLeavesBlock extends BlockLeaves implements ChromaticBlock 
       if (color == state.getValue(COLOR)) return false;
       if (world.isRemote) return true;
       if (!world.setBlockState(pos, state.withProperty(COLOR, color), 3)) return false;
-      world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      world.playSound(null, pos, ChromaticSounds.blockDyed(), SoundCategory.BLOCKS, 1.0F, 0.8F);
       if (!player.capabilities.isCreativeMode) stack.shrink(1);
       return true;
     }

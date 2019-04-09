@@ -5,12 +5,12 @@ import io.github.insomniakitten.chromaticfoliage.common.base.ChromaticColor;
 import io.github.insomniakitten.chromaticfoliage.common.block.ChromaticBlock;
 import io.github.insomniakitten.chromaticfoliage.common.block.entity.ChromaticBlockEntity;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticSounds;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -43,7 +43,7 @@ final class ChromaticDyeing {
       ChromaticColor.byDyeColor(event.getItemStack()).ifPresent((final ChromaticColor color) -> {
         final IBlockState grass = ChromaticBlocks.chromaticGrass().getDefaultState();
         if (world.setBlockState(pos, grass.withProperty(ChromaticBlock.COLOR, color), 3)) {
-          world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+          world.playSound(null, pos, ChromaticSounds.blockDyed(), SoundCategory.BLOCKS, 1.0F, 0.8F);
           if (!player.isCreative()) {
             event.getItemStack().shrink(1);
           }
@@ -60,7 +60,7 @@ final class ChromaticDyeing {
         final int meta = block.getMetaFromState(state);
         final IBlockState leaves = ChromaticBlocks.chromaticLeaves(block.getWoodType(meta)).getDefaultState();
         if (world.setBlockState(pos, leaves.withProperty(ChromaticBlock.COLOR, color), 3)) {
-          world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+          world.playSound(null, pos, ChromaticSounds.blockDyed(), SoundCategory.BLOCKS, 1.0F, 0.8F);
           if (!player.capabilities.isCreativeMode) event.getItemStack().shrink(1);
         }
       });
@@ -79,7 +79,7 @@ final class ChromaticDyeing {
         }
         if (world.setBlockState(pos, chroma.withProperty(ChromaticBlock.COLOR, color), 3)) {
           world.setTileEntity(pos, new ChromaticBlockEntity(color));
-          world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+          world.playSound(null, pos, ChromaticSounds.blockDyed(), SoundCategory.BLOCKS, 1.0F, 0.8F);
           if (!player.isCreative()) {
             event.getItemStack().shrink(1);
           }

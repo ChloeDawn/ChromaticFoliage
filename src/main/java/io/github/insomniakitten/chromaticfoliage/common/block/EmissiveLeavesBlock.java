@@ -2,12 +2,12 @@ package io.github.insomniakitten.chromaticfoliage.common.block;
 
 import com.google.common.collect.Lists;
 import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticBlocks;
+import io.github.insomniakitten.chromaticfoliage.common.init.ChromaticSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -39,7 +39,7 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
     if (!stack.isEmpty() || !player.canPlayerEdit(pos, facing, stack)) return false;
     final IBlockState leaves = ChromaticBlocks.chromaticLeaves(foliageType).getDefaultState();
     if (world.setBlockState(pos, leaves.withProperty(COLOR, state.getValue(COLOR)), 3)) {
-      world.playSound(null, pos, SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      world.playSound(null, pos, ChromaticSounds.blockDarkened(), SoundCategory.BLOCKS, 1.0F, 0.8F);
       final ItemStack glowstone = new ItemStack(Items.GLOWSTONE_DUST);
       if (!player.inventory.addItemStackToInventory(glowstone)) {
         Block.spawnAsEntity(world, pos, glowstone);

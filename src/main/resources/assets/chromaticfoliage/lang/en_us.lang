@@ -27,3 +27,7 @@ color.chromaticfoliage.white=White
 color.chromaticfoliage.yellow=Yellow
 
 tooltip.chromaticfoliage.emissive=Illuminated
+
+subtitles.chromaticfoliage.block.dyed=Block dyed
+subtitles.chromaticfoliage.block.illuminated=Block illuminated
+subtitles.chromaticfoliage.block.darkened=Block darkened
