@@ -21,6 +21,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
@@ -38,6 +39,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
+
+import static com.google.common.base.Preconditions.checkState;
 
 public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
   private final boolean isReplaceable;
@@ -126,6 +129,13 @@ public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
   @Override
   public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
     return getSilkTouchDrop(state.getActualState(world, pos));
+  }
+
+  @Override
+  public boolean recolorBlock(final World world, final BlockPos pos, final EnumFacing side, final EnumDyeColor color) {
+    final IBlockState state = world.getBlockState(pos);
+    checkState(state.getBlock() == this, "Unexpected block %s at %s", state, pos);
+    return world.setBlockState(pos, state.withProperty(COLOR, ChromaticColor.byDyeColor(color)));
   }
 
   @Override
