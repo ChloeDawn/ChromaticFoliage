@@ -142,10 +142,8 @@ public class ChromaticVineBlock extends BlockVine implements ChromaticBlock {
   public IBlockState getActualState(final IBlockState state, final IBlockAccess access, final BlockPos pos) {
     final IBlockState actualState = super.getActualState(state, access, pos);
     @Nullable final TileEntity te = access.getTileEntity(pos);
-    if (te instanceof ChromaticBlockEntity) {
-      return actualState.withProperty(COLOR, ((ChromaticBlockEntity) te).getColor());
-    }
-    return actualState;
+    checkState(te instanceof ChromaticBlockEntity, "Unexpected block entity %s at %s", te, pos);
+    return actualState.withProperty(COLOR, ((ChromaticBlockEntity) te).getColor());
   }
 
   @Override
