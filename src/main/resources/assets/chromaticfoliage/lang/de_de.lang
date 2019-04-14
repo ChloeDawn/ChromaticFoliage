@@ -28,6 +28,6 @@ color.chromaticfoliage.yellow=Gelb
 
 tooltip.chromaticfoliage.emissive=Leuchtend
 
-subtitles.chromaticfoliage.block.dyed=Block dyed
-subtitles.chromaticfoliage.block.illuminated=Block illuminated
-subtitles.chromaticfoliage.block.darkened=Block darkened
+subtitles.chromaticfoliage.block.dyed=Block eingefärbt
+subtitles.chromaticfoliage.block.illuminated=Block beleuchtet
+subtitles.chromaticfoliage.block.darkened=Block erloschen
