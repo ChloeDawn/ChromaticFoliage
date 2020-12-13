@@ -8,6 +8,7 @@ import com.google.common.collect.Sets;
 import io.github.insomniakitten.chromaticfoliage.common.ChromaticFoliage;
 import io.github.insomniakitten.chromaticfoliage.common.config.ClientConfig;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
@@ -81,7 +82,7 @@ public enum ChromaticColor implements IStringSerializable {
   }
 
   public static Optional<ChromaticColor> byDyeColor(final ItemStack stack) {
-    if (stack.isEmpty()) {
+    if (stack.isEmpty() || isBoneMeal(stack)) {
       return Optional.empty();
     }
 
@@ -94,6 +95,10 @@ public enum ChromaticColor implements IStringSerializable {
 
   private static ClientConfig.ColorConfig config() {
     return ChromaticFoliage.getClientConfig().getColorsConfig();
+  }
+
+  private static boolean isBoneMeal(final ItemStack stack) {
+    return (stack.getItem() == Items.DYE) && (stack.getMetadata() == EnumDyeColor.WHITE.getMetadata());
   }
 
   public String getTranslationKey() {
