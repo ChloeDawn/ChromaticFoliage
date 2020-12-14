@@ -31,7 +31,7 @@ repositories {
 
 dependencies {
   implementation("curse.maven:hwyla-253449:2568751")
-  implementation("mezz.jei:jei_1.12.2-4.16.1.302")
+  implementation("mezz.jei:jei_1.12.2:4.16.1.302")
   implementation("org.checkerframework:checker-qual:3.8.0")
 }
 
