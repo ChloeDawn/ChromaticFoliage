@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_acacia_leaves_magenta",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves2",
+      "data": 0
+    },
+    {
+      "ore": "dyeMagenta",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_acacia_leaves",
+    "data": 13
+  }
+}

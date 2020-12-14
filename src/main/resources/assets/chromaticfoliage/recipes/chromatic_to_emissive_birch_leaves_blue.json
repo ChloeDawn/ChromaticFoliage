@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:illumination"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_birch_leaves_blue",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:chromatic_birch_leaves",
+      "data": 4
+    },
+    {
+      "ore": "dustGlowstone",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_birch_leaves",
+    "data": 4
+  }
+}

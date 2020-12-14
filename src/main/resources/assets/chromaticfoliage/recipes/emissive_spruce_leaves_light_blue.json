@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_spruce_leaves_light_blue",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves",
+      "data": 1
+    },
+    {
+      "ore": "dyeLightBlue",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_spruce_leaves",
+    "data": 12
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_dark_oak_leaves_white",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves2",
+      "data": 1
+    },
+    {
+      "ore": "dyeWhite",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_dark_oak_leaves",
+    "data": 15
+  }
+}

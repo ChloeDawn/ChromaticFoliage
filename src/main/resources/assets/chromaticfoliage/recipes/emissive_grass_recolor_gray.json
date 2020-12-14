@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:recoloring"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_grass_gray",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:emissive_grass",
+      "data": 32767
+    },
+    {
+      "ore": "dyeGray",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_grass",
+    "data": 8
+  }
+}

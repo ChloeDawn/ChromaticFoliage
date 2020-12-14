@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_acacia_leaves_pink",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves2",
+      "data": 0
+    },
+    {
+      "ore": "dyePink",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_acacia_leaves",
+    "data": 9
+  }
+}

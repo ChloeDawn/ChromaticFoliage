@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_grass_white",
+  "ingredients": [
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "ore": "dyeWhite",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_grass",
+    "data": 15
+  }
+}

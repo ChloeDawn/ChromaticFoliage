@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_grass_orange",
+  "ingredients": [
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "ore": "dyeOrange",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_grass",
+    "data": 14
+  }
+}

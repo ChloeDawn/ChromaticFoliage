@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:illumination"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_grass_red",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:chromatic_grass",
+      "data": 1
+    },
+    {
+      "ore": "dustGlowstone",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_grass",
+    "data": 1
+  }
+}

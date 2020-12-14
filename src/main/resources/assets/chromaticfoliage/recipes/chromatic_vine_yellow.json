@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_vine_yellow",
+  "ingredients": [
+    {
+      "item": "minecraft:vine"
+    },
+    {
+      "ore": "dyeYellow",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_vine",
+    "data": 11
+  }
+}

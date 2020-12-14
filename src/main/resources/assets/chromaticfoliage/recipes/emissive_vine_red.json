@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_vine_red",
+  "ingredients": [
+    {
+      "item": "minecraft:vine"
+    },
+    {
+      "ore": "dyeRed",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_vine",
+    "data": 1
+  }
+}

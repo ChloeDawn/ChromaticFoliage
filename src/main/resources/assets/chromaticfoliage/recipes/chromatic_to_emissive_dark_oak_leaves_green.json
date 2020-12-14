@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:illumination"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_dark_oak_leaves_green",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:chromatic_dark_oak_leaves",
+      "data": 2
+    },
+    {
+      "ore": "dustGlowstone",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_dark_oak_leaves",
+    "data": 2
+  }
+}

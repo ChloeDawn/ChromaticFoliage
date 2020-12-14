@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:recoloring"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_acacia_leaves_magenta",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:emissive_acacia_leaves",
+      "data": 32767
+    },
+    {
+      "ore": "dyeMagenta",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_acacia_leaves",
+    "data": 13
+  }
+}

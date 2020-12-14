@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_dark_oak_leaves_light_gray",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves2",
+      "data": 1
+    },
+    {
+      "ore": "dyeLightGray",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_dark_oak_leaves",
+    "data": 7
+  }
+}

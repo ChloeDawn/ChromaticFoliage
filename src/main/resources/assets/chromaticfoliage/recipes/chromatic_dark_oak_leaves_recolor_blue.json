@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:recoloring"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_dark_oak_leaves_blue",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:chromatic_dark_oak_leaves",
+      "data": 32767
+    },
+    {
+      "ore": "dyeBlue",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_dark_oak_leaves",
+    "data": 4
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "conditions": {
+    "recoloring": "dev.sapphic.chromaticfoliage.recipe.RecoloringRecipeCondition",
+    "illumination": "dev.sapphic.chromaticfoliage.recipe.IlluminationRecipeCondition"
+  }
+}

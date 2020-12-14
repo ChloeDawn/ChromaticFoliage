@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:illumination"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_spruce_leaves_yellow",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:chromatic_spruce_leaves",
+      "data": 11
+    },
+    {
+      "ore": "dustGlowstone",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_spruce_leaves",
+    "data": 11
+  }
+}

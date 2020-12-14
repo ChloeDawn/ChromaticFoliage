@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_birch_leaves_green",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves",
+      "data": 2
+    },
+    {
+      "ore": "dyeGreen",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_birch_leaves",
+    "data": 2
+  }
+}

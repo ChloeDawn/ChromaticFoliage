@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:illumination"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:emissive_acacia_leaves_brown",
+  "ingredients": [
+    {
+      "item": "chromaticfoliage:chromatic_acacia_leaves",
+      "data": 3
+    },
+    {
+      "ore": "dustGlowstone",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:emissive_acacia_leaves",
+    "data": 3
+  }
+}

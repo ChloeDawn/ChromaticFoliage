@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_birch_leaves_lime",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves",
+      "data": 2
+    },
+    {
+      "ore": "dyeLime",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_birch_leaves",
+    "data": 10
+  }
+}

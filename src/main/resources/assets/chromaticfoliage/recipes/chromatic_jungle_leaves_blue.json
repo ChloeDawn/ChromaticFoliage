@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_jungle_leaves_blue",
+  "ingredients": [
+    {
+      "item": "minecraft:leaves",
+      "data": 3
+    },
+    {
+      "ore": "dyeBlue",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_jungle_leaves",
+    "data": 4
+  }
+}
