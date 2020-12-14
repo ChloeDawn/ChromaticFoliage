@@ -1,47 +1,36 @@
 buildscript {
   repositories {
     jcenter()
-    maven {
-      name = 'minecraftforge.net'
-      url = 'https://files.minecraftforge.net/maven'
-    }
+    maven { url 'https://files.minecraftforge.net/maven' }
   }
   dependencies {
-    classpath "net.minecraftforge.gradle:ForgeGradle:$forgeGradleVersion"
+    classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
   }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = chromaticFoliageVersion
-group = 'io.github.insomniakitten'
-archivesBaseName = 'ChromaticFoliage'
+version = '3.0.0'
+group = 'dev.sapphic'
 sourceCompatibility = 1.8
 
 minecraft {
-  version = forgeLoaderVersion
-  mappings = mcpMappingsVersion
+  version = '1.12.2-14.23.5.2847'
+  mappings = 'stable_39'
+  runDir = 'run'
 }
 
 repositories {
-  maven {
-    name = 'tterrag.com'
-    url = 'https://maven.tterrag.com'
-  }
-  maven {
-    name = 'tehnut.info'
-    url = 'https://tehnut.info/maven'
-  }
-  maven {
-    name = 'dvs1.progwml6.com'
-    url = 'https://dvs1.progwml6.com/files/maven'
-  }
+  maven { url 'https://maven.tterrag.com' }
+  maven { url 'https://cursemaven.com' }
+  maven { url 'https://dvs1.progwml6.com/files/maven' }
 }
 
 dependencies {
-  implementation "team.chisel.ctm:CTM:$ctmVersion"
-  implementation "mcp.mobius.waila:Hwyla:$hwylaVersion"
-  implementation "mezz.jei:jei_$jeiVersion"
+  implementation 'team.chisel.ctm:CTM:MC1.12.2-0.3.3.22'
+  implementation 'curse.maven:hwyla-253449:2568751'
+  implementation 'mezz.jei:jei_1.12.2:4.15.0.273'
+  implementation 'org.checkerframework:checker-qual:3.8.0'
 }
 
 processResources {

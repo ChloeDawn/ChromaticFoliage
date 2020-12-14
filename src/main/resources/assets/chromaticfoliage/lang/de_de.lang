@@ -8,6 +8,14 @@ tile.chromaticfoliage.chromatic_jungle_leaves.name=Bunte Tropenblätter
 tile.chromaticfoliage.chromatic_acacia_leaves.name=Bunte Akazienblätter
 tile.chromaticfoliage.chromatic_dark_oak_leaves.name=Bunte Schwarzeichenblätter
 tile.chromaticfoliage.chromatic_vine.name=Bunte Ranken
+tile.chromaticfoliage.emissive_grass.name=Bunter Grasblock
+tile.chromaticfoliage.emissive_oak_leaves.name=Bunte Eichenblätter
+tile.chromaticfoliage.emissive_spruce_leaves.name=Bunte Fichtenblätter
+tile.chromaticfoliage.emissive_birch_leaves.name=Bunte Buchenblätter
+tile.chromaticfoliage.emissive_jungle_leaves.name=Bunte Tropenblätter
+tile.chromaticfoliage.emissive_acacia_leaves.name=Bunte Akazienblätter
+tile.chromaticfoliage.emissive_dark_oak_leaves.name=Bunte Schwarzeichenblätter
+tile.chromaticfoliage.emissive_vine.name=Bunte Ranken
 
 color.chromaticfoliage.black=Schwarz
 color.chromaticfoliage.blue=Blau

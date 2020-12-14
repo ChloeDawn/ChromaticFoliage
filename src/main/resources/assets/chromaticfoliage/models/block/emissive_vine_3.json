@@ -1,12 +1,3 @@
 {
-  "parent": "minecraft:block/vine_3",
-  "ctm_version": 1,
-  "ctm_overrides": {
-    "0": {
-      "type": "normal",
-      "extra": {
-        "light": 15
-      }
-    }
-  }
+  "parent": "minecraft:block/vine_3"
 }
