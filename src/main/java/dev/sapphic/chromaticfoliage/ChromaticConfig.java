@@ -55,11 +55,6 @@ public final class ChromaticConfig {
 
       private Blocks() {
       }
-
-      @Override
-      public String toString() {
-        return "ChromaticConfig.CLIENT.BLOCKS";
-      }
     }
 
     public static final class Colors {
@@ -97,11 +92,6 @@ public final class ChromaticConfig {
         if (this.lastColors != this.colors) {
           FMLCommonHandler.instance().reloadRenderers();
         }
-      }
-
-      @Override
-      public String toString() {
-        return "ChromaticConfig.CLIENT.COLORS";
       }
 
       private IntList asList() {
@@ -150,11 +140,6 @@ public final class ChromaticConfig {
       public final boolean wailaIlluminated = true;
 
       private Info() {
-      }
-
-      @Override
-      public String toString() {
-        return "ChromaticConfig.CLIENT.INFO";
       }
     }
   }

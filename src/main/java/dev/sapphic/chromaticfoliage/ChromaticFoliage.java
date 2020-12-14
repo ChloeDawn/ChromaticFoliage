@@ -53,15 +53,5 @@ public final class ChromaticFoliage {
     public ItemStack createIcon() {
       return new ItemStack(ChromaticItems.CHROMATIC_GRASS, 1, 0);
     }
-
-    @Override
-    public String toString() {
-      return "ChromaticFoliageItemGroup";
-    }
   };
-
-  @Override
-  public String toString() {
-    return "ChromaticFoliage";
-  }
 }

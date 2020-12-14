@@ -149,17 +149,15 @@ public class ChromaticVineBlock extends BlockVine {
 
   @Override
   public boolean recolorBlock(final World world, final BlockPos pos, final EnumFacing side, final EnumDyeColor color) {
-    final IBlockState state = world.getBlockState(pos);
-    checkState(state.getBlock() == this, "Unexpected block %s at %s", state, pos);
-    return world.setBlockState(pos, state.withProperty(ChromaticFoliage.COLOR, ChromaticColor.of(color)));
+    return world.setBlockState(pos, world.getBlockState(pos).withProperty(ChromaticFoliage.COLOR, ChromaticColor.of(color)));
   }
 
   @Override
   public IBlockState getActualState(final IBlockState state, final IBlockAccess access, final BlockPos pos) {
     final IBlockState actualState = super.getActualState(state, access, pos);
-    final @Nullable TileEntity te = access.getTileEntity(pos);
-    checkState(te instanceof ChromaticBlockEntity, "Unexpected block entity %s at %s", te, pos);
-    return actualState.withProperty(ChromaticFoliage.COLOR, ((ChromaticBlockEntity) te).getColor());
+    final TileEntity te = Objects.requireNonNull(access.getTileEntity(pos));
+    final ChromaticColor color = ((ChromaticBlockEntity) te).getColor();
+    return actualState.withProperty(ChromaticFoliage.COLOR, color);
   }
 
   @Override

@@ -125,11 +125,6 @@ public class ChromaticGrassBlock extends BlockGrass {
   }
 
   @Override
-  public String toString() {
-    return "ChromaticGrassBlock";
-  }
-
-  @Override
   public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
     return this.getSilkTouchDrop(state);
   }
