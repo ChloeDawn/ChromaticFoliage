@@ -20,7 +20,7 @@ public final class ChromaticSounds {
   }
 
   @SubscribeEvent
-  static void registerAll(final RegistryEvent.Register<SoundEvent> event) {
+  public static void registerAll(final RegistryEvent.Register<SoundEvent> event) {
     final IForgeRegistry<SoundEvent> registry = event.getRegistry();
 
     register(registry, "block.dyed", BLOCK_DYED);

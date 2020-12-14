@@ -64,7 +64,7 @@ public final class ChromaticBlocks {
   }
 
   @SubscribeEvent
-  static void registerAll(final RegistryEvent.Register<Block> event) {
+  public static void registerAll(final RegistryEvent.Register<Block> event) {
     final IForgeRegistry<Block> registry = event.getRegistry();
 
     register(registry, "chromatic_grass", CHROMATIC_GRASS);

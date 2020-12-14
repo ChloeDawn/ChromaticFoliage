@@ -23,39 +23,12 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.List;
 
 @EventBusSubscriber(modid = ChromaticFoliage.ID, value = Side.CLIENT)
-final class InspirationsTooltips {
+public final class InspirationsTooltips {
   private InspirationsTooltips() {
   }
 
-  static void register(final IWailaRegistrar registrar) {
-    final Class<?> enlightenedBushBlock;
-    try {
-      enlightenedBushBlock = Class.forName("knightminer.inspirations.building.block.BlockEnlightenedBush");
-    } catch (final ClassNotFoundException e) {
-      throw new IllegalStateException("BlockEnlightenedBush is missing or was moved", e);
-    }
-
-    registrar.registerBodyProvider(new IWailaDataProvider() {
-      @Override
-      public List<String> getWailaBody(final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor, final IWailaConfigHandler config) {
-        if (ChromaticConfig.Client.INFO.wailaColor) {
-          final @Nullable NBTTagCompound tag = stack.getTagCompound();
-          if ((tag != null) && tag.hasKey("texture", Constants.NBT.TAG_COMPOUND)) {
-            final NBTTagCompound texture = tag.getCompoundTag("texture");
-            if (texture.getString("id").startsWith(ChromaticFoliage.ID)) {
-              tooltip.add(new TextComponentTranslation(
-                ChromaticColor.of(texture.getShort("Damage")).getTranslationKey()
-              ).getFormattedText());
-            }
-          }
-        }
-        return tooltip;
-      }
-    }, enlightenedBushBlock);
-  }
-
   @SubscribeEvent
-  static void appendToItemTooltip(final ItemTooltipEvent event) {
+  public static void appendToItemTooltip(final ItemTooltipEvent event) {
     if (ChromaticConfig.Client.INFO.tooltipColor) {
       final ItemStack stack = event.getItemStack();
       final @Nullable ResourceLocation id = stack.getItem().getRegistryName();
@@ -72,5 +45,35 @@ final class InspirationsTooltips {
         }
       }
     }
+  }
+
+  static void register(final IWailaRegistrar registrar) {
+    final Class<?> enlightenedBushBlock;
+    try {
+      enlightenedBushBlock = Class.forName("knightminer.inspirations.building.block.BlockEnlightenedBush");
+    } catch (final ClassNotFoundException e) {
+      throw new IllegalStateException("BlockEnlightenedBush is missing or was moved", e);
+    }
+
+    registrar.registerBodyProvider(new IWailaDataProvider() {
+      @Override
+      public List<String> getWailaBody(
+        final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor,
+        final IWailaConfigHandler config
+      ) {
+        if (ChromaticConfig.Client.INFO.wailaColor) {
+          final @Nullable NBTTagCompound tag = stack.getTagCompound();
+          if ((tag != null) && tag.hasKey("texture", Constants.NBT.TAG_COMPOUND)) {
+            final NBTTagCompound texture = tag.getCompoundTag("texture");
+            if (texture.getString("id").startsWith(ChromaticFoliage.ID)) {
+              tooltip.add(new TextComponentTranslation(
+                ChromaticColor.of(texture.getShort("Damage")).getTranslationKey()
+              ).getFormattedText());
+            }
+          }
+        }
+        return tooltip;
+      }
+    }, enlightenedBushBlock);
   }
 }

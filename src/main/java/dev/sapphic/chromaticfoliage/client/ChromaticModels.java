@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(value = Side.CLIENT, modid = ChromaticFoliage.ID)
-final class ChromaticModels {
+public final class ChromaticModels {
   private static final MethodHandle BAKED_QUAD_TINT_INDEX_SETTER;
   private static final Pattern DOT = Pattern.compile(".", Pattern.LITERAL);
   private static final String SLASH = Matcher.quoteReplacement("/");
@@ -69,7 +69,7 @@ final class ChromaticModels {
   }
 
   @SubscribeEvent
-  static void registerAll(final ModelRegistryEvent event) {
+  public static void registerAll(final ModelRegistryEvent event) {
     for (final Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
       final @Nullable ResourceLocation id = item.getRegistryName();
       if ((id != null) && ChromaticFoliage.ID.equals(id.getNamespace())) {
@@ -83,7 +83,7 @@ final class ChromaticModels {
   }
 
   @SubscribeEvent
-  static void processBakedModels(final ModelBakeEvent event) {
+  public static void processBakedModels(final ModelBakeEvent event) {
     if (ChromaticConfig.Client.BLOCKS.snowLayers) {
       new StateMapperBase() {
         @Override

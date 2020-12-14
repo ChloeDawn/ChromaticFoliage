@@ -20,7 +20,7 @@ public final class ChromaticConfig {
   }
 
   @SubscribeEvent
-  static void onConfigurationChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
+  public static void changed(final ConfigChangedEvent.OnConfigChangedEvent event) {
     if (ChromaticFoliage.ID.equals(event.getModID())) {
       Client.COLORS.preSync();
       ConfigManager.sync(ChromaticFoliage.ID, Type.INSTANCE);

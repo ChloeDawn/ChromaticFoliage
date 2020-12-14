@@ -55,7 +55,7 @@ public final class ChromaticItems {
   }
 
   @SubscribeEvent
-  static void registerAll(final RegistryEvent.Register<Item> event) {
+  public static void registerAll(final RegistryEvent.Register<Item> event) {
     final IForgeRegistry<Item> registry = event.getRegistry();
 
     register(registry, "chromatic_grass", CHROMATIC_GRASS);

@@ -28,12 +28,12 @@ import java.util.Map.Entry;
 
 @ObjectHolder(ChromaticFoliage.ID)
 @EventBusSubscriber(modid = ChromaticFoliage.ID)
-final class ChromaticDyeing {
+public final class ChromaticDyeing {
   private ChromaticDyeing() {
   }
 
   @SubscribeEvent
-  static void blockUsed(final PlayerInteractEvent.RightClickBlock event) {
+  public static void blockUsed(final PlayerInteractEvent.RightClickBlock event) {
     if (!ChromaticConfig.General.inWorldInteraction) {
       return;
     }

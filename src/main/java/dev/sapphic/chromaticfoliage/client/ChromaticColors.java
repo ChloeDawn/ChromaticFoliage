@@ -29,12 +29,12 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(value = Side.CLIENT, modid = ChromaticFoliage.ID)
-final class ChromaticColors {
+public final class ChromaticColors {
   private ChromaticColors() {
   }
 
   @SubscribeEvent
-  static void registerAll(final ColorHandlerEvent.Block event) {
+  public static void registerAll(final ColorHandlerEvent.Block event) {
     final BlockColors colors = event.getBlockColors();
 
     for (final Block block : ForgeRegistries.BLOCKS.getValuesCollection()) {
@@ -101,7 +101,7 @@ final class ChromaticColors {
   }
 
   @SubscribeEvent
-  static void registerAll(final ColorHandlerEvent.Item event) {
+  public static void registerAll(final ColorHandlerEvent.Item event) {
     final ItemColors colors = event.getItemColors();
     for (final Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
       final @Nullable ResourceLocation id = item.getRegistryName();
