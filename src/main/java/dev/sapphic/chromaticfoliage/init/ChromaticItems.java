@@ -2,10 +2,8 @@ package dev.sapphic.chromaticfoliage.init;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Converter;
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import dev.sapphic.chromaticfoliage.ChromaticColor;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.item.ChromaticBlockItem;
 import dev.sapphic.chromaticfoliage.item.EmissiveBlockItem;
@@ -20,7 +18,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 @EventBusSubscriber(modid = ChromaticFoliage.ID)
 public final class ChromaticItems {
@@ -85,14 +82,22 @@ public final class ChromaticItems {
     OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(Blocks.LEAVES2, 1, 0));
     OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(Blocks.LEAVES2, 1, 1));
 
-    registerOres(CHROMATIC_GRASS, "grass");
-    registerOres(CHROMATIC_OAK_LEAVES, "treeLeaves", "treeLeavesOak");
-    registerOres(CHROMATIC_SPRUCE_LEAVES, "treeLeaves", "treeLeavesSpruce");
-    registerOres(CHROMATIC_BIRCH_LEAVES, "treeLeaves", "treeLeavesBirch");
-    registerOres(CHROMATIC_JUNGLE_LEAVES, "treeLeaves", "treeLeavesJungle");
-    registerOres(CHROMATIC_ACACIA_LEAVES, "treeLeaves", "treeLeavesAcacia");
-    registerOres(CHROMATIC_DARK_OAK_LEAVES, "treeLeaves", "treeLeavesDarkOak");
-    registerOres(CHROMATIC_VINE, "vine");
+    final int wildcard = OreDictionary.WILDCARD_VALUE;
+
+    OreDictionary.registerOre("grass", new ItemStack(CHROMATIC_GRASS, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesOak", new ItemStack(CHROMATIC_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_SPRUCE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(CHROMATIC_SPRUCE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_BIRCH_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesBirch", new ItemStack(CHROMATIC_BIRCH_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_JUNGLE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesJungle", new ItemStack(CHROMATIC_JUNGLE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_ACACIA_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(CHROMATIC_ACACIA_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_DARK_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(CHROMATIC_DARK_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("vine", new ItemStack(CHROMATIC_VINE, 1, wildcard));
   }
 
   private static Item chromatic(final Block block) {
@@ -105,18 +110,5 @@ public final class ChromaticItems {
 
   private static void register(final IForgeRegistry<Item> registry, final String name, final Item item) {
     registry.register(item.setRegistryName(new ResourceLocation(ChromaticFoliage.ID, name)));
-  }
-
-  private static void registerOres(final Item item, final String... names) {
-    final ItemStack wildcard = new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE);
-    for (final String prefix : names) {
-      OreDictionary.registerOre(prefix, wildcard);
-      OreDictionary.registerOre(prefix + "Colored", wildcard);
-      for (final ChromaticColor color : ChromaticColor.COLORS) {
-        final @Nullable String suffix = TO_ORE_SUFFIX.convert(color.getName());
-        Preconditions.checkState(suffix != null, "Failed to create ore suffix for %s", color);
-        OreDictionary.registerOre(prefix + suffix, new ItemStack(item, 1, color.ordinal()));
-      }
-    }
   }
 }
