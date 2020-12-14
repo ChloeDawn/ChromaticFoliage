@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_grass_yellow",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_grass",
-      "data": 32767
+      "ore": "grassChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeYellow",

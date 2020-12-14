@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:emissive_spruce_leaves_orange",
   "ingredients": [
     {
-      "item": "chromaticfoliage:emissive_spruce_leaves",
-      "data": 32767
+      "ore": "treeLeavesSpruceChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeOrange",

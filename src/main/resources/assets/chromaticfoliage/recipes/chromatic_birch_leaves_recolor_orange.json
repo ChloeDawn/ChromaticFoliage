@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_birch_leaves_orange",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_birch_leaves",
-      "data": 32767
+      "ore": "treeLeavesBirchChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeOrange",

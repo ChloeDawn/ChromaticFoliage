@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:emissive_birch_leaves_magenta",
   "ingredients": [
     {
-      "item": "chromaticfoliage:emissive_birch_leaves",
-      "data": 32767
+      "ore": "treeLeavesBirchChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeMagenta",

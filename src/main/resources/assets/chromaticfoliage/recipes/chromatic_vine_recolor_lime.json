@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_vine_lime",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_vine",
-      "data": 32767
+      "ore": "vineChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeLime",

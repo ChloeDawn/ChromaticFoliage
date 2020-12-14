@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_jungle_leaves_blue",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_jungle_leaves",
-      "data": 32767
+      "ore": "treeLeavesJungleChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeBlue",

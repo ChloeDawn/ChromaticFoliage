@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_acacia_leaves_black",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_acacia_leaves",
-      "data": 32767
+      "ore": "treeLeavesAcaciaChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeBlack",

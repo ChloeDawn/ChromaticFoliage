@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:emissive_vine_purple",
   "ingredients": [
     {
-      "item": "chromaticfoliage:emissive_vine",
-      "data": 32767
+      "ore": "vineChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyePurple",

@@ -85,19 +85,50 @@ public final class ChromaticItems {
     final int wildcard = OreDictionary.WILDCARD_VALUE;
 
     OreDictionary.registerOre("grass", new ItemStack(CHROMATIC_GRASS, 1, wildcard));
+    OreDictionary.registerOre("grassChromatic", new ItemStack(CHROMATIC_GRASS, 1, wildcard));
     OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_OAK_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeavesOak", new ItemStack(CHROMATIC_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesOakChromatic", new ItemStack(CHROMATIC_OAK_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_SPRUCE_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(CHROMATIC_SPRUCE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesSpruceChromatic", new ItemStack(CHROMATIC_SPRUCE_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_BIRCH_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeavesBirch", new ItemStack(CHROMATIC_BIRCH_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesBirchChromatic", new ItemStack(CHROMATIC_BIRCH_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_JUNGLE_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeavesJungle", new ItemStack(CHROMATIC_JUNGLE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesJungleChromatic", new ItemStack(CHROMATIC_JUNGLE_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_ACACIA_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(CHROMATIC_ACACIA_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesAcaciaChromatic", new ItemStack(CHROMATIC_ACACIA_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeaves", new ItemStack(CHROMATIC_DARK_OAK_LEAVES, 1, wildcard));
     OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(CHROMATIC_DARK_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesDarkOakChromatic", new ItemStack(CHROMATIC_DARK_OAK_LEAVES, 1, wildcard));
     OreDictionary.registerOre("vine", new ItemStack(CHROMATIC_VINE, 1, wildcard));
+    OreDictionary.registerOre("vineChromatic", new ItemStack(CHROMATIC_VINE, 1, wildcard));
+
+    OreDictionary.registerOre("grass", new ItemStack(EMISSIVE_GRASS, 1, wildcard));
+    OreDictionary.registerOre("grassEmissive", new ItemStack(EMISSIVE_GRASS, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(EMISSIVE_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesOak", new ItemStack(EMISSIVE_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesOakEmissive", new ItemStack(EMISSIVE_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(EMISSIVE_SPRUCE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(EMISSIVE_SPRUCE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesSpruceEmissive", new ItemStack(EMISSIVE_SPRUCE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(EMISSIVE_BIRCH_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesBirch", new ItemStack(EMISSIVE_BIRCH_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesBirchEmissive", new ItemStack(EMISSIVE_BIRCH_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(EMISSIVE_JUNGLE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesJungle", new ItemStack(EMISSIVE_JUNGLE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesJungleEmissive", new ItemStack(EMISSIVE_JUNGLE_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(EMISSIVE_ACACIA_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesAcacia", new ItemStack(EMISSIVE_ACACIA_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesAcaciaEmissive", new ItemStack(EMISSIVE_ACACIA_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeaves", new ItemStack(EMISSIVE_DARK_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesDarkOak", new ItemStack(EMISSIVE_DARK_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("treeLeavesDarkOakEmissive", new ItemStack(EMISSIVE_DARK_OAK_LEAVES, 1, wildcard));
+    OreDictionary.registerOre("vine", new ItemStack(EMISSIVE_VINE, 1, wildcard));
+    OreDictionary.registerOre("vineEmissive", new ItemStack(EMISSIVE_VINE, 1, wildcard));
   }
 
   private static Item chromatic(final Block block) {

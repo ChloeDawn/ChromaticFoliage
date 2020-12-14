@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_spruce_leaves_gray",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_spruce_leaves",
-      "data": 32767
+      "ore": "treeLeavesSpruceChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeGray",

@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:chromatic_dark_oak_leaves_purple",
   "ingredients": [
     {
-      "item": "chromaticfoliage:chromatic_dark_oak_leaves",
-      "data": 32767
+      "ore": "treeLeavesDarkOakChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyePurple",

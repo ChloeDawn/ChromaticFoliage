@@ -8,8 +8,8 @@
   "group": "chromaticfoliage:emissive_dark_oak_leaves_lime",
   "ingredients": [
     {
-      "item": "chromaticfoliage:emissive_dark_oak_leaves",
-      "data": 32767
+      "ore": "treeLeavesDarkOakChromatic",
+      "type": "forge:ore_dict"
     },
     {
       "ore": "dyeLime",
