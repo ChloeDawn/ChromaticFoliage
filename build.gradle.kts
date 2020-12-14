@@ -25,15 +25,13 @@ signing {
 }
 
 repositories {
-  maven("https://maven.tterrag.com")
   maven("https://cursemaven.com")
   maven("https://dvs1.progwml6.com/files/maven")
 }
 
 dependencies {
-  implementation("team.chisel.ctm:CTM:MC1.12.2-0.3.3.22")
   implementation("curse.maven:hwyla-253449:2568751")
-  implementation("mezz.jei:jei_1.12.2:4.15.0.273")
+  implementation("mezz.jei:jei_1.12.2-4.16.1.302")
   implementation("org.checkerframework:checker-qual:3.8.0")
 }
 
