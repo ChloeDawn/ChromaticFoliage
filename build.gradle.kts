@@ -21,7 +21,6 @@ minecraft {
 
 signing {
   sign(configurations.archives)
-  useGpgCmd()
 }
 
 repositories {
