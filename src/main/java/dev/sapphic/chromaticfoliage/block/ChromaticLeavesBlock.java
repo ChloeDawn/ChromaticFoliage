@@ -1,6 +1,5 @@
 package dev.sapphic.chromaticfoliage.block;
 
-import com.google.common.base.Preconditions;
 import dev.sapphic.chromaticfoliage.ChromaticColor;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.client.ChromaticParticles;
@@ -203,13 +202,13 @@ public class ChromaticLeavesBlock extends BlockLeaves {
 
   @Override
   public boolean addLandingEffects(final IBlockState state, final WorldServer world, final BlockPos pos, final IBlockState state1, final EntityLivingBase entity, final int scale) {
-    ChromaticParticles.addLandingEffects(state, world, pos, entity, scale, this.isEmissive());
+    ChromaticParticles.landing(state, world, pos, entity, scale, this.isEmissive());
     return true;
   }
 
   @Override
   public boolean addRunningEffects(final IBlockState state, final World world, final BlockPos pos, final Entity entity) {
-    ChromaticParticles.addRunningEffects(this.rand, state, world, pos, entity, this.isEmissive());
+    ChromaticParticles.sprinting(this.rand, state, world, pos, entity, this.isEmissive());
     return true;
   }
 
