@@ -94,8 +94,9 @@ public class ChromaticVineBlock extends BlockVine {
       return true;
     }
     if (ChromaticConfig.General.recolorRecipes) {
-      final Block block = state.getBlock();
-      if ((block instanceof IGrowable) && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, state)) {
+      final IBlockState actualState = state.getActualState(world, pos);
+      final Block block = actualState.getBlock();
+      if ((block instanceof IGrowable) && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, actualState)) {
         if ((stack.getItem() == Items.DYE) && (stack.getMetadata() == EnumDyeColor.WHITE.getDyeDamage())) {
           return false;
         }
@@ -105,14 +106,14 @@ public class ChromaticVineBlock extends BlockVine {
         return false;
       }
       final ChromaticColor color = optional.get();
-      if (color == state.getValue(ChromaticFoliage.COLOR)) {
+      if (color == actualState.getValue(ChromaticFoliage.COLOR)) {
         return false;
       }
       if (world.isRemote) {
         player.swingArm(hand);
         return true;
       }
-      if (!world.setBlockState(pos, state.withProperty(ChromaticFoliage.COLOR, color), 3)) {
+      if (!world.setBlockState(pos, actualState.withProperty(ChromaticFoliage.COLOR, color), 3)) {
         return false;
       }
       world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);

@@ -1,6 +1,7 @@
 package dev.sapphic.chromaticfoliage.block.entity;
 
 import dev.sapphic.chromaticfoliage.ChromaticColor;
+import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -83,6 +84,6 @@ public class ChromaticBlockEntity extends TileEntity {
 
   @Override
   public boolean shouldRefresh(final World world, final BlockPos pos, final IBlockState last, final IBlockState next) {
-    return last.getBlock() != next.getBlock();
+    return (last.getBlock() != next.getBlock()) || (last.getValue(ChromaticFoliage.COLOR) != next.getValue(ChromaticFoliage.COLOR));
   }
 }
