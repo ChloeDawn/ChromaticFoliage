@@ -15,11 +15,14 @@ import mcp.mobius.waila.api.IWailaDataProvider;
 import mcp.mobius.waila.api.IWailaPlugin;
 import mcp.mobius.waila.api.IWailaRegistrar;
 import mcp.mobius.waila.api.WailaPlugin;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.common.Loader;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -31,12 +34,15 @@ import java.util.stream.Stream;
 public final class WailaTooltips implements IWailaPlugin {
   @Override
   public void register(final IWailaRegistrar registrar) {
-    Stream.of(ChromaticGrassBlock.class, ChromaticLeavesBlock.class, ChromaticVineBlock.class).forEach(block ->
+    Stream.of(ChromaticGrassBlock.class, ChromaticLeavesBlock.class).forEach(block ->
       registrar.registerBodyProvider(new IWailaDataProvider() {
         @Override
         public List<String> getWailaBody(final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor, final IWailaConfigHandler config) {
           if (ChromaticConfig.Client.INFO.wailaColor) {
-            final ChromaticColor color = accessor.getBlockState().getValue(ChromaticFoliage.COLOR);
+            final World world = accessor.getWorld();
+            final BlockPos pos = accessor.getPosition();
+            final IBlockState state = accessor.getBlockState().getActualState(world, pos);
+            final ChromaticColor color = state.getValue(ChromaticFoliage.COLOR);
             tooltip.add(new TextComponentTranslation(color.getTranslationKey())
               .setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
           }
