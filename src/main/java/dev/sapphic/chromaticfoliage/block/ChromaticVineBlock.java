@@ -194,7 +194,7 @@ public class ChromaticVineBlock extends BlockVine {
   }
 
   @Override
-  public void updateTick(final World world, final BlockPos pos, IBlockState state, final Random rand) {
+  public void updateTick(final World world, final BlockPos pos, final IBlockState state, final Random rand) {
     if (world.isRemote || (world.rand.nextInt(4) != 0) || !world.isAreaLoaded(pos, 4)) {
       return;
     }
@@ -215,11 +215,12 @@ public class ChromaticVineBlock extends BlockVine {
         }
       }
     }
+    final IBlockState actualState = state.getActualState(world, pos);
+    final ChromaticColor color = actualState.getValue(ChromaticFoliage.COLOR);
     final EnumFacing randSide = EnumFacing.random(rand);
     final BlockPos posUp = pos.up();
     if ((randSide == EnumFacing.UP) && (pos.getY() < 255) && world.isAirBlock(posUp)) {
-      state = state.getActualState(world, pos);
-      IBlockState stateAt = state;
+      IBlockState stateAt = actualState;
       for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
         if (rand.nextBoolean() && this.canAttachTo(world, posUp, side.getOpposite())) {
           stateAt = stateAt.withProperty(getPropertyFor(side), true);
@@ -231,7 +232,7 @@ public class ChromaticVineBlock extends BlockVine {
         || stateAt.getValue(BlockVine.SOUTH) || stateAt.getValue(BlockVine.WEST)) {
         world.setBlockState(posUp, stateAt, 2);
       }
-    } else if (randSide.getAxis().isHorizontal() && !state.getValue(getPropertyFor(randSide))) {
+    } else if (randSide.getAxis().isHorizontal() && !actualState.getValue(getPropertyFor(randSide))) {
       if (flag) {
         return;
       }
@@ -241,11 +242,10 @@ public class ChromaticVineBlock extends BlockVine {
       if (block1.isAir(iblockstate3, world, blockpos4)) {
         final EnumFacing rotY = randSide.rotateY();
         final EnumFacing rotYCCW = randSide.rotateYCCW();
-        final boolean valRotY = state.getValue(getPropertyFor(rotY));
-        final boolean valRotYCCW = state.getValue(getPropertyFor(rotYCCW));
+        final boolean valRotY = actualState.getValue(getPropertyFor(rotY));
+        final boolean valRotYCCW = actualState.getValue(getPropertyFor(rotYCCW));
         final BlockPos posRotY = blockpos4.offset(rotY);
         final BlockPos posRotYCCW = blockpos4.offset(rotYCCW);
-        final ChromaticColor color = state.getActualState(world, pos).getValue(ChromaticFoliage.COLOR);
         final IBlockState retState = this.getDefaultState().withProperty(ChromaticFoliage.COLOR, color);
         if (valRotY && this.canAttachTo(world, posRotY.offset(rotY), rotY)) {
           world.setBlockState(blockpos4, retState.withProperty(getPropertyFor(rotY), true), 2);
@@ -255,16 +255,18 @@ public class ChromaticVineBlock extends BlockVine {
           world.setBlockState(posRotY, retState.withProperty(getPropertyFor(randSide.getOpposite()), true), 2);
         } else if (valRotYCCW && world.isAirBlock(posRotYCCW) && this.canAttachTo(world, posRotYCCW, randSide)) {
           world.setBlockState(posRotYCCW, retState.withProperty(getPropertyFor(randSide.getOpposite()), true), 2);
+          world.setTileEntity(posRotYCCW, new ChromaticBlockEntity(color));
         }
       } else if (iblockstate3.getBlockFaceShape(world, blockpos4, randSide) == BlockFaceShape.SOLID) {
-        world.setBlockState(pos, state.withProperty(getPropertyFor(randSide), true), 2);
+        world.setBlockState(pos, actualState.withProperty(getPropertyFor(randSide), true), 2);
+        world.setTileEntity(pos, new ChromaticBlockEntity(color));
       }
     } else if (pos.getY() > 1) {
       final BlockPos posDown = pos.down();
       final IBlockState below = world.getBlockState(posDown);
       final Block block = below.getBlock();
       if (below.getMaterial() == Material.AIR) {
-        IBlockState originalState = state;
+        IBlockState originalState = actualState;
         for (final EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL) {
           if (rand.nextBoolean()) {
             originalState = originalState.withProperty(getPropertyFor(enumfacing), false);
@@ -278,13 +280,14 @@ public class ChromaticVineBlock extends BlockVine {
         IBlockState originalState = below;
         for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
           final PropertyBool prop = getPropertyFor(side);
-          if (rand.nextBoolean() && state.getValue(prop)) {
+          if (rand.nextBoolean() && actualState.getValue(prop)) {
             originalState = originalState.withProperty(prop, true);
           }
         }
         if (originalState.getValue(BlockVine.NORTH) || originalState.getValue(BlockVine.EAST)
           || originalState.getValue(BlockVine.SOUTH) || originalState.getValue(BlockVine.WEST)) {
           world.setBlockState(posDown, originalState, 2);
+          world.setTileEntity(posDown, new ChromaticBlockEntity(color));
         }
       }
     }
