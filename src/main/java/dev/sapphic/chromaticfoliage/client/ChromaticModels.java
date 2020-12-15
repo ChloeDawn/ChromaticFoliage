@@ -112,16 +112,25 @@ public final class ChromaticModels {
 
   @SubscribeEvent
   public static void registerAll(final ModelRegistryEvent event) {
-    for (final Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
-      final @Nullable ResourceLocation id = item.getRegistryName();
-      if ((id != null) && ChromaticFoliage.ID.equals(id.getNamespace())) {
-        final ModelResourceLocation model = new ModelResourceLocation(id, "inventory");
-        for (final ChromaticColor color : ChromaticColor.COLORS) {
-          ModelLoader.setCustomModelResourceLocation(item, color.ordinal(), model);
-        }
-      }
-    }
     STATE_MAPPERS.forEach(ModelLoader::setCustomStateMapper);
+
+    register(ChromaticItems.CHROMATIC_GRASS);
+    register(ChromaticItems.CHROMATIC_OAK_LEAVES);
+    register(ChromaticItems.CHROMATIC_SPRUCE_LEAVES);
+    register(ChromaticItems.CHROMATIC_BIRCH_LEAVES);
+    register(ChromaticItems.CHROMATIC_JUNGLE_LEAVES);
+    register(ChromaticItems.CHROMATIC_ACACIA_LEAVES);
+    register(ChromaticItems.CHROMATIC_DARK_OAK_LEAVES);
+    register(ChromaticItems.CHROMATIC_VINE);
+
+    register(ChromaticItems.EMISSIVE_GRASS);
+    register(ChromaticItems.EMISSIVE_OAK_LEAVES);
+    register(ChromaticItems.EMISSIVE_SPRUCE_LEAVES);
+    register(ChromaticItems.EMISSIVE_BIRCH_LEAVES);
+    register(ChromaticItems.EMISSIVE_JUNGLE_LEAVES);
+    register(ChromaticItems.EMISSIVE_ACACIA_LEAVES);
+    register(ChromaticItems.EMISSIVE_DARK_OAK_LEAVES);
+    register(ChromaticItems.EMISSIVE_VINE);
   }
 
   @SubscribeEvent
@@ -141,6 +150,7 @@ public final class ChromaticModels {
     noShade(ChromaticItems.EMISSIVE_OAK_LEAVES, models);
     noShade(ChromaticItems.EMISSIVE_SPRUCE_LEAVES, models);
     noShade(ChromaticItems.EMISSIVE_BIRCH_LEAVES, models);
+    noShade(ChromaticItems.EMISSIVE_JUNGLE_LEAVES, models);
     noShade(ChromaticItems.EMISSIVE_ACACIA_LEAVES, models);
     noShade(ChromaticItems.EMISSIVE_DARK_OAK_LEAVES, models);
     noShade(ChromaticItems.EMISSIVE_VINE, models);
@@ -150,17 +160,12 @@ public final class ChromaticModels {
     }
   }
 
-  private static void forEachModel(final Block block, final BiConsumer<IBlockState, ModelResourceLocation> action) {
-    final ResourceLocation id = Objects.requireNonNull(block.getRegistryName());
-    new StateMapperBase() {
-      @Override
-      protected ModelResourceLocation getModelResourceLocation(final IBlockState state) {
-        if (block instanceof ChromaticLeavesBlock) { // Ignore check_decay and decayable
-          return new ModelResourceLocation(id, "color=" + state.getValue(ChromaticFoliage.COLOR));
-        }
-        return new ModelResourceLocation(id, this.getPropertyString(state.getProperties()));
-      }
-    }.putStateModelLocations(block).forEach(action);
+  private static void register(final Item item) {
+    final ResourceLocation id = Objects.requireNonNull(item.getRegistryName());
+    final ModelResourceLocation model = new ModelResourceLocation(id, "inventory");
+    for (final ChromaticColor color : ChromaticColor.COLORS) {
+      ModelLoader.setCustomModelResourceLocation(item, color.ordinal(), model);
+    }
   }
 
   private static void noShade(final @Nullable IBlockState state, final IBakedModel model) {
