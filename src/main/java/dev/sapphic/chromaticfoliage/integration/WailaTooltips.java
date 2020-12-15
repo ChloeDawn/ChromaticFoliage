@@ -38,7 +38,7 @@ public final class WailaTooltips implements IWailaPlugin {
           if (ChromaticConfig.Client.INFO.wailaColor) {
             final ChromaticColor color = accessor.getBlockState().getValue(ChromaticFoliage.COLOR);
             tooltip.add(new TextComponentTranslation(color.getTranslationKey())
-              .setStyle(new Style().setColor(TextFormatting.DARK_GRAY)).getFormattedText());
+              .setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
           }
           return tooltip;
         }
@@ -77,7 +77,7 @@ public final class WailaTooltips implements IWailaPlugin {
               if (texture.getString("id").startsWith(ChromaticFoliage.ID)) {
                 tooltip.add(new TextComponentTranslation(
                   ChromaticColor.of(texture.getShort("Damage")).getTranslationKey()
-                ).getFormattedText());
+                ).setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
               }
             }
           }
