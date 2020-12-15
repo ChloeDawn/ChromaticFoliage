@@ -28,6 +28,11 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   }
 
   @Override
+  protected boolean isEmissive() {
+    return true;
+  }
+
+  @Override
   public int getLightValue(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
     return 5;
   }
@@ -35,7 +40,7 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   @Override
   @SideOnly(Side.CLIENT)
   public int getPackedLightmapCoords(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
-    return 0xFFFFFF;
+    return 0xF000F0;
   }
 
   @Override

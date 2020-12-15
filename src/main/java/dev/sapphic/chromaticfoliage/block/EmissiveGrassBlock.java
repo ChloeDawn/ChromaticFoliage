@@ -20,6 +20,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EmissiveGrassBlock extends ChromaticGrassBlock {
   @Override
+  protected boolean isEmissive() {
+    return true;
+  }
+
+  @Override
   public int getLightValue(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
     return 5;
   }
@@ -27,7 +32,7 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
   @Override
   @SideOnly(Side.CLIENT)
   public int getPackedLightmapCoords(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
-    return 0xFFFFFF;
+    return 0xF000F0;
   }
 
   @Override

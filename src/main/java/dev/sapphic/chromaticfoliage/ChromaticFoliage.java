@@ -1,5 +1,6 @@
 package dev.sapphic.chromaticfoliage;
 
+import dev.sapphic.chromaticfoliage.client.ChromaticParticles;
 import dev.sapphic.chromaticfoliage.init.ChromaticItems;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.client.Minecraft;
@@ -54,4 +55,9 @@ public final class ChromaticFoliage {
       return new ItemStack(ChromaticItems.CHROMATIC_GRASS, 1, 0);
     }
   };
+
+  public ChromaticFoliage() {
+    ChromaticParticles.init();
+  }
 }
+

@@ -3,6 +3,8 @@ package dev.sapphic.chromaticfoliage.block;
 import com.google.common.base.Preconditions;
 import dev.sapphic.chromaticfoliage.ChromaticColor;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
+import dev.sapphic.chromaticfoliage.client.ChromaticParticles;
+import dev.sapphic.chromaticfoliage.client.particle.ChromaticDustParticle;
 import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
 import dev.sapphic.chromaticfoliage.init.ChromaticSounds;
 import dev.sapphic.chromaticfoliage.ChromaticConfig;
@@ -17,7 +19,9 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -30,10 +34,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,6 +50,7 @@ import java.util.Random;
 
 public class ChromaticLeavesBlock extends BlockLeaves {
   private final boolean spreadLeaves = ChromaticConfig.General.leavesSpreadToLeaves;
+  private final Random rand = new Random();
   private final EnumType foliageType;
 
   public ChromaticLeavesBlock(final EnumType type) {
@@ -56,6 +63,10 @@ public class ChromaticLeavesBlock extends BlockLeaves {
       .withProperty(BlockLeaves.CHECK_DECAY, false)
       .withProperty(BlockLeaves.DECAYABLE, false)
     );
+  }
+
+  protected boolean isEmissive() {
+    return false;
   }
 
   final EnumType getFoliageType() {
@@ -188,6 +199,61 @@ public class ChromaticLeavesBlock extends BlockLeaves {
         }
       }
     }
+  }
+
+  @Override
+  public boolean addLandingEffects(final IBlockState state, final WorldServer world, final BlockPos pos, final IBlockState state1, final EntityLivingBase entity, final int scale) {
+    ChromaticParticles.addLandingEffects(state, world, pos, entity, scale, this.isEmissive());
+    return true;
+  }
+
+  @Override
+  public boolean addRunningEffects(final IBlockState state, final World world, final BlockPos pos, final Entity entity) {
+    ChromaticParticles.addRunningEffects(this.rand, state, world, pos, entity, this.isEmissive());
+    return true;
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public boolean addHitEffects(final IBlockState state, final World world, final RayTraceResult hit, final ParticleManager manager) {
+    final BlockPos pos = hit.getBlockPos();
+    final EnumFacing side = hit.sideHit;
+    final AxisAlignedBB aabb = state.getBoundingBox(world, pos);
+    double x = pos.getX() + (this.rand.nextDouble() * (aabb.maxX - aabb.minX - 0.2)) + 0.1 + aabb.minX;
+    double y = pos.getY() + (this.rand.nextDouble() * (aabb.maxY - aabb.minY - 0.2)) + 0.1 + aabb.minY;
+    double z = pos.getZ() + (this.rand.nextDouble() * (aabb.maxZ - aabb.minZ - 0.2)) + 0.1 + aabb.minZ;
+    if (side == EnumFacing.DOWN) {
+      y = (pos.getY() + aabb.minY) - 0.1;
+    } else if (side == EnumFacing.UP) {
+      y = pos.getY() + aabb.maxY + 0.1;
+    } else if (side == EnumFacing.NORTH) {
+      z = (pos.getZ() + aabb.minZ) - 0.1;
+    } else if (side == EnumFacing.SOUTH) {
+      z = pos.getZ() + aabb.maxZ + 0.1;
+    } else if (side == EnumFacing.WEST) {
+      x = (pos.getX() + aabb.minX) - 0.1;
+    } else if (side == EnumFacing.EAST) {
+      x = pos.getX() + aabb.maxX + 0.1;
+    }
+    manager.addEffect(new ChromaticDustParticle(world, x, y, z, 0.0D, 0.0D, 0.0D, state, this.isEmissive()).setBlockPos(pos).multiplyVelocity(0.2F).multipleParticleScaleBy(0.6F));
+    return true;
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public boolean addDestroyEffects(final World world, final BlockPos pos, final ParticleManager manager) {
+    final IBlockState state = world.getBlockState(pos);
+    for (int x = 0; x < 4; ++x) {
+      for (int y = 0; y < 4; ++y) {
+        for (int z = 0; z < 4; ++z) {
+          final double ox = (x + 0.5) / 4.0;
+          final double oy = (y + 0.5) / 4.0;
+          final double oz = (z + 0.5) / 4.0;
+          manager.addEffect(new ChromaticDustParticle(world, pos.getX() + ox, pos.getY() + oy, pos.getZ() + oz, ox - 0.5, oy - 0.5, oz - 0.5, state, this.isEmissive()).setBlockPos(pos));
+        }
+      }
+    }
+    return true;
   }
 
   @Override
