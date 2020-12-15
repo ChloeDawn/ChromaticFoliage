@@ -3,10 +3,6 @@ package dev.sapphic.chromaticfoliage.integration;
 import dev.sapphic.chromaticfoliage.ChromaticColor;
 import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
-import mcp.mobius.waila.api.IWailaConfigHandler;
-import mcp.mobius.waila.api.IWailaDataAccessor;
-import mcp.mobius.waila.api.IWailaDataProvider;
-import mcp.mobius.waila.api.IWailaRegistrar;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -20,15 +16,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
-
 @EventBusSubscriber(modid = ChromaticFoliage.ID, value = Side.CLIENT)
-public final class InspirationsTooltips {
-  private InspirationsTooltips() {
+public final class ItemTooltips {
+  private ItemTooltips() {
   }
 
   @SubscribeEvent
-  public static void appendToItemTooltip(final ItemTooltipEvent event) {
+  public static void appendTooltip(final ItemTooltipEvent event) {
     if (ChromaticConfig.Client.INFO.tooltipColor) {
       final ItemStack stack = event.getItemStack();
       final @Nullable ResourceLocation id = stack.getItem().getRegistryName();
@@ -45,35 +39,5 @@ public final class InspirationsTooltips {
         }
       }
     }
-  }
-
-  static void register(final IWailaRegistrar registrar) {
-    final Class<?> enlightenedBushBlock;
-    try {
-      enlightenedBushBlock = Class.forName("knightminer.inspirations.building.block.BlockEnlightenedBush");
-    } catch (final ClassNotFoundException e) {
-      throw new IllegalStateException("BlockEnlightenedBush is missing or was moved", e);
-    }
-
-    registrar.registerBodyProvider(new IWailaDataProvider() {
-      @Override
-      public List<String> getWailaBody(
-        final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor,
-        final IWailaConfigHandler config
-      ) {
-        if (ChromaticConfig.Client.INFO.wailaColor) {
-          final @Nullable NBTTagCompound tag = stack.getTagCompound();
-          if ((tag != null) && tag.hasKey("texture", Constants.NBT.TAG_COMPOUND)) {
-            final NBTTagCompound texture = tag.getCompoundTag("texture");
-            if (texture.getString("id").startsWith(ChromaticFoliage.ID)) {
-              tooltip.add(new TextComponentTranslation(
-                ChromaticColor.of(texture.getShort("Damage")).getTranslationKey()
-              ).getFormattedText());
-            }
-          }
-        }
-        return tooltip;
-      }
-    }, enlightenedBushBlock);
   }
 }

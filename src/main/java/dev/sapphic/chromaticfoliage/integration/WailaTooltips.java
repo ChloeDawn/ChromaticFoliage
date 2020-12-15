@@ -16,10 +16,13 @@ import mcp.mobius.waila.api.IWailaPlugin;
 import mcp.mobius.waila.api.IWailaRegistrar;
 import mcp.mobius.waila.api.WailaPlugin;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.common.Loader;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -54,7 +57,33 @@ public final class WailaTooltips implements IWailaPlugin {
       }, block));
 
     if (Loader.isModLoaded("inspirations")) {
-      InspirationsTooltips.register(registrar);
+      final Class<?> enlightenedBushBlock;
+      try {
+        enlightenedBushBlock = Class.forName("knightminer.inspirations.building.block.BlockEnlightenedBush");
+      } catch (final ClassNotFoundException e) {
+        throw new IllegalStateException("BlockEnlightenedBush is missing or was moved", e);
+      }
+
+      registrar.registerBodyProvider(new IWailaDataProvider() {
+        @Override
+        public List<String> getWailaBody(
+          final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor,
+          final IWailaConfigHandler config
+        ) {
+          if (ChromaticConfig.Client.INFO.wailaColor) {
+            final @Nullable NBTTagCompound tag = stack.getTagCompound();
+            if ((tag != null) && tag.hasKey("texture", Constants.NBT.TAG_COMPOUND)) {
+              final NBTTagCompound texture = tag.getCompoundTag("texture");
+              if (texture.getString("id").startsWith(ChromaticFoliage.ID)) {
+                tooltip.add(new TextComponentTranslation(
+                  ChromaticColor.of(texture.getShort("Damage")).getTranslationKey()
+                ).getFormattedText());
+              }
+            }
+          }
+          return tooltip;
+        }
+      }, enlightenedBushBlock);
     }
   }
 }
