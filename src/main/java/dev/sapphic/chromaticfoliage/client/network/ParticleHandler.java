@@ -40,19 +40,19 @@ public final class ParticleHandler implements IMessageHandler<ParticleData, IMes
       final double x = data.x();
       final double y = data.y();
       final double z = data.z();
+      final double mx = data.mx();
+      final double my = data.my();
+      final double mz = data.mz();
       final IBlockState state = data.state();
       final boolean emissive = data.emissive();
       if (count == 0) {
-        final double mx = data.mx();
-        final double my = data.my();
-        final double mz = data.mz();
         manager.addEffect(new ChromaticDustParticle(world, x, y, z, mx, my, mz, state, emissive).init());
       } else {
         final double speed = data.speed();
         for (int i = 0; i < count; i++) {
-          final double ox = x + (this.random.nextGaussian() * speed);
-          final double oy = y + (this.random.nextGaussian() * speed);
-          final double oz = z + (this.random.nextGaussian() * speed);
+          final double ox = x + (this.random.nextGaussian() * mx);
+          final double oy = y + (this.random.nextGaussian() * my);
+          final double oz = z + (this.random.nextGaussian() * mz);
           final double sx = this.random.nextGaussian() * speed;
           final double sy = this.random.nextGaussian() * speed;
           final double sz = this.random.nextGaussian() * speed;

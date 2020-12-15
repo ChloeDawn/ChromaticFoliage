@@ -63,7 +63,7 @@ public final class ParticleData implements IMessage {
   }
 
   public double my() {
-    return 1.5;
+    return this.my;
   }
 
   public double mz() {
