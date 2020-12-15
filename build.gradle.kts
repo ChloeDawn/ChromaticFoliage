@@ -63,7 +63,13 @@ tasks {
     ))
   }
 
+  named<Sign>("signArchives") {
+    onlyIf { project.hasProperty("signing.keyId") }
+  }
+
   create<SignJar>("signJar") {
+    onlyIf { project.hasProperty("signing.mods.keyalias") }
+
     dependsOn("reobfJar")
 
     setAlias("${project.property("signing.mods.keyalias")}")
