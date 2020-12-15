@@ -38,6 +38,7 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   }
 
   @Override
+  @Deprecated
   @SideOnly(Side.CLIENT)
   public int getPackedLightmapCoords(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
     return 0xF000F0;

@@ -30,6 +30,7 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
   }
 
   @Override
+  @Deprecated
   @SideOnly(Side.CLIENT)
   public int getPackedLightmapCoords(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
     return 0xF000F0;
