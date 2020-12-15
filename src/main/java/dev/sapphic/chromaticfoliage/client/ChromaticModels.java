@@ -7,6 +7,7 @@ import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.block.ChromaticLeavesBlock;
 import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
+import dev.sapphic.chromaticfoliage.init.ChromaticItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
@@ -126,16 +127,26 @@ public final class ChromaticModels {
   @SubscribeEvent
   public static void processBakedModels(final ModelBakeEvent event) {
     final ModelManager models = event.getModelManager();
-    forEachModel(ChromaticBlocks.EMISSIVE_GRASS, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_OAK_LEAVES, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_SPRUCE_LEAVES, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_BIRCH_LEAVES, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_JUNGLE_LEAVES, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_ACACIA_LEAVES, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_DARK_OAK_LEAVES, (state, model) -> noShade(state, models.getModel(model)));
-    forEachModel(ChromaticBlocks.EMISSIVE_VINE, (state, model) -> noShade(state, models.getModel(model)));
+
+    noShade(ChromaticBlocks.EMISSIVE_GRASS, models);
+    noShade(ChromaticBlocks.EMISSIVE_OAK_LEAVES, models);
+    noShade(ChromaticBlocks.EMISSIVE_SPRUCE_LEAVES, models);
+    noShade(ChromaticBlocks.EMISSIVE_BIRCH_LEAVES, models);
+    noShade(ChromaticBlocks.EMISSIVE_JUNGLE_LEAVES, models);
+    noShade(ChromaticBlocks.EMISSIVE_ACACIA_LEAVES, models);
+    noShade(ChromaticBlocks.EMISSIVE_DARK_OAK_LEAVES, models);
+    noShade(ChromaticBlocks.EMISSIVE_VINE, models);
+
+    noShade(ChromaticItems.EMISSIVE_GRASS, models);
+    noShade(ChromaticItems.EMISSIVE_OAK_LEAVES, models);
+    noShade(ChromaticItems.EMISSIVE_SPRUCE_LEAVES, models);
+    noShade(ChromaticItems.EMISSIVE_BIRCH_LEAVES, models);
+    noShade(ChromaticItems.EMISSIVE_ACACIA_LEAVES, models);
+    noShade(ChromaticItems.EMISSIVE_DARK_OAK_LEAVES, models);
+    noShade(ChromaticItems.EMISSIVE_VINE, models);
+
     if (ChromaticConfig.Client.BLOCKS.snowLayers) {
-      forEachModel(Blocks.SNOW_LAYER, (state, model) -> tintIndex(state, models.getModel(model)));
+      noShade(Blocks.SNOW_LAYER, models);
     }
   }
 
@@ -152,7 +163,7 @@ public final class ChromaticModels {
     }.putStateModelLocations(block).forEach(action);
   }
 
-  private static void noShade(final IBlockState state, final IBakedModel model) {
+  private static void noShade(final @Nullable IBlockState state, final IBakedModel model) {
     final Set<BakedQuad> quads = new HashSet<>(6);
     if (model instanceof WeightedBakedModel) {
       for (final Object weightedModel : getModels((WeightedBakedModel) model)) {
@@ -170,6 +181,24 @@ public final class ChromaticModels {
     for (final BakedQuad quad : quads) {
       setShade(quad, false);
     }
+  }
+
+  private static void noShade(final Block block, final ModelManager models) {
+    final ResourceLocation id = Objects.requireNonNull(block.getRegistryName());
+    new StateMapperBase() {
+      @Override
+      protected ModelResourceLocation getModelResourceLocation(final IBlockState state1) {
+        if (block instanceof ChromaticLeavesBlock) { // Ignore check_decay and decayable
+          return new ModelResourceLocation(id, "color=" + state1.getValue(ChromaticFoliage.COLOR));
+        }
+        return new ModelResourceLocation(id, this.getPropertyString(state1.getProperties()));
+      }
+    }.putStateModelLocations(block).forEach((state, path) -> noShade(state, models.getModel(path)));
+  }
+
+  private static void noShade(final Item item, final ModelManager models) {
+    final ResourceLocation id = Objects.requireNonNull(item.getRegistryName());
+    noShade(null, models.getModel(new ModelResourceLocation(id, "inventory")));
   }
 
   private static List<?> getModels(final WeightedBakedModel model) {
