@@ -34,7 +34,7 @@ import java.util.stream.Stream;
 public final class WailaTooltips implements IWailaPlugin {
   @Override
   public void register(final IWailaRegistrar registrar) {
-    Stream.of(ChromaticGrassBlock.class, ChromaticLeavesBlock.class).forEach(block ->
+    Stream.of(ChromaticGrassBlock.class, ChromaticLeavesBlock.class, ChromaticVineBlock.class).forEach(block ->
       registrar.registerBodyProvider(new IWailaDataProvider() {
         @Override
         public List<String> getWailaBody(final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor, final IWailaConfigHandler config) {
