@@ -4,6 +4,8 @@ import dev.sapphic.chromaticfoliage.ChromaticColor;
 import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.block.ChromaticGrassBlock;
+import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
+import dev.sapphic.chromaticfoliage.init.ChromaticItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockDoublePlant.EnumBlockHalf;
@@ -15,17 +17,14 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(value = Side.CLIENT, modid = ChromaticFoliage.ID)
@@ -37,14 +36,23 @@ public final class ChromaticColors {
   public static void registerAll(final ColorHandlerEvent.Block event) {
     final BlockColors colors = event.getBlockColors();
 
-    for (final Block block : ForgeRegistries.BLOCKS.getValuesCollection()) {
-      final @Nullable ResourceLocation id = block.getRegistryName();
-      if ((id != null) && ChromaticFoliage.ID.equals(id.getNamespace())) {
-        colors.registerBlockColorHandler((state, world, pos, tint) -> {
-          return state.getValue(ChromaticFoliage.COLOR).getIntColor();
-        }, block);
-      }
-    }
+    register(colors, ChromaticBlocks.CHROMATIC_GRASS);
+    register(colors, ChromaticBlocks.CHROMATIC_OAK_LEAVES);
+    register(colors, ChromaticBlocks.CHROMATIC_SPRUCE_LEAVES);
+    register(colors, ChromaticBlocks.CHROMATIC_BIRCH_LEAVES);
+    register(colors, ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES);
+    register(colors, ChromaticBlocks.CHROMATIC_ACACIA_LEAVES);
+    register(colors, ChromaticBlocks.CHROMATIC_DARK_OAK_LEAVES);
+    register(colors, ChromaticBlocks.CHROMATIC_VINE);
+
+    register(colors, ChromaticBlocks.EMISSIVE_GRASS);
+    register(colors, ChromaticBlocks.EMISSIVE_OAK_LEAVES);
+    register(colors, ChromaticBlocks.EMISSIVE_SPRUCE_LEAVES);
+    register(colors, ChromaticBlocks.EMISSIVE_BIRCH_LEAVES);
+    register(colors, ChromaticBlocks.EMISSIVE_JUNGLE_LEAVES);
+    register(colors, ChromaticBlocks.EMISSIVE_ACACIA_LEAVES);
+    register(colors, ChromaticBlocks.EMISSIVE_DARK_OAK_LEAVES);
+    register(colors, ChromaticBlocks.EMISSIVE_VINE);
 
     if (ChromaticConfig.Client.BLOCKS.snowLayers) {
       colors.registerBlockColorHandler((state, world, pos, tint) -> {
@@ -103,13 +111,35 @@ public final class ChromaticColors {
   @SubscribeEvent
   public static void registerAll(final ColorHandlerEvent.Item event) {
     final ItemColors colors = event.getItemColors();
-    for (final Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
-      final @Nullable ResourceLocation id = item.getRegistryName();
-      if ((id != null) && ChromaticFoliage.ID.equals(id.getNamespace())) {
-        colors.registerItemColorHandler((stack, tint) -> {
-          return ChromaticColor.of(stack.getMetadata() & 15).getIntColor();
-        }, item);
-      }
-    }
+
+    register(colors, ChromaticItems.CHROMATIC_GRASS);
+    register(colors, ChromaticItems.CHROMATIC_OAK_LEAVES);
+    register(colors, ChromaticItems.CHROMATIC_SPRUCE_LEAVES);
+    register(colors, ChromaticItems.CHROMATIC_BIRCH_LEAVES);
+    register(colors, ChromaticItems.CHROMATIC_JUNGLE_LEAVES);
+    register(colors, ChromaticItems.CHROMATIC_ACACIA_LEAVES);
+    register(colors, ChromaticItems.CHROMATIC_DARK_OAK_LEAVES);
+    register(colors, ChromaticItems.CHROMATIC_VINE);
+
+    register(colors, ChromaticItems.EMISSIVE_GRASS);
+    register(colors, ChromaticItems.EMISSIVE_OAK_LEAVES);
+    register(colors, ChromaticItems.EMISSIVE_SPRUCE_LEAVES);
+    register(colors, ChromaticItems.EMISSIVE_BIRCH_LEAVES);
+    register(colors, ChromaticItems.EMISSIVE_JUNGLE_LEAVES);
+    register(colors, ChromaticItems.EMISSIVE_ACACIA_LEAVES);
+    register(colors, ChromaticItems.EMISSIVE_DARK_OAK_LEAVES);
+    register(colors, ChromaticItems.EMISSIVE_VINE);
+  }
+  
+  private static void register(final BlockColors colors, final Block block) {
+    colors.registerBlockColorHandler((state, world, pos, tint) -> {
+      return state.getValue(ChromaticFoliage.COLOR).getIntColor();
+    }, block);
+  }
+  
+  private static void register(final ItemColors colors, final Item item) {
+    colors.registerItemColorHandler((stack, tint) -> {
+      return ChromaticColor.of(stack.getMetadata() & 15).getIntColor();
+    }, item);
   }
 }
