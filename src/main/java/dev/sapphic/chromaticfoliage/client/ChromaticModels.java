@@ -5,6 +5,7 @@ import com.google.common.collect.Streams;
 import dev.sapphic.chromaticfoliage.ChromaticColor;
 import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
+import dev.sapphic.chromaticfoliage.block.ChromaticLeavesBlock;
 import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -34,8 +35,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Field;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -141,33 +144,31 @@ public final class ChromaticModels {
     new StateMapperBase() {
       @Override
       protected ModelResourceLocation getModelResourceLocation(final IBlockState state) {
+        if (block instanceof ChromaticLeavesBlock) { // Ignore check_decay and decayable
+          return new ModelResourceLocation(id, "color=" + state.getValue(ChromaticFoliage.COLOR));
+        }
         return new ModelResourceLocation(id, this.getPropertyString(state.getProperties()));
       }
     }.putStateModelLocations(block).forEach(action);
   }
 
   private static void noShade(final IBlockState state, final IBakedModel model) {
+    final Set<BakedQuad> quads = new HashSet<>(6);
     if (model instanceof WeightedBakedModel) {
-      for (final Object o : getModels((WeightedBakedModel) model)) {
-        final IBakedModel delegate = getDelegate(o);
-        for (final BakedQuad quad : delegate.getQuads(state, null, 0)) {
-          setShade(quad, false);
-        }
+      for (final Object weightedModel : getModels((WeightedBakedModel) model)) {
+        final IBakedModel delegate = getDelegate(weightedModel);
+        quads.addAll(delegate.getQuads(state, null, 0));
         for (final EnumFacing side : SIDES) {
-          for (final BakedQuad quad : delegate.getQuads(state, side, 0)) {
-            setShade(quad, false);
-          }
+          quads.addAll(delegate.getQuads(state, side, 0));
         }
       }
-    } else {
-      for (final BakedQuad quad : model.getQuads(state, null, 0)) {
-        setShade(quad, false);
-      }
-      for (final EnumFacing side : SIDES) {
-        for (final BakedQuad quad : model.getQuads(state, side, 0)) {
-          setShade(quad, false);
-        }
-      }
+    }
+    quads.addAll(model.getQuads(state, null, 0));
+    for (final EnumFacing side : SIDES) {
+      quads.addAll(model.getQuads(state, side, 0));
+    }
+    for (final BakedQuad quad : quads) {
+      setShade(quad, false);
     }
   }
 

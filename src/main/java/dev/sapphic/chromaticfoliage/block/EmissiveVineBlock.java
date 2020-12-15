@@ -22,13 +22,13 @@ import java.util.Map.Entry;
 
 public class EmissiveVineBlock extends ChromaticVineBlock {
   @Override
-  public int getLightValue(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
-    return 5;
+  protected boolean isEmissive() {
+    return true;
   }
 
   @Override
-  protected boolean isEmissive() {
-    return true;
+  public int getLightValue(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
+    return 5;
   }
 
   @Override

@@ -25,6 +25,7 @@ import java.util.List;
 public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   public EmissiveLeavesBlock(final EnumType type) {
     super(type);
+    this.setLightOpacity(0);
   }
 
   @Override
