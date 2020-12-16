@@ -20,10 +20,7 @@ public final class ChromaticFoliage {
     PropertyEnum.create("color", ChromaticColor.class, ChromaticColor.COLORS);
 
   public static final CreativeTabs TAB = new CreativeTabs(ID) {
-    @SideOnly(Side.CLIENT)
     private ItemStack icon = ItemStack.EMPTY;
-
-    @SideOnly(Side.CLIENT)
     private long lastTicks;
 
     @Override
