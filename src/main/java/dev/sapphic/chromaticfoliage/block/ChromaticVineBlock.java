@@ -86,10 +86,6 @@ public class ChromaticVineBlock extends BlockVine {
         final PropertyBool property = getPropertyFor(side);
         vine = vine.withProperty(property, actualState.getValue(property));
       }
-      for (final Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
-        //noinspection unchecked,rawtypes
-        vine = vine.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
-      }
       world.setBlockState(pos, vine);
       world.playSound(null, pos, ChromaticSounds.BLOCK_ILLUMINATED, SoundCategory.BLOCKS, 1.0F, 0.8F);
       if (!player.capabilities.isCreativeMode) {
