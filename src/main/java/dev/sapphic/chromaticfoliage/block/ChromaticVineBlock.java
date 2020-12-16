@@ -37,6 +37,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -332,7 +333,7 @@ public class ChromaticVineBlock extends BlockVine {
     } else if (side == EnumFacing.EAST) {
       x = pos.getX() + aabb.maxX + 0.1;
     }
-    manager.addEffect(new ChromaticDustParticle(world, x, y, z, 0.0D, 0.0D, 0.0D, state, this.isEmissive()).setBlockPos(pos).multiplyVelocity(0.2F).multipleParticleScaleBy(0.6F));
+    manager.addEffect(new ChromaticDustParticle(world, new Vec3d(x, y, z), Vec3d.ZERO, state, this.isEmissive()).setBlockPos(pos).multiplyVelocity(0.2F).multipleParticleScaleBy(0.6F));
     return true;
   }
 
@@ -346,7 +347,9 @@ public class ChromaticVineBlock extends BlockVine {
           final double ox = (x + 0.5) / 4.0;
           final double oy = (y + 0.5) / 4.0;
           final double oz = (z + 0.5) / 4.0;
-          manager.addEffect(new ChromaticDustParticle(world, pos.getX() + ox, pos.getY() + oy, pos.getZ() + oz, ox - 0.5, oy - 0.5, oz - 0.5, state, this.isEmissive()).setBlockPos(pos));
+          final Vec3d position = new Vec3d(pos.getX() + ox, pos.getY() + oy, pos.getZ() + oz);
+          final Vec3d velocity = new Vec3d(ox - 0.5, oy - 0.5, oz - 0.5);
+          manager.addEffect(new ChromaticDustParticle(world, position, velocity, state, this.isEmissive()).setBlockPos(pos));
         }
       }
     }

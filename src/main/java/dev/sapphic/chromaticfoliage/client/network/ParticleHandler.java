@@ -6,6 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.particle.ParticleManager;
+import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -36,27 +37,25 @@ public final class ParticleHandler implements IMessageHandler<ParticleData, IMes
     public void accept(final ParticleData data) {
       final ParticleManager manager = Minecraft.getMinecraft().effectRenderer;
       final WorldClient world = Minecraft.getMinecraft().world;
-      final int count = data.count();
-      final double x = data.x();
-      final double y = data.y();
-      final double z = data.z();
-      final double mx = data.mx();
-      final double my = data.my();
-      final double mz = data.mz();
-      final IBlockState state = data.state();
-      final boolean emissive = data.emissive();
-      if (count == 0) {
-        manager.addEffect(new ChromaticDustParticle(world, x, y, z, mx, my, mz, state, emissive).init());
+      final int particleCount = data.getParticleCount();
+      final Vec3d position = data.getPosition();
+      final Vec3d velocity = data.getVelocity();
+      final IBlockState state = data.getBlockState();
+      final boolean emissive = data.isEmissive();
+      if (particleCount == 0) {
+        manager.addEffect(new ChromaticDustParticle(world, position, velocity, state, emissive).init());
       } else {
-        final double speed = data.speed();
-        for (int i = 0; i < count; i++) {
-          final double ox = x + (this.random.nextGaussian() * mx);
-          final double oy = y + (this.random.nextGaussian() * my);
-          final double oz = z + (this.random.nextGaussian() * mz);
-          final double sx = this.random.nextGaussian() * speed;
-          final double sy = this.random.nextGaussian() * speed;
-          final double sz = this.random.nextGaussian() * speed;
-          manager.addEffect(new ChromaticDustParticle(world, ox, oy, oz, sx, sy, sz, state, emissive).fixedMotion(sx, sy, sz).init());
+        final double velocityMultiplier = data.getVelocityMultiplier();
+        for (int i = 0; i < particleCount; i++) {
+          final double ox = position.x + (this.random.nextGaussian() * velocity.x);
+          final double oy = position.y + (this.random.nextGaussian() * velocity.y);
+          final double oz = position.z + (this.random.nextGaussian() * velocity.z);
+          final Vec3d randPosition = new Vec3d(ox, oy, oz);
+          final double sx = this.random.nextGaussian() * velocityMultiplier;
+          final double sy = this.random.nextGaussian() * velocityMultiplier;
+          final double sz = this.random.nextGaussian() * velocityMultiplier;
+          final Vec3d randVelocity = new Vec3d(sx, sy, sz);
+          manager.addEffect(new ChromaticDustParticle(world, randPosition, randVelocity, state, emissive).fixedMotion(randVelocity).init());
         }
       }
     }
@@ -65,7 +64,7 @@ public final class ParticleHandler implements IMessageHandler<ParticleData, IMes
   public static final class ServerProxy implements Consumer<ParticleData> {
     @Override
     public void accept(final ParticleData data) {
-      throw new IllegalStateException();
+      throw new IllegalStateException("Cannot handle particle data in server context");
     }
   }
 }
