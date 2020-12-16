@@ -80,6 +80,7 @@ public class ChromaticGrassBlock extends BlockGrass {
     }
     if (ChromaticConfig.General.inWorldIllumination && (Items.GLOWSTONE_DUST == stack.getItem())) {
       if (world.isRemote) {
+        player.swingArm(hand);
         return true;
       }
       final IBlockState grass = ChromaticBlocks.EMISSIVE_GRASS.getDefaultState();
@@ -106,11 +107,11 @@ public class ChromaticGrassBlock extends BlockGrass {
         return false;
       }
       if (world.isRemote) {
+        player.swingArm(hand);
         return true;
       }
       world.setBlockState(pos, state.withProperty(ChromaticFoliage.COLOR, color), 3);
       world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-      player.swingArm(hand);
       if (!player.capabilities.isCreativeMode) {
         stack.shrink(1);
       }

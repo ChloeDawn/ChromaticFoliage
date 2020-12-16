@@ -52,12 +52,12 @@ public final class ChromaticDyeing {
     if (block == Blocks.GRASS) {
       ChromaticColor.of(stack).ifPresent(color -> {
         if (world.isRemote) {
+          player.swingArm(event.getHand());
           return;
         }
         final IBlockState grass = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
         world.setBlockState(pos, grass.withProperty(ChromaticFoliage.COLOR, color), 3);
         world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-        player.swingArm(event.getHand());
         if (!player.capabilities.isCreativeMode) {
           stack.shrink(1);
 
@@ -67,6 +67,7 @@ public final class ChromaticDyeing {
     if ((block == Blocks.LEAVES) || (block == Blocks.LEAVES2)) {
       ChromaticColor.of(stack).ifPresent(color -> {
         if (world.isRemote) {
+          player.swingArm(event.getHand());
           return;
         }
         final int meta = block.getMetaFromState(state);
@@ -74,7 +75,6 @@ public final class ChromaticDyeing {
         final IBlockState leaves = ChromaticBlocks.CHROMATIC_LEAVES.get(woodType).getDefaultState();
         world.setBlockState(pos, leaves.withProperty(ChromaticFoliage.COLOR, color), 3);
         world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-        player.swingArm(event.getHand());
         if (!player.capabilities.isCreativeMode) {
           stack.shrink(1);
         }
@@ -83,6 +83,7 @@ public final class ChromaticDyeing {
     if (block == Blocks.VINE) {
       ChromaticColor.of(stack).ifPresent(color -> {
         if (world.isRemote) {
+          player.swingArm(event.getHand());
           return;
         }
         final IBlockState actualState = state.getActualState(world, pos);
@@ -94,7 +95,6 @@ public final class ChromaticDyeing {
         world.setBlockState(pos, vine.withProperty(ChromaticFoliage.COLOR, color), 3);
         world.setTileEntity(pos, new ChromaticBlockEntity(color));
         world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-        player.swingArm(event.getHand());
         if (!player.capabilities.isCreativeMode) {
           stack.shrink(1);
         }

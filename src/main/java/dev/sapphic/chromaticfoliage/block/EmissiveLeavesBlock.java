@@ -55,12 +55,12 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
       return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
     }
     if (world.isRemote) {
+      player.swingArm(hand);
       return true;
     }
     final IBlockState leaves = ChromaticBlocks.CHROMATIC_LEAVES.get(this.getFoliageType()).getDefaultState();
     world.setBlockState(pos, leaves.withProperty(ChromaticFoliage.COLOR, state.getValue(ChromaticFoliage.COLOR)), 3);
     world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-    player.swingArm(hand);
     if (!player.inventory.addItemStackToInventory(new ItemStack(Items.GLOWSTONE_DUST))) {
       throw new IllegalStateException("Hand was empty but couldn't add item to inventory");
     }

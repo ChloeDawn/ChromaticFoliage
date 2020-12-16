@@ -75,6 +75,7 @@ public class ChromaticVineBlock extends BlockVine {
     }
     if (ChromaticConfig.General.inWorldIllumination && (Items.GLOWSTONE_DUST == stack.getItem())) {
       if (world.isRemote) {
+        player.swingArm(hand);
         return true;
       }
       final IBlockState actualState = state.getActualState(world, pos);
@@ -88,9 +89,7 @@ public class ChromaticVineBlock extends BlockVine {
         //noinspection unchecked,rawtypes
         vine = vine.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
       }
-      if (!world.setBlockState(pos, vine)) {
-        return false;
-      }
+      world.setBlockState(pos, vine);
       world.playSound(null, pos, ChromaticSounds.BLOCK_ILLUMINATED, SoundCategory.BLOCKS, 1.0F, 0.8F);
       if (!player.capabilities.isCreativeMode) {
         stack.shrink(1);
@@ -114,11 +113,11 @@ public class ChromaticVineBlock extends BlockVine {
         return false;
       }
       if (world.isRemote) {
+        player.swingArm(hand);
         return true;
       }
       world.setBlockState(pos, actualState.withProperty(ChromaticFoliage.COLOR, color), 3);
       world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-      player.swingArm(hand);
       if (!player.capabilities.isCreativeMode) {
         stack.shrink(1);
       }

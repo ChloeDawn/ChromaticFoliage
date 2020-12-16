@@ -48,6 +48,7 @@ public class EmissiveVineBlock extends ChromaticVineBlock {
       return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
     }
     if (world.isRemote) {
+      player.swingArm(hand);
       return true;
     }
     final IBlockState actualState = state.getActualState(world, pos);
@@ -59,7 +60,6 @@ public class EmissiveVineBlock extends ChromaticVineBlock {
     }
     world.setBlockState(pos, vine);
     world.playSound(null, pos, ChromaticSounds.BLOCK_DARKENED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-    player.swingArm(hand);
     if (!player.inventory.addItemStackToInventory(new ItemStack(Items.GLOWSTONE_DUST))) {
       throw new IllegalStateException("Hand was empty but couldn't add item to inventory");
     }
