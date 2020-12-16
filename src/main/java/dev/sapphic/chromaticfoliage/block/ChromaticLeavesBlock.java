@@ -184,19 +184,26 @@ public class ChromaticLeavesBlock extends BlockLeaves {
 
   @Override
   public void updateTick(final World world, final BlockPos pos, final IBlockState state, final Random rand) {
-    if (this.spreadLeaves && !world.isRemote && world.isAreaLoaded(pos, 3)) {
-      for (int i = 0; i < 4; ++i) {
-        final int x = rand.nextInt(3) - 1;
-        final int y = rand.nextInt(5) - 3;
-        final int z = rand.nextInt(3) - 1;
-        final BlockPos offset = pos.add(x, y, z);
-        if (world.isOutsideBuildHeight(offset) || !world.isBlockLoaded(offset)) {
-          return;
-        }
-        if (this.canSpreadInto(world, offset)) {
-          world.setBlockState(offset, state, 3);
-        }
+    if (!this.spreadLeaves || world.isRemote || !world.isAreaLoaded(pos, 3)) {
+      return;
+    }
+    final BlockPos above = pos.up();
+    final int lightOpacity = world.getBlockState(above).getLightOpacity(world, above);
+    if (world.getLightFromNeighbors(above) < 9) {
+      return;
+    }
+    for (int i = 0; i < 4; ++i) {
+      final int x = rand.nextInt(3) - 1;
+      final int y = rand.nextInt(5) - 3;
+      final int z = rand.nextInt(3) - 1;
+      final BlockPos offset = pos.add(x, y, z);
+      if (world.isOutsideBuildHeight(offset) || !world.isBlockLoaded(offset)) {
+        return;
       }
+      if (!this.canSpreadInto(world, offset) || (world.getLightFromNeighbors(offset.up()) < 4) || (lightOpacity > 2)) {
+        continue;
+      }
+      world.setBlockState(offset, state, 3);
     }
   }
 
