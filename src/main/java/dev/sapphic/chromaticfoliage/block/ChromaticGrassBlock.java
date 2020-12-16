@@ -182,7 +182,9 @@ public class ChromaticGrassBlock extends BlockGrass {
         if (!this.canSpreadInto(world, offset) || (world.getLightFromNeighbors(offset.up()) < 4) || (lightOpacity > 2)) {
           continue;
         }
-        world.setBlockState(offset, state, 3);
+        final IBlockState chromatic = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
+        final ChromaticColor color = state.getValue(ChromaticFoliage.COLOR);
+        world.setBlockState(offset, chromatic.withProperty(ChromaticFoliage.COLOR, color), 3);
       }
     } else {
       world.setBlockState(pos, Blocks.DIRT.getDefaultState());

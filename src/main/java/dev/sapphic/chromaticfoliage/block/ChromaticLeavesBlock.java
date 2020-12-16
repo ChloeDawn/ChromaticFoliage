@@ -203,7 +203,9 @@ public class ChromaticLeavesBlock extends BlockLeaves {
       if (!this.canSpreadInto(world, offset) || (world.getLightFromNeighbors(offset.up()) < 4) || (lightOpacity > 2)) {
         continue;
       }
-      world.setBlockState(offset, state, 3);
+      final IBlockState chromatic = ChromaticBlocks.CHROMATIC_LEAVES.get(this.foliageType).getDefaultState();
+      final ChromaticColor color = state.getValue(ChromaticFoliage.COLOR);
+      world.setBlockState(offset, chromatic.withProperty(ChromaticFoliage.COLOR, color), 3);
     }
   }
 
