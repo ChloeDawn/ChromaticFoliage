@@ -38,22 +38,21 @@ public class EmissiveGrassBlock extends ChromaticGrassBlock {
 
   @Override
   public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing facing, final float hitX, final float hitY, final float hitZ) {
+    final ItemStack stack = player.getHeldItem(hand);
+    if (stack.getItem() == Items.GLOWSTONE_DUST) {
+      return false;
+    }
     if (!player.isSneaking()) {
       return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
     }
-    final ItemStack stack = player.getHeldItem(hand);
     if (!stack.isEmpty() || !player.canPlayerEdit(pos, facing, stack)) {
       return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
-    }
-    if (world.isRemote) {
-      player.swingArm(hand);
-      return true;
     }
     final IBlockState grass = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
     if (world.setBlockState(pos, grass.withProperty(ChromaticFoliage.COLOR, state.getValue(ChromaticFoliage.COLOR)), 3)) {
       world.playSound(null, pos, ChromaticSounds.BLOCK_DARKENED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-      final ItemStack glowstone = new ItemStack(Items.GLOWSTONE_DUST);
-      if (!player.inventory.addItemStackToInventory(glowstone)) {
+      player.swingArm(hand);
+      if (!player.inventory.addItemStackToInventory(new ItemStack(Items.GLOWSTONE_DUST))) {
         throw new IllegalStateException();
       }
       return true;
