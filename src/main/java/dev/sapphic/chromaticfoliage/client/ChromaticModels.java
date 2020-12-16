@@ -191,11 +191,11 @@ public final class ChromaticModels {
     final ResourceLocation id = Objects.requireNonNull(block.getRegistryName());
     new StateMapperBase() {
       @Override
-      protected ModelResourceLocation getModelResourceLocation(final IBlockState state1) {
+      protected ModelResourceLocation getModelResourceLocation(final IBlockState state) {
         if (block instanceof ChromaticLeavesBlock) { // Ignore check_decay and decayable
-          return new ModelResourceLocation(id, "color=" + state1.getValue(ChromaticFoliage.COLOR));
+          return new ModelResourceLocation(id, "color=" + state.getValue(ChromaticFoliage.COLOR));
         }
-        return new ModelResourceLocation(id, this.getPropertyString(state1.getProperties()));
+        return new ModelResourceLocation(id, this.getPropertyString(state.getProperties()));
       }
     }.putStateModelLocations(block).forEach(action);
   }
