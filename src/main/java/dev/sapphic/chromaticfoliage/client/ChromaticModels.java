@@ -187,7 +187,7 @@ public final class ChromaticModels {
         BAKED_QUAD_SHADE_SETTER.invokeExact(quad, false);
       }
     } catch (final Throwable throwable) {
-      throw new IllegalStateException("Unable to set baked quad tint index", throwable);
+      throw new IllegalStateException("Unable to disable quad shading", throwable);
     }
   }
 
