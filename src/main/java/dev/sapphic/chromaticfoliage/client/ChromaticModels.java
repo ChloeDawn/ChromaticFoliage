@@ -239,13 +239,13 @@ public final class ChromaticModels {
   }
 
   private static void tintIndex(final IBlockState state, final IBakedModel model) {
-    for (final BakedQuad quad : model.getQuads(state, null, 0)) {
-      setTintIndex(quad, 0);
-    }
+    final Set<BakedQuad> quads = new HashSet<>(6);
+    quads.addAll(model.getQuads(state, null, 0));
     for (final EnumFacing side : SIDES) {
-      for (final BakedQuad quad : model.getQuads(state, side, 0)) {
-        setTintIndex(quad, 0);
-      }
+      quads.addAll(model.getQuads(state, side, 0));
+    }
+    for (final BakedQuad quad : quads) {
+      setTintIndex(quad, 0);
     }
   }
 
