@@ -5,7 +5,7 @@ plugins {
   id("signing")
 }
 
-version = "2.0.0"
+version = "2.0.1"
 group = "dev.sapphic"
 
 java {
@@ -58,8 +58,7 @@ tasks {
       "Specification-Version" to "1.0.0",
       "Implementation-Title" to project.name,
       "Implementation-Version" to project.version,
-      "Implementation-Vendor" to project.group,
-      "Sealed" to "true"
+      "Implementation-Vendor" to project.group
     ))
   }
 
