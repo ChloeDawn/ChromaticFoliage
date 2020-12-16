@@ -182,8 +182,12 @@ public final class ChromaticModels {
     for (final EnumFacing side : SIDES) {
       quads.addAll(model.getQuads(state, side, 0));
     }
-    for (final BakedQuad quad : quads) {
-      setShade(quad, false);
+    try {
+      for (final BakedQuad quad : quads) {
+        BAKED_QUAD_SHADE_SETTER.invokeExact(quad, false);
+      }
+    } catch (final Throwable throwable) {
+      throw new IllegalStateException("Unable to set baked quad tint index", throwable);
     }
   }
 
@@ -230,30 +234,19 @@ public final class ChromaticModels {
     }
   }
 
-  private static void setShade(final BakedQuad bakedQuad, final boolean shade) {
-    try {
-      BAKED_QUAD_SHADE_SETTER.invokeExact(bakedQuad, shade);
-    } catch (final Throwable throwable) {
-      throw new IllegalStateException("Unable to set baked quad tint index", throwable);
-    }
-  }
-
   private static void tintIndex(final IBlockState state, final IBakedModel model) {
     final Set<BakedQuad> quads = new HashSet<>(6);
     quads.addAll(model.getQuads(state, null, 0));
     for (final EnumFacing side : SIDES) {
       quads.addAll(model.getQuads(state, side, 0));
     }
-    for (final BakedQuad quad : quads) {
-      setTintIndex(quad, 0);
-    }
-  }
-
-  private static void setTintIndex(final BakedQuad bakedQuad, final int tintIndex) {
     try {
-      BAKED_QUAD_TINT_INDEX_SETTER.invokeExact(bakedQuad, tintIndex);
+      for (final BakedQuad quad : quads) {
+        BAKED_QUAD_TINT_INDEX_SETTER.invokeExact(quad, 0);
+      }
     } catch (final Throwable throwable) {
       throw new IllegalStateException("Unable to set baked quad tint index", throwable);
     }
   }
+
 }
