@@ -28,7 +28,7 @@ public class EmissiveVineBlock extends ChromaticVineBlock {
 
   @Override
   public int getLightValue(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
-    return 5;
+    return 3;
   }
 
   @Override
