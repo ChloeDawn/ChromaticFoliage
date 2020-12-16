@@ -28,7 +28,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -156,7 +155,7 @@ public final class ChromaticModels {
     noShade(ChromaticItems.EMISSIVE_VINE, models);
 
     if (ChromaticConfig.Client.BLOCKS.snowLayers) {
-      noShade(Blocks.SNOW_LAYER, models);
+      tintIndex(Blocks.SNOW_LAYER, models);
     }
   }
 
@@ -188,7 +187,7 @@ public final class ChromaticModels {
     }
   }
 
-  private static void noShade(final Block block, final ModelManager models) {
+  private static void forEachModel(final Block block, final BiConsumer<IBlockState, ModelResourceLocation> action) {
     final ResourceLocation id = Objects.requireNonNull(block.getRegistryName());
     new StateMapperBase() {
       @Override
@@ -198,12 +197,20 @@ public final class ChromaticModels {
         }
         return new ModelResourceLocation(id, this.getPropertyString(state1.getProperties()));
       }
-    }.putStateModelLocations(block).forEach((state, path) -> noShade(state, models.getModel(path)));
+    }.putStateModelLocations(block).forEach(action);
+  }
+
+  private static void noShade(final Block block, final ModelManager models) {
+    forEachModel(block, (state, path) -> noShade(state, models.getModel(path)));
   }
 
   private static void noShade(final Item item, final ModelManager models) {
     final ResourceLocation id = Objects.requireNonNull(item.getRegistryName());
     noShade(null, models.getModel(new ModelResourceLocation(id, "inventory")));
+  }
+
+  private static void tintIndex(final Block block, final ModelManager models) {
+    forEachModel(block, (state, path) -> tintIndex(state, models.getModel(path)));
   }
 
   private static List<?> getModels(final WeightedBakedModel model) {
