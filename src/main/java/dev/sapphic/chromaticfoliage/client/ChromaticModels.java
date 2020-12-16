@@ -177,10 +177,11 @@ public final class ChromaticModels {
           quads.addAll(delegate.getQuads(state, side, 0));
         }
       }
-    }
-    quads.addAll(model.getQuads(state, null, 0));
-    for (final EnumFacing side : SIDES) {
-      quads.addAll(model.getQuads(state, side, 0));
+    } else {
+      quads.addAll(model.getQuads(state, null, 0));
+      for (final EnumFacing side : SIDES) {
+        quads.addAll(model.getQuads(state, side, 0));
+      }
     }
     try {
       for (final BakedQuad quad : quads) {
