@@ -14,7 +14,6 @@ import net.minecraft.block.BlockVine;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
@@ -79,7 +78,12 @@ public class ChromaticVineBlock extends BlockVine {
         return true;
       }
       final IBlockState actualState = state.getActualState(world, pos);
-      IBlockState vine = ChromaticBlocks.EMISSIVE_VINE.getDefaultState();
+      final ChromaticColor color = actualState.getValue(ChromaticFoliage.COLOR);
+      IBlockState vine = ChromaticBlocks.EMISSIVE_VINE.getDefaultState().withProperty(ChromaticFoliage.COLOR, color);
+      for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
+        final PropertyBool property = getPropertyFor(side);
+        vine = vine.withProperty(property, actualState.getValue(property));
+      }
       for (final Entry<IProperty<?>, Comparable<?>> prop : actualState.getProperties().entrySet()) {
         //noinspection unchecked,rawtypes
         vine = vine.withProperty((IProperty) prop.getKey(), (Comparable) prop.getValue());
@@ -110,13 +114,11 @@ public class ChromaticVineBlock extends BlockVine {
         return false;
       }
       if (world.isRemote) {
-        player.swingArm(hand);
         return true;
       }
-      if (!world.setBlockState(pos, actualState.withProperty(ChromaticFoliage.COLOR, color), 3)) {
-        return false;
-      }
+      world.setBlockState(pos, actualState.withProperty(ChromaticFoliage.COLOR, color), 3);
       world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      player.swingArm(hand);
       if (!player.capabilities.isCreativeMode) {
         stack.shrink(1);
       }

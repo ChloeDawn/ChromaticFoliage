@@ -48,25 +48,23 @@ public class EmissiveLeavesBlock extends ChromaticLeavesBlock {
   @Override
   public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing facing, final float hitX, final float hitY, final float hitZ) {
     final ItemStack stack = player.getHeldItem(hand);
-    if (stack.getItem() == Items.GLOWSTONE_DUST) {
+    if ((stack.getItem() == Items.GLOWSTONE_DUST) || !player.canPlayerEdit(pos, facing, stack)) {
       return false;
     }
-    if (!player.isSneaking()) {
+    if (!player.isSneaking() || !stack.isEmpty()) {
       return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
     }
-    if (!stack.isEmpty() || !player.canPlayerEdit(pos, facing, stack)) {
-      return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
-    }
-    final IBlockState leaves = ChromaticBlocks.CHROMATIC_LEAVES.get(this.getFoliageType()).getDefaultState();
-    if (world.setBlockState(pos, leaves.withProperty(ChromaticFoliage.COLOR, state.getValue(ChromaticFoliage.COLOR)), 3)) {
-      world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-      player.swingArm(hand);
-      if (!player.inventory.addItemStackToInventory(new ItemStack(Items.GLOWSTONE_DUST))) {
-        throw new IllegalStateException();
-      }
+    if (world.isRemote) {
       return true;
     }
-    return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+    final IBlockState leaves = ChromaticBlocks.CHROMATIC_LEAVES.get(this.getFoliageType()).getDefaultState();
+    world.setBlockState(pos, leaves.withProperty(ChromaticFoliage.COLOR, state.getValue(ChromaticFoliage.COLOR)), 3);
+    world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
+    player.swingArm(hand);
+    if (!player.inventory.addItemStackToInventory(new ItemStack(Items.GLOWSTONE_DUST))) {
+      throw new IllegalStateException("Hand was empty but couldn't add item to inventory");
+    }
+    return true;
   }
 
   @Override
