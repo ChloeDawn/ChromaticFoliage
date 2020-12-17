@@ -100,6 +100,7 @@ public final class ChromaticDyeing {
         final PropertyBool property = BlockVine.getPropertyFor(side);
         vine = vine.withProperty(property, actualState.getValue(property));
       }
+      vine = vine.withProperty(BlockVine.UP, actualState.getValue(BlockVine.UP));
       world.setBlockState(pos, vine.withProperty(ChromaticFoliage.COLOR, color), 3);
       world.setTileEntity(pos, new ChromaticBlockEntity(color));
       world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
