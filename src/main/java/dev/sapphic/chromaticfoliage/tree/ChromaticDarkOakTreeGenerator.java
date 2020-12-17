@@ -24,7 +24,7 @@ public class ChromaticDarkOakTreeGenerator extends WorldGenAbstractTree {
 
   public ChromaticDarkOakTreeGenerator(final ChromaticColor color) {
     super(true);
-    this.leaves = ChromaticBlocks.CHROMATIC_ACACIA_LEAVES.getDefaultState()
+    this.leaves = ChromaticBlocks.CHROMATIC_DARK_OAK_LEAVES.getDefaultState()
       .withProperty(BlockLeaves.CHECK_DECAY, false)
       .withProperty(ChromaticFoliage.COLOR, color);
   }
