@@ -10,6 +10,8 @@ import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
 import dev.sapphic.chromaticfoliage.init.ChromaticItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
@@ -43,6 +45,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(value = Side.CLIENT, modid = ChromaticFoliage.ID)
@@ -58,9 +61,11 @@ public final class ChromaticModels {
 
   private static final ImmutableMap<Block, StateMap> STATE_MAPPERS = Streams.concat(
     ChromaticBlocks.CHROMATIC_LEAVES.values().stream(),
-    ChromaticBlocks.EMISSIVE_LEAVES.values().stream()
-  ).collect(ImmutableMap.toImmutableMap(Function.identity(), block ->
-    new StateMap.Builder().ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE).build()
+    ChromaticBlocks.EMISSIVE_LEAVES.values().stream(),
+    Stream.of(ChromaticBlocks.CHROMATIC_SAPLING)
+  ).collect(ImmutableMap.toImmutableMap(Function.identity(), block -> new StateMap.Builder()
+    .ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE, BlockSapling.STAGE)
+    .build()
   ));
 
   static {
@@ -130,6 +135,8 @@ public final class ChromaticModels {
     register(ChromaticItems.EMISSIVE_ACACIA_LEAVES);
     register(ChromaticItems.EMISSIVE_DARK_OAK_LEAVES);
     register(ChromaticItems.EMISSIVE_VINE);
+
+    registerSapling(ChromaticItems.CHROMATIC_SAPLING);
   }
 
   @SubscribeEvent
@@ -164,6 +171,17 @@ public final class ChromaticModels {
     final ModelResourceLocation model = new ModelResourceLocation(id, "inventory");
     for (final ChromaticColor color : ChromaticColor.COLORS) {
       ModelLoader.setCustomModelResourceLocation(item, color.ordinal(), model);
+    }
+  }
+
+  private static void registerSapling(final Item item) {
+    for (final BlockPlanks.EnumType wood : BlockPlanks.EnumType.values()) {
+      final String path = "chromatic_" + wood.getName() + "_sapling";
+      final ResourceLocation id = new ResourceLocation(ChromaticFoliage.ID, path);
+      final ModelResourceLocation model = new ModelResourceLocation(id, "inventory");
+      for (final ChromaticColor color : ChromaticColor.COLORS) {
+        ModelLoader.setCustomModelResourceLocation(item, wood.ordinal() + (color.ordinal() << 3), model);
+      }
     }
   }
 

@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.item.ChromaticBlockItem;
+import dev.sapphic.chromaticfoliage.item.ChromaticSaplingItem;
 import dev.sapphic.chromaticfoliage.item.EmissiveBlockItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks.EnumType;
@@ -37,6 +38,8 @@ public final class ChromaticItems {
   public static final Item EMISSIVE_ACACIA_LEAVES = emissive(ChromaticBlocks.EMISSIVE_ACACIA_LEAVES);
   public static final Item EMISSIVE_DARK_OAK_LEAVES = emissive(ChromaticBlocks.EMISSIVE_DARK_OAK_LEAVES);
   public static final Item EMISSIVE_VINE = emissive(ChromaticBlocks.EMISSIVE_VINE);
+
+  public static final Item CHROMATIC_SAPLING = sapling(ChromaticBlocks.CHROMATIC_SAPLING);
 
   public static final ImmutableMap<EnumType, Item> CHROMATIC_LEAVES =
     Maps.immutableEnumMap(ImmutableMap.<EnumType, Item>builder()
@@ -74,6 +77,8 @@ public final class ChromaticItems {
     register(registry, "emissive_acacia_leaves", EMISSIVE_ACACIA_LEAVES);
     register(registry, "emissive_dark_oak_leaves", EMISSIVE_DARK_OAK_LEAVES);
     register(registry, "emissive_vine", EMISSIVE_VINE);
+
+    register(registry, "chromatic_sapling", CHROMATIC_SAPLING);
 
     OreDictionary.registerOre("treeLeavesOak", new ItemStack(Blocks.LEAVES, 1, 0));
     OreDictionary.registerOre("treeLeavesSpruce", new ItemStack(Blocks.LEAVES, 1, 1));
@@ -129,6 +134,9 @@ public final class ChromaticItems {
     OreDictionary.registerOre("treeLeavesDarkOakEmissive", new ItemStack(EMISSIVE_DARK_OAK_LEAVES, 1, wildcard));
     OreDictionary.registerOre("vine", new ItemStack(EMISSIVE_VINE, 1, wildcard));
     OreDictionary.registerOre("vineEmissive", new ItemStack(EMISSIVE_VINE, 1, wildcard));
+
+    OreDictionary.registerOre("treeSapling", new ItemStack(CHROMATIC_SAPLING, 1, wildcard));
+    OreDictionary.registerOre("treeSaplingChromatic", new ItemStack(CHROMATIC_SAPLING, 1, wildcard));
   }
 
   private static Item chromatic(final Block block) {
@@ -137,6 +145,10 @@ public final class ChromaticItems {
 
   private static Item emissive(final Block block) {
     return new EmissiveBlockItem(block);
+  }
+
+  private static Item sapling(final Block block) {
+    return new ChromaticSaplingItem(block);
   }
 
   private static void register(final IForgeRegistry<Item> registry, final String name, final Item item) {

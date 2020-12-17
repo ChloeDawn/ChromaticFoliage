@@ -5,6 +5,7 @@ import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.block.ChromaticGrassBlock;
 import dev.sapphic.chromaticfoliage.block.ChromaticLeavesBlock;
+import dev.sapphic.chromaticfoliage.block.ChromaticSaplingBlock;
 import dev.sapphic.chromaticfoliage.block.ChromaticVineBlock;
 import dev.sapphic.chromaticfoliage.block.EmissiveGrassBlock;
 import dev.sapphic.chromaticfoliage.block.EmissiveLeavesBlock;
@@ -34,7 +35,7 @@ import java.util.stream.Stream;
 public final class WailaTooltips implements IWailaPlugin {
   @Override
   public void register(final IWailaRegistrar registrar) {
-    Stream.of(ChromaticGrassBlock.class, ChromaticLeavesBlock.class, ChromaticVineBlock.class).forEach(block ->
+    Stream.of(ChromaticGrassBlock.class, ChromaticLeavesBlock.class, ChromaticSaplingBlock.class, ChromaticVineBlock.class).forEach(block ->
       registrar.registerBodyProvider(new IWailaDataProvider() {
         @Override
         public List<String> getWailaBody(final ItemStack stack, final List<String> tooltip, final IWailaDataAccessor accessor, final IWailaConfigHandler config) {

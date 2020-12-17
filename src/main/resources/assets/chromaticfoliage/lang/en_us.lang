@@ -16,6 +16,12 @@ tile.chromaticfoliage.emissive_jungle_leaves.name=Chromatic Jungle Leaves
 tile.chromaticfoliage.emissive_acacia_leaves.name=Chromatic Acacia Leaves
 tile.chromaticfoliage.emissive_dark_oak_leaves.name=Chromatic Dark Oak Leaves
 tile.chromaticfoliage.emissive_vine.name=Chromatic Vines
+tile.chromaticfoliage.chromatic_sapling.oak.name=Chromatic Oak Sapling
+tile.chromaticfoliage.chromatic_sapling.spruce.name=Chromatic Spruce Sapling
+tile.chromaticfoliage.chromatic_sapling.birch.name=Chromatic Birch Sapling
+tile.chromaticfoliage.chromatic_sapling.jungle.name=Chromatic Jungle Sapling
+tile.chromaticfoliage.chromatic_sapling.acacia.name=Chromatic Acacia Sapling
+tile.chromaticfoliage.chromatic_sapling.dark_oak.name=Chromatic Dark Oak Sapling
 
 color.chromaticfoliage.black=Black
 color.chromaticfoliage.blue=Blue

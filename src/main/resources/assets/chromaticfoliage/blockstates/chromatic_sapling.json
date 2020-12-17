@@ -1,0 +1,292 @@
+{
+  "variants": {
+    "color=black,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=black,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=black,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=black,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=black,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=black,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=red,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=red,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=red,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=red,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=red,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=red,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=green,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=green,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=green,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=green,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=green,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=green,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=brown,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=brown,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=brown,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=brown,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=brown,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=brown,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=blue,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=blue,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=blue,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=blue,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=blue,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=blue,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=purple,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=purple,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=purple,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=purple,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=purple,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=purple,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=cyan,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=cyan,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=cyan,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=cyan,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=cyan,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=cyan,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=light_gray,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=light_gray,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=light_gray,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=light_gray,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=light_gray,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=light_gray,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=gray,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=gray,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=gray,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=gray,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=gray,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=gray,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=pink,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=pink,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=pink,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=pink,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=pink,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=pink,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=lime,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=lime,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=lime,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=lime,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=lime,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=lime,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=yellow,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=yellow,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=yellow,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=yellow,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=yellow,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=yellow,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=light_blue,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=light_blue,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=light_blue,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=light_blue,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=light_blue,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=light_blue,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=magenta,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=magenta,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=magenta,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=magenta,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=magenta,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=magenta,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=orange,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=orange,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=orange,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=orange,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=orange,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=orange,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    },
+    "color=white,type=oak": {
+      "model": "chromaticfoliage:chromatic_oak_sapling"
+    },
+    "color=white,type=spruce": {
+      "model": "chromaticfoliage:chromatic_spruce_sapling"
+    },
+    "color=white,type=birch": {
+      "model": "chromaticfoliage:chromatic_birch_sapling"
+    },
+    "color=white,type=jungle": {
+      "model": "chromaticfoliage:chromatic_jungle_sapling"
+    },
+    "color=white,type=acacia": {
+      "model": "chromaticfoliage:chromatic_acacia_sapling"
+    },
+    "color=white,type=dark_oak": {
+      "model": "chromaticfoliage:chromatic_dark_oak_sapling"
+    }
+  }
+}

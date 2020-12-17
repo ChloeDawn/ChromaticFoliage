@@ -1,16 +1,16 @@
 package dev.sapphic.chromaticfoliage.init;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
-import dev.sapphic.chromaticfoliage.block.EmissiveVineBlock;
-import dev.sapphic.chromaticfoliage.block.entity.ChromaticBlockEntity;
 import dev.sapphic.chromaticfoliage.block.ChromaticGrassBlock;
 import dev.sapphic.chromaticfoliage.block.ChromaticLeavesBlock;
+import dev.sapphic.chromaticfoliage.block.ChromaticSaplingBlock;
 import dev.sapphic.chromaticfoliage.block.ChromaticVineBlock;
 import dev.sapphic.chromaticfoliage.block.EmissiveGrassBlock;
 import dev.sapphic.chromaticfoliage.block.EmissiveLeavesBlock;
+import dev.sapphic.chromaticfoliage.block.EmissiveVineBlock;
+import dev.sapphic.chromaticfoliage.block.entity.ChromaticBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.tileentity.TileEntity;
@@ -39,6 +39,8 @@ public final class ChromaticBlocks {
   public static final Block EMISSIVE_ACACIA_LEAVES = new EmissiveLeavesBlock(EnumType.ACACIA);
   public static final Block EMISSIVE_DARK_OAK_LEAVES = new EmissiveLeavesBlock(EnumType.DARK_OAK);
   public static final Block EMISSIVE_VINE = new EmissiveVineBlock();
+
+  public static final Block CHROMATIC_SAPLING = new ChromaticSaplingBlock();
 
   public static final ImmutableMap<EnumType, Block> CHROMATIC_LEAVES =
     Maps.immutableEnumMap(ImmutableMap.<EnumType, Block>builder()
@@ -75,6 +77,7 @@ public final class ChromaticBlocks {
     register(registry, "chromatic_acacia_leaves", CHROMATIC_ACACIA_LEAVES);
     register(registry, "chromatic_dark_oak_leaves", CHROMATIC_DARK_OAK_LEAVES);
     register(registry, "chromatic_vine", CHROMATIC_VINE);
+
     register(registry, "emissive_grass", EMISSIVE_GRASS);
     register(registry, "emissive_oak_leaves", EMISSIVE_OAK_LEAVES);
     register(registry, "emissive_spruce_leaves", EMISSIVE_SPRUCE_LEAVES);
@@ -83,6 +86,8 @@ public final class ChromaticBlocks {
     register(registry, "emissive_acacia_leaves", EMISSIVE_ACACIA_LEAVES);
     register(registry, "emissive_dark_oak_leaves", EMISSIVE_DARK_OAK_LEAVES);
     register(registry, "emissive_vine", EMISSIVE_VINE);
+
+    register(registry, "chromatic_sapling", CHROMATIC_SAPLING);
 
     register("block_entity", ChromaticBlockEntity.class);
   }

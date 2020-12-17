@@ -14,6 +14,8 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockTallGrass.EnumType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -29,6 +31,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(value = Side.CLIENT, modid = ChromaticFoliage.ID)
 public final class ChromaticColors {
+  private static final IBlockColor BLOCK_COLOR_TINT = (state, world, pos, tint) -> {
+    return state.getValue(ChromaticFoliage.COLOR).getIntColor();
+  };
+
+  private static final IBlockColor SAPLING_BLOCK_COLOR_MASK = (state, world, pos, tint) -> {
+    return (tint > 0) ? state.getValue(ChromaticFoliage.COLOR).getIntColor() : 0xFFFFFF;
+  };
+
+  private static final IItemColor ITEM_COLOR_TINT = (stack, tint) -> {
+    return ChromaticColor.of(stack.getMetadata()).getIntColor();
+  };
+
+  private static final IItemColor SAPLING_ITEM_COLOR_MASK = (stack, tint) -> {
+    return (tint > 0) ? ChromaticColor.of(stack.getMetadata() >> 3).getIntColor() : 0xFFFFFF;
+  };
+
   private ChromaticColors() {
   }
 
@@ -36,23 +54,25 @@ public final class ChromaticColors {
   public static void registerAll(final ColorHandlerEvent.Block event) {
     final BlockColors colors = event.getBlockColors();
 
-    register(colors, ChromaticBlocks.CHROMATIC_GRASS);
-    register(colors, ChromaticBlocks.CHROMATIC_OAK_LEAVES);
-    register(colors, ChromaticBlocks.CHROMATIC_SPRUCE_LEAVES);
-    register(colors, ChromaticBlocks.CHROMATIC_BIRCH_LEAVES);
-    register(colors, ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES);
-    register(colors, ChromaticBlocks.CHROMATIC_ACACIA_LEAVES);
-    register(colors, ChromaticBlocks.CHROMATIC_DARK_OAK_LEAVES);
-    register(colors, ChromaticBlocks.CHROMATIC_VINE);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_GRASS);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_OAK_LEAVES);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_SPRUCE_LEAVES);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_BIRCH_LEAVES);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_ACACIA_LEAVES);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_DARK_OAK_LEAVES);
+    chromatic(colors, ChromaticBlocks.CHROMATIC_VINE);
 
-    register(colors, ChromaticBlocks.EMISSIVE_GRASS);
-    register(colors, ChromaticBlocks.EMISSIVE_OAK_LEAVES);
-    register(colors, ChromaticBlocks.EMISSIVE_SPRUCE_LEAVES);
-    register(colors, ChromaticBlocks.EMISSIVE_BIRCH_LEAVES);
-    register(colors, ChromaticBlocks.EMISSIVE_JUNGLE_LEAVES);
-    register(colors, ChromaticBlocks.EMISSIVE_ACACIA_LEAVES);
-    register(colors, ChromaticBlocks.EMISSIVE_DARK_OAK_LEAVES);
-    register(colors, ChromaticBlocks.EMISSIVE_VINE);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_GRASS);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_OAK_LEAVES);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_SPRUCE_LEAVES);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_BIRCH_LEAVES);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_JUNGLE_LEAVES);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_ACACIA_LEAVES);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_DARK_OAK_LEAVES);
+    chromatic(colors, ChromaticBlocks.EMISSIVE_VINE);
+
+    sapling(colors, ChromaticBlocks.CHROMATIC_SAPLING);
 
     if (ChromaticConfig.Client.BLOCKS.snowLayers) {
       colors.registerBlockColorHandler((state, world, pos, tint) -> {
@@ -112,34 +132,40 @@ public final class ChromaticColors {
   public static void registerAll(final ColorHandlerEvent.Item event) {
     final ItemColors colors = event.getItemColors();
 
-    register(colors, ChromaticItems.CHROMATIC_GRASS);
-    register(colors, ChromaticItems.CHROMATIC_OAK_LEAVES);
-    register(colors, ChromaticItems.CHROMATIC_SPRUCE_LEAVES);
-    register(colors, ChromaticItems.CHROMATIC_BIRCH_LEAVES);
-    register(colors, ChromaticItems.CHROMATIC_JUNGLE_LEAVES);
-    register(colors, ChromaticItems.CHROMATIC_ACACIA_LEAVES);
-    register(colors, ChromaticItems.CHROMATIC_DARK_OAK_LEAVES);
-    register(colors, ChromaticItems.CHROMATIC_VINE);
+    chromatic(colors, ChromaticItems.CHROMATIC_GRASS);
+    chromatic(colors, ChromaticItems.CHROMATIC_OAK_LEAVES);
+    chromatic(colors, ChromaticItems.CHROMATIC_SPRUCE_LEAVES);
+    chromatic(colors, ChromaticItems.CHROMATIC_BIRCH_LEAVES);
+    chromatic(colors, ChromaticItems.CHROMATIC_JUNGLE_LEAVES);
+    chromatic(colors, ChromaticItems.CHROMATIC_ACACIA_LEAVES);
+    chromatic(colors, ChromaticItems.CHROMATIC_DARK_OAK_LEAVES);
+    chromatic(colors, ChromaticItems.CHROMATIC_VINE);
 
-    register(colors, ChromaticItems.EMISSIVE_GRASS);
-    register(colors, ChromaticItems.EMISSIVE_OAK_LEAVES);
-    register(colors, ChromaticItems.EMISSIVE_SPRUCE_LEAVES);
-    register(colors, ChromaticItems.EMISSIVE_BIRCH_LEAVES);
-    register(colors, ChromaticItems.EMISSIVE_JUNGLE_LEAVES);
-    register(colors, ChromaticItems.EMISSIVE_ACACIA_LEAVES);
-    register(colors, ChromaticItems.EMISSIVE_DARK_OAK_LEAVES);
-    register(colors, ChromaticItems.EMISSIVE_VINE);
+    chromatic(colors, ChromaticItems.EMISSIVE_GRASS);
+    chromatic(colors, ChromaticItems.EMISSIVE_OAK_LEAVES);
+    chromatic(colors, ChromaticItems.EMISSIVE_SPRUCE_LEAVES);
+    chromatic(colors, ChromaticItems.EMISSIVE_BIRCH_LEAVES);
+    chromatic(colors, ChromaticItems.EMISSIVE_JUNGLE_LEAVES);
+    chromatic(colors, ChromaticItems.EMISSIVE_ACACIA_LEAVES);
+    chromatic(colors, ChromaticItems.EMISSIVE_DARK_OAK_LEAVES);
+    chromatic(colors, ChromaticItems.EMISSIVE_VINE);
+
+    sapling(colors, ChromaticItems.CHROMATIC_SAPLING);
   }
-  
-  private static void register(final BlockColors colors, final Block block) {
-    colors.registerBlockColorHandler((state, world, pos, tint) -> {
-      return state.getValue(ChromaticFoliage.COLOR).getIntColor();
-    }, block);
+
+  private static void chromatic(final BlockColors colors, final Block block) {
+    colors.registerBlockColorHandler(BLOCK_COLOR_TINT, block);
   }
-  
-  private static void register(final ItemColors colors, final Item item) {
-    colors.registerItemColorHandler((stack, tint) -> {
-      return ChromaticColor.of(stack.getMetadata() & 15).getIntColor();
-    }, item);
+
+  private static void sapling(final BlockColors colors, final Block block) {
+    colors.registerBlockColorHandler(SAPLING_BLOCK_COLOR_MASK, block);
+  }
+
+  private static void chromatic(final ItemColors colors, final Item item) {
+    colors.registerItemColorHandler(ITEM_COLOR_TINT, item);
+  }
+
+  private static void sapling(final ItemColors colors, final Item item) {
+    colors.registerItemColorHandler(SAPLING_ITEM_COLOR_MASK, item);
   }
 }

@@ -1,20 +1,52 @@
 {
   "variants": {
-    "color=black": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=blue": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=brown": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=cyan": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=gray": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=green": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=light_blue": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=light_gray": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=lime": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=magenta": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=orange": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=pink": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=purple": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=red": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=white": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" },
-    "color=yellow": { "model": "chromaticfoliage:chromatic_dark_oak_leaves" }
+    "color=black": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=blue": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=brown": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=cyan": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=gray": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=green": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=light_blue": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=light_gray": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=lime": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=magenta": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=orange": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=pink": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=purple": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=red": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=white": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    },
+    "color=yellow": {
+      "model": "chromaticfoliage:chromatic_dark_oak_leaves"
+    }
   }
 }

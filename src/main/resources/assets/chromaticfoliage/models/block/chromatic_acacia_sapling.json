@@ -1,0 +1,7 @@
+{
+  "parent": "chromaticfoliage:block/chromatic_sapling",
+  "textures": {
+    "trunk": "chromaticfoliage:items/chromatic_acacia_sapling_trunk",
+    "leaves": "chromaticfoliage:items/chromatic_acacia_sapling_leaves"
+  }
+}

@@ -1,516 +1,1860 @@
 {
   "variants": {
-    "color=black,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=black,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=black,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=black,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=black,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=black,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=black,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=black,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=black,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=black,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=black,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=black,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=black,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=black,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=black,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=black,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=black,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=black,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=black,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=black,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=black,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=black,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=black,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=black,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=black,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=black,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=black,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=black,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=black,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=black,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=black,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=black,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=red,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=red,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=red,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=red,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=red,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=red,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=red,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=red,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=red,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=red,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=red,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=red,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=red,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=red,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=red,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=red,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=red,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=red,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=red,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=red,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=red,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=red,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=red,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=red,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=red,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=red,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=red,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=red,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=red,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=red,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=red,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=red,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=green,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=green,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=green,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=green,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=green,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=green,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=green,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=green,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=green,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=green,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=green,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=green,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=green,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=green,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=green,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=green,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=green,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=green,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=green,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=green,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=green,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=green,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=green,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=green,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=green,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=green,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=green,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=green,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=green,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=green,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=green,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=green,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=brown,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=brown,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=brown,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=brown,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=brown,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=brown,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=brown,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=brown,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=brown,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=brown,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=brown,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=brown,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=brown,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=brown,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=brown,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=brown,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=brown,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=brown,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=brown,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=brown,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=brown,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=brown,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=brown,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=brown,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=brown,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=brown,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=brown,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=brown,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=brown,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=brown,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=brown,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=brown,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=blue,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=blue,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=blue,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=blue,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=blue,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=blue,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=blue,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=blue,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=blue,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=blue,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=blue,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=blue,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=blue,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=blue,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=blue,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=blue,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=blue,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=blue,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=blue,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=blue,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=blue,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=blue,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=blue,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=blue,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=blue,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=blue,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=blue,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=blue,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=blue,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=blue,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=blue,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=blue,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=purple,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=purple,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=purple,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=purple,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=purple,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=purple,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=purple,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=purple,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=purple,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=purple,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=purple,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=purple,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=purple,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=purple,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=purple,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=purple,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=purple,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=purple,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=purple,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=purple,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=purple,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=purple,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=purple,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=purple,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=purple,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=purple,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=purple,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=purple,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=purple,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=purple,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=purple,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=purple,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=cyan,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=cyan,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=cyan,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=cyan,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=cyan,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=cyan,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=cyan,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=cyan,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=cyan,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=cyan,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=cyan,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=cyan,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=cyan,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=cyan,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=cyan,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=cyan,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=cyan,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=cyan,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=cyan,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=cyan,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=cyan,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=cyan,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=cyan,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=cyan,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=cyan,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=cyan,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=cyan,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=cyan,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=cyan,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=cyan,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=cyan,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=cyan,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=light_gray,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=light_gray,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=light_gray,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=light_gray,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=light_gray,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=light_gray,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=light_gray,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=light_gray,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=light_gray,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=light_gray,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=light_gray,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=light_gray,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=light_gray,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=light_gray,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=light_gray,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=light_gray,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=light_gray,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=light_gray,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=light_gray,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=light_gray,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=light_gray,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=light_gray,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=light_gray,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=light_gray,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=light_gray,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=light_gray,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=light_gray,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=light_gray,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=light_gray,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=light_gray,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=light_gray,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=light_gray,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=gray,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=gray,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=gray,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=gray,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=gray,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=gray,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=gray,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=gray,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=gray,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=gray,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=gray,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=gray,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=gray,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=gray,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=gray,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=gray,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=gray,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=gray,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=gray,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=gray,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=gray,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=gray,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=gray,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=gray,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=gray,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=gray,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=gray,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=gray,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=gray,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=gray,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=gray,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=gray,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=pink,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=pink,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=pink,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=pink,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=pink,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=pink,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=pink,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=pink,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=pink,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=pink,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=pink,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=pink,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=pink,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=pink,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=pink,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=pink,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=pink,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=pink,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=pink,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=pink,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=pink,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=pink,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=pink,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=pink,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=pink,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=pink,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=pink,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=pink,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=pink,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=pink,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=pink,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=pink,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=lime,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=lime,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=lime,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=lime,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=lime,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=lime,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=lime,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=lime,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=lime,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=lime,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=lime,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=lime,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=lime,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=lime,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=lime,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=lime,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=lime,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=lime,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=lime,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=lime,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=lime,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=lime,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=lime,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=lime,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=lime,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=lime,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=lime,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=lime,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=lime,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=lime,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=lime,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=lime,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=yellow,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=yellow,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=yellow,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=yellow,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=yellow,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=yellow,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=yellow,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=yellow,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=yellow,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=yellow,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=yellow,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=yellow,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=yellow,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=yellow,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=yellow,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=yellow,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=yellow,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=yellow,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=yellow,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=yellow,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=yellow,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=yellow,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=yellow,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=yellow,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=yellow,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=yellow,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=yellow,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=yellow,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=yellow,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=yellow,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=yellow,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=yellow,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=light_blue,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=light_blue,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=light_blue,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=light_blue,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=light_blue,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=light_blue,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=light_blue,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=light_blue,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=light_blue,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=light_blue,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=light_blue,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=light_blue,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=light_blue,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=light_blue,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=light_blue,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=light_blue,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=light_blue,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=light_blue,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=light_blue,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=light_blue,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=light_blue,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=light_blue,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=light_blue,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=light_blue,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=light_blue,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=light_blue,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=light_blue,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=light_blue,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=light_blue,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=light_blue,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=light_blue,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=light_blue,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=magenta,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=magenta,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=magenta,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=magenta,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=magenta,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=magenta,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=magenta,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=magenta,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=magenta,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=magenta,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=magenta,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=magenta,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=magenta,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=magenta,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=magenta,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=magenta,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=magenta,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=magenta,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=magenta,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=magenta,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=magenta,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=magenta,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=magenta,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=magenta,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=magenta,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=magenta,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=magenta,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=magenta,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=magenta,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=magenta,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=magenta,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=magenta,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=orange,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=orange,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=orange,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=orange,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=orange,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=orange,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=orange,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=orange,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=orange,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=orange,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=orange,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=orange,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=orange,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=orange,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=orange,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=orange,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=orange,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=orange,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=orange,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=orange,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=orange,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=orange,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=orange,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=orange,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=orange,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=orange,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=orange,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=orange,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=orange,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=orange,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=orange,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=orange,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" },
-    "color=white,east=false,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=white,east=false,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1" },
-    "color=white,east=false,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_1", "y": 90 },
-    "color=white,east=false,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 180 },
-    "color=white,east=true,north=false,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_1", "y": 270 },
-    "color=white,east=true,north=true,south=false,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2" },
-    "color=white,east=true,north=false,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2", "y": 90 },
-    "color=white,east=false,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 180 },
-    "color=white,east=false,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2", "y": 270 },
-    "color=white,east=true,north=false,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_2_opposite" },
-    "color=white,east=false,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_2_opposite", "y": 90 },
-    "color=white,east=true,north=true,south=true,up=false,west=false": { "model": "chromaticfoliage:emissive_vine_3" },
-    "color=white,east=true,north=false,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 90 },
-    "color=white,east=false,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 180 },
-    "color=white,east=true,north=true,south=false,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_3", "y": 270 },
-    "color=white,east=true,north=true,south=true,up=false,west=true": { "model": "chromaticfoliage:emissive_vine_4" },
-    "color=white,east=false,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_up" },
-    "color=white,east=false,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up" },
-    "color=white,east=false,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 90 },
-    "color=white,east=false,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 180 },
-    "color=white,east=true,north=false,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_1_up", "y": 270 },
-    "color=white,east=true,north=true,south=false,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up" },
-    "color=white,east=true,north=false,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 90 },
-    "color=white,east=false,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 180 },
-    "color=white,east=false,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up", "y": 270 },
-    "color=white,east=true,north=false,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_2_up_opposite" },
-    "color=white,east=false,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_2_up_opposite", "y": 90 },
-    "color=white,east=true,north=true,south=true,up=true,west=false": { "model": "chromaticfoliage:emissive_vine_3_up" },
-    "color=white,east=true,north=false,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 90 },
-    "color=white,east=false,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 180 },
-    "color=white,east=true,north=true,south=false,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_3_up", "y": 270 },
-    "color=white,east=true,north=true,south=true,up=true,west=true": { "model": "chromaticfoliage:emissive_vine_4_up" }
+    "color=black,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=black,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=black,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=black,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=black,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=black,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=black,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=black,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=black,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=black,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=black,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=black,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=black,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=black,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=black,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=black,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=black,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=black,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=black,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=black,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=black,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=black,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=black,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=black,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=black,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=black,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=black,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=black,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=black,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=black,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=black,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=black,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=red,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=red,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=red,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=red,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=red,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=red,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=red,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=red,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=red,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=red,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=red,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=red,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=red,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=red,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=red,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=red,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=red,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=red,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=red,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=red,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=red,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=red,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=red,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=red,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=red,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=red,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=red,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=red,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=red,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=red,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=red,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=red,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=green,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=green,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=green,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=green,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=green,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=green,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=green,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=green,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=green,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=green,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=green,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=green,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=green,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=green,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=green,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=green,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=green,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=green,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=green,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=green,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=green,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=green,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=green,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=green,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=green,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=green,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=green,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=green,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=green,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=green,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=green,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=green,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=brown,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=brown,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=brown,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=brown,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=brown,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=brown,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=brown,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=brown,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=brown,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=brown,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=brown,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=brown,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=brown,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=brown,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=brown,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=brown,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=brown,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=brown,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=brown,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=brown,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=brown,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=brown,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=brown,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=brown,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=brown,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=brown,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=brown,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=brown,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=brown,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=brown,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=brown,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=brown,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=blue,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=blue,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=blue,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=blue,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=blue,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=blue,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=blue,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=blue,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=blue,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=blue,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=blue,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=blue,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=blue,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=blue,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=blue,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=blue,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=blue,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=blue,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=blue,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=blue,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=blue,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=blue,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=blue,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=blue,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=blue,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=blue,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=blue,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=blue,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=blue,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=blue,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=blue,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=blue,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=purple,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=purple,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=purple,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=purple,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=purple,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=purple,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=purple,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=purple,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=purple,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=purple,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=purple,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=purple,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=purple,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=purple,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=purple,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=purple,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=purple,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=purple,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=purple,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=purple,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=purple,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=purple,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=purple,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=purple,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=purple,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=purple,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=purple,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=purple,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=purple,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=purple,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=purple,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=purple,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=cyan,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=cyan,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=cyan,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=cyan,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=cyan,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=cyan,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=cyan,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=cyan,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=cyan,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=cyan,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=cyan,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=cyan,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=cyan,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=cyan,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=cyan,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=cyan,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=cyan,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=cyan,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=cyan,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=cyan,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=cyan,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=cyan,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=cyan,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=cyan,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=cyan,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=cyan,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=cyan,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=cyan,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=cyan,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=cyan,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=cyan,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=cyan,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=light_gray,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=light_gray,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=light_gray,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=light_gray,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=light_gray,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=light_gray,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=light_gray,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=light_gray,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=light_gray,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=light_gray,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=light_gray,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=light_gray,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=light_gray,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=light_gray,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=light_gray,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=light_gray,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=light_gray,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=light_gray,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=light_gray,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=light_gray,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=light_gray,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=light_gray,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=light_gray,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=light_gray,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=light_gray,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=light_gray,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=light_gray,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=light_gray,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=light_gray,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=light_gray,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=light_gray,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=light_gray,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=gray,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=gray,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=gray,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=gray,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=gray,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=gray,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=gray,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=gray,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=gray,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=gray,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=gray,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=gray,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=gray,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=gray,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=gray,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=gray,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=gray,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=gray,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=gray,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=gray,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=gray,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=gray,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=gray,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=gray,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=gray,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=gray,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=gray,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=gray,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=gray,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=gray,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=gray,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=gray,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=pink,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=pink,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=pink,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=pink,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=pink,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=pink,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=pink,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=pink,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=pink,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=pink,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=pink,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=pink,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=pink,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=pink,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=pink,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=pink,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=pink,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=pink,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=pink,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=pink,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=pink,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=pink,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=pink,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=pink,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=pink,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=pink,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=pink,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=pink,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=pink,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=pink,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=pink,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=pink,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=lime,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=lime,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=lime,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=lime,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=lime,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=lime,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=lime,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=lime,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=lime,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=lime,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=lime,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=lime,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=lime,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=lime,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=lime,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=lime,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=lime,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=lime,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=lime,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=lime,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=lime,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=lime,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=lime,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=lime,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=lime,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=lime,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=lime,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=lime,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=lime,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=lime,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=lime,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=lime,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=yellow,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=yellow,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=yellow,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=yellow,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=yellow,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=yellow,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=yellow,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=yellow,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=yellow,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=yellow,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=yellow,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=yellow,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=yellow,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=yellow,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=yellow,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=yellow,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=yellow,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=yellow,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=yellow,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=yellow,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=yellow,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=yellow,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=yellow,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=yellow,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=yellow,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=yellow,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=yellow,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=yellow,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=yellow,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=yellow,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=yellow,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=yellow,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=light_blue,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=light_blue,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=light_blue,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=light_blue,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=light_blue,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=light_blue,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=light_blue,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=light_blue,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=light_blue,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=light_blue,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=light_blue,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=light_blue,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=light_blue,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=light_blue,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=light_blue,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=light_blue,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=light_blue,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=light_blue,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=light_blue,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=light_blue,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=light_blue,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=light_blue,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=light_blue,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=light_blue,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=light_blue,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=light_blue,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=light_blue,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=light_blue,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=light_blue,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=light_blue,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=light_blue,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=light_blue,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=magenta,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=magenta,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=magenta,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=magenta,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=magenta,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=magenta,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=magenta,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=magenta,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=magenta,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=magenta,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=magenta,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=magenta,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=magenta,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=magenta,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=magenta,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=magenta,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=magenta,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=magenta,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=magenta,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=magenta,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=magenta,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=magenta,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=magenta,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=magenta,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=magenta,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=magenta,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=magenta,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=magenta,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=magenta,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=magenta,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=magenta,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=magenta,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=orange,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=orange,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=orange,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=orange,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=orange,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=orange,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=orange,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=orange,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=orange,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=orange,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=orange,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=orange,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=orange,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=orange,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=orange,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=orange,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=orange,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=orange,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=orange,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=orange,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=orange,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=orange,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=orange,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=orange,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=orange,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=orange,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=orange,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=orange,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=orange,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=orange,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=orange,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=orange,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    },
+    "color=white,east=false,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=white,east=false,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1"
+    },
+    "color=white,east=false,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 90
+    },
+    "color=white,east=false,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 180
+    },
+    "color=white,east=true,north=false,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1",
+      "y": 270
+    },
+    "color=white,east=true,north=true,south=false,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2"
+    },
+    "color=white,east=true,north=false,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 90
+    },
+    "color=white,east=false,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 180
+    },
+    "color=white,east=false,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2",
+      "y": 270
+    },
+    "color=white,east=true,north=false,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite"
+    },
+    "color=white,east=false,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_opposite",
+      "y": 90
+    },
+    "color=white,east=true,north=true,south=true,up=false,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3"
+    },
+    "color=white,east=true,north=false,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 90
+    },
+    "color=white,east=false,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 180
+    },
+    "color=white,east=true,north=true,south=false,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3",
+      "y": 270
+    },
+    "color=white,east=true,north=true,south=true,up=false,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4"
+    },
+    "color=white,east=false,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_up"
+    },
+    "color=white,east=false,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up"
+    },
+    "color=white,east=false,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 90
+    },
+    "color=white,east=false,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 180
+    },
+    "color=white,east=true,north=false,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_1_up",
+      "y": 270
+    },
+    "color=white,east=true,north=true,south=false,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up"
+    },
+    "color=white,east=true,north=false,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 90
+    },
+    "color=white,east=false,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 180
+    },
+    "color=white,east=false,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up",
+      "y": 270
+    },
+    "color=white,east=true,north=false,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite"
+    },
+    "color=white,east=false,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_2_up_opposite",
+      "y": 90
+    },
+    "color=white,east=true,north=true,south=true,up=true,west=false": {
+      "model": "chromaticfoliage:emissive_vine_3_up"
+    },
+    "color=white,east=true,north=false,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 90
+    },
+    "color=white,east=false,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 180
+    },
+    "color=white,east=true,north=true,south=false,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_3_up",
+      "y": 270
+    },
+    "color=white,east=true,north=true,south=true,up=true,west=true": {
+      "model": "chromaticfoliage:emissive_vine_4_up"
+    }
   }
 }
