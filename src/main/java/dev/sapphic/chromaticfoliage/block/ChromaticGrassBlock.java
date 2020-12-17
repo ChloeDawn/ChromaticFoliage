@@ -170,7 +170,7 @@ public class ChromaticGrassBlock extends BlockGrass {
         final int y = rand.nextInt(5) - 3;
         final int z = rand.nextInt(3) - 1;
         final BlockPos offset = pos.add(x, y, z);
-        if (world.isOutsideBuildHeight(offset) || !world.isBlockLoaded(offset)) {
+        if (world.isOutsideBuildHeight(offset)) {
           return;
         }
         if (!this.canSpreadInto(world, offset) || (world.getLightFromNeighbors(offset.up()) < 4) || (lightOpacity > 2)) {
