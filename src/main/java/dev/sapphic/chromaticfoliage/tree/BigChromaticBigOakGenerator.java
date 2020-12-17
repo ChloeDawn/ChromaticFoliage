@@ -19,16 +19,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BigChromaticOakGenerator extends WorldGenBigTree {
+public class BigChromaticBigOakGenerator extends WorldGenBigTree {
   private final IBlockState leaves;
 
   private int heightLimit;
   private int height;
   private int leafDistanceLimit = 4;
 
-  public BigChromaticOakGenerator(final ChromaticColor color, final boolean notify) {
+  public BigChromaticBigOakGenerator(final ChromaticColor color, final boolean notify) {
     super(notify);
-    this.leaves = ChromaticBlocks.CHROMATIC_OAK_LEAVES.getDefaultState().withProperty(ChromaticFoliage.COLOR, color);
+    this.leaves = ChromaticBlocks.CHROMATIC_OAK_LEAVES.getDefaultState()
+      .withProperty(BlockLeaves.CHECK_DECAY, false)
+      .withProperty(ChromaticFoliage.COLOR, color);
   }
 
   @Override

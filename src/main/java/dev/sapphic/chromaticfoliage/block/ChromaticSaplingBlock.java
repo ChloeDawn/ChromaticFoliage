@@ -6,7 +6,12 @@ import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.block.entity.ChromaticBlockEntity;
 import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
 import dev.sapphic.chromaticfoliage.init.ChromaticSounds;
-import dev.sapphic.chromaticfoliage.tree.BigChromaticOakGenerator;
+import dev.sapphic.chromaticfoliage.tree.BigChromaticBigOakGenerator;
+import dev.sapphic.chromaticfoliage.tree.ChromaticAcaciaTreeGenerator;
+import dev.sapphic.chromaticfoliage.tree.ChromaticBigSpruceTreeGenerator;
+import dev.sapphic.chromaticfoliage.tree.ChromaticBirchTreeGenerator;
+import dev.sapphic.chromaticfoliage.tree.ChromaticDarkOakTreeGenerator;
+import dev.sapphic.chromaticfoliage.tree.ChromaticSpruceTreeGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockOldLog;
@@ -30,12 +35,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBirchTree;
-import net.minecraft.world.gen.feature.WorldGenCanopyTree;
 import net.minecraft.world.gen.feature.WorldGenMegaJungle;
-import net.minecraft.world.gen.feature.WorldGenMegaPineTree;
-import net.minecraft.world.gen.feature.WorldGenSavannaTree;
-import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -118,12 +118,12 @@ public class ChromaticSaplingBlock extends BlockSapling {
     final ChromaticColor color = state.getActualState(world, pos).getValue(ChromaticFoliage.COLOR);
     WorldGenerator generator;
     if (rand.nextInt(10) == 0) {
-      generator = new BigChromaticOakGenerator(color, true);
+      generator = new BigChromaticBigOakGenerator(color, true);
     } else {
       final IBlockState log =
         Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, EnumType.OAK);
       final IBlockState leaves = ChromaticBlocks.CHROMATIC_OAK_LEAVES.getDefaultState()
-        .withProperty(ChromaticFoliage.COLOR, color).withProperty(BlockLeaves.CHECK_DECAY, false);
+        .withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(ChromaticFoliage.COLOR, color);
       generator = new WorldGenTrees(true, 4, log, leaves, false);
     }
     int x = 0;
@@ -136,7 +136,7 @@ public class ChromaticSaplingBlock extends BlockSapling {
         for (x = 0; x >= -1; --x) {
           for (z = 0; z >= -1; --z) {
             if (this.isMega(world, pos, x, z, EnumType.SPRUCE)) {
-              generator = new WorldGenMegaPineTree(false, rand.nextBoolean()); // FIXME Spruce
+              generator = new ChromaticBigSpruceTreeGenerator(color, rand.nextBoolean());
               mega = true;
               break megaCheck;
             }
@@ -145,18 +145,18 @@ public class ChromaticSaplingBlock extends BlockSapling {
         if (!mega) {
           x = 0;
           z = 0;
-          generator = new WorldGenTaiga2(true); // FIXME Spruce
+          generator = new ChromaticSpruceTreeGenerator(color);
         }
 
         break;
       case BIRCH:
-        generator = new WorldGenBirchTree(true, false); // FIXME Birch
+        generator = new ChromaticBirchTreeGenerator(color);
         break;
       case JUNGLE:
         final IBlockState log =
           Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, EnumType.JUNGLE);
         final IBlockState leaves = ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES.getDefaultState()
-          .withProperty(ChromaticFoliage.COLOR, color).withProperty(BlockLeaves.CHECK_DECAY, false);
+          .withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(ChromaticFoliage.COLOR, color);
         megaCheck:
         for (x = 0; x >= -1; --x) {
           for (z = 0; z >= -1; --z) {
@@ -175,14 +175,14 @@ public class ChromaticSaplingBlock extends BlockSapling {
 
         break;
       case ACACIA:
-        generator = new WorldGenSavannaTree(true); // FIXME Acacia
+        generator = new ChromaticAcaciaTreeGenerator(color);
         break;
       case DARK_OAK:
         megaCheck:
         for (x = 0; x >= -1; --x) {
           for (z = 0; z >= -1; --z) {
             if (this.isMega(world, pos, x, z, EnumType.DARK_OAK)) {
-              generator = new WorldGenCanopyTree(true); // FIXME Dark Oak
+              generator = new ChromaticDarkOakTreeGenerator(color);
               mega = true;
               break megaCheck;
             }
