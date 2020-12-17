@@ -39,9 +39,9 @@ import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Random;
 
 public class ChromaticSaplingBlock extends BlockSapling {
@@ -71,12 +71,8 @@ public class ChromaticSaplingBlock extends BlockSapling {
         return false;
       }
 
-      final Optional<ChromaticColor> optional = ChromaticColor.of(stack);
-      if (!optional.isPresent()) {
-        return false;
-      }
-      final ChromaticColor color = optional.get();
-      if (color == actualState.getValue(ChromaticFoliage.COLOR)) {
+      final @Nullable ChromaticColor color = ChromaticColor.of(stack);
+      if ((color == null) || (color == actualState.getValue(ChromaticFoliage.COLOR))) {
         return false;
       }
       if (world.isRemote) {

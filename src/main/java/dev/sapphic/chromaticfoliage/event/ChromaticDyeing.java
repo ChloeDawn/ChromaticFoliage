@@ -26,6 +26,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 @ObjectHolder(ChromaticFoliage.ID)
 @EventBusSubscriber(modid = ChromaticFoliage.ID)
@@ -50,55 +51,61 @@ public final class ChromaticDyeing {
       }
     }
     if (block == Blocks.GRASS) {
-      ChromaticColor.of(stack).ifPresent(color -> {
-        if (world.isRemote) {
-          player.swingArm(event.getHand());
-          return;
-        }
-        final IBlockState grass = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
-        world.setBlockState(pos, grass.withProperty(ChromaticFoliage.COLOR, color), 3);
-        world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-        if (!player.capabilities.isCreativeMode) {
-          stack.shrink(1);
+      final @Nullable ChromaticColor color = ChromaticColor.of(stack);
+      if (color == null) {
+        return;
+      }
+      if (world.isRemote) {
+        player.swingArm(event.getHand());
+        return;
+      }
+      final IBlockState grass = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
+      world.setBlockState(pos, grass.withProperty(ChromaticFoliage.COLOR, color), 3);
+      world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      if (!player.capabilities.isCreativeMode) {
+        stack.shrink(1);
 
-        }
-      });
+      }
     }
     if ((block == Blocks.LEAVES) || (block == Blocks.LEAVES2)) {
-      ChromaticColor.of(stack).ifPresent(color -> {
-        if (world.isRemote) {
-          player.swingArm(event.getHand());
-          return;
-        }
-        final int meta = block.getMetaFromState(state);
-        final BlockPlanks.EnumType woodType = ((BlockLeaves) block).getWoodType(meta);
-        final IBlockState leaves = ChromaticBlocks.CHROMATIC_LEAVES.get(woodType).getDefaultState();
-        world.setBlockState(pos, leaves.withProperty(ChromaticFoliage.COLOR, color), 3);
-        world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-        if (!player.capabilities.isCreativeMode) {
-          stack.shrink(1);
-        }
-      });
+      final @Nullable ChromaticColor color = ChromaticColor.of(stack);
+      if (color == null) {
+        return;
+      }
+      if (world.isRemote) {
+        player.swingArm(event.getHand());
+        return;
+      }
+      final int meta = block.getMetaFromState(state);
+      final BlockPlanks.EnumType woodType = ((BlockLeaves) block).getWoodType(meta);
+      final IBlockState leaves = ChromaticBlocks.CHROMATIC_LEAVES.get(woodType).getDefaultState();
+      world.setBlockState(pos, leaves.withProperty(ChromaticFoliage.COLOR, color), 3);
+      world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      if (!player.capabilities.isCreativeMode) {
+        stack.shrink(1);
+      }
     }
     if (block == Blocks.VINE) {
-      ChromaticColor.of(stack).ifPresent(color -> {
-        if (world.isRemote) {
-          player.swingArm(event.getHand());
-          return;
-        }
-        final IBlockState actualState = state.getActualState(world, pos);
-        IBlockState vine = ChromaticBlocks.CHROMATIC_VINE.getDefaultState();
-        for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
-          final PropertyBool property = BlockVine.getPropertyFor(side);
-          vine = vine.withProperty(property, actualState.getValue(property));
-        }
-        world.setBlockState(pos, vine.withProperty(ChromaticFoliage.COLOR, color), 3);
-        world.setTileEntity(pos, new ChromaticBlockEntity(color));
-        world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
-        if (!player.capabilities.isCreativeMode) {
-          stack.shrink(1);
-        }
-      });
+      final @Nullable ChromaticColor color = ChromaticColor.of(stack);
+      if (color == null) {
+        return;
+      }
+      if (world.isRemote) {
+        player.swingArm(event.getHand());
+        return;
+      }
+      final IBlockState actualState = state.getActualState(world, pos);
+      IBlockState vine = ChromaticBlocks.CHROMATIC_VINE.getDefaultState();
+      for (final EnumFacing side : EnumFacing.Plane.HORIZONTAL) {
+        final PropertyBool property = BlockVine.getPropertyFor(side);
+        vine = vine.withProperty(property, actualState.getValue(property));
+      }
+      world.setBlockState(pos, vine.withProperty(ChromaticFoliage.COLOR, color), 3);
+      world.setTileEntity(pos, new ChromaticBlockEntity(color));
+      world.playSound(null, pos, ChromaticSounds.BLOCK_DYED, SoundCategory.BLOCKS, 1.0F, 0.8F);
+      if (!player.capabilities.isCreativeMode) {
+        stack.shrink(1);
+      }
     }
   }
 }

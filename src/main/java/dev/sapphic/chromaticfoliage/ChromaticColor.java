@@ -13,7 +13,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.EnumSet;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.IntSupplier;
 import java.util.function.ToIntFunction;
@@ -97,16 +96,16 @@ public enum ChromaticColor implements IStringSerializable {
     return BY_DYE_COLOR.get(dyeColor);
   }
 
-  public static Optional<ChromaticColor> of(final ItemStack stack) {
+  public static @Nullable ChromaticColor of(final ItemStack stack) {
     if (!stack.isEmpty()) {
       for (final int id : OreDictionary.getOreIDs(stack)) {
         final String name = OreDictionary.getOreName(id);
         final @Nullable ChromaticColor color = BY_ORE_NAME.get(name);
         if (color != null) {
-          return Optional.of(color);
+          return color;
         }
       }
     }
-    return Optional.empty();
+    return null;
   }
 }

@@ -42,8 +42,8 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.Optional;
 import java.util.Random;
 
 public class ChromaticGrassBlock extends BlockGrass {
@@ -99,12 +99,8 @@ public class ChromaticGrassBlock extends BlockGrass {
           return false;
         }
       }
-      final Optional<ChromaticColor> optional = ChromaticColor.of(stack);
-      if (!optional.isPresent()) {
-        return false;
-      }
-      final ChromaticColor color = optional.get();
-      if (color == state.getValue(ChromaticFoliage.COLOR)) {
+      final @Nullable ChromaticColor color = ChromaticColor.of(stack);
+      if ((color == null) || (color == state.getValue(ChromaticFoliage.COLOR))) {
         return false;
       }
       if (world.isRemote) {

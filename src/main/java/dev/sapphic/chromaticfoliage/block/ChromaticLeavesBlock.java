@@ -1,12 +1,12 @@
 package dev.sapphic.chromaticfoliage.block;
 
 import dev.sapphic.chromaticfoliage.ChromaticColor;
+import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
 import dev.sapphic.chromaticfoliage.client.ChromaticParticles;
 import dev.sapphic.chromaticfoliage.client.particle.ChromaticDustParticle;
 import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
 import dev.sapphic.chromaticfoliage.init.ChromaticSounds;
-import dev.sapphic.chromaticfoliage.ChromaticConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockNewLeaf;
@@ -42,10 +42,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 public class ChromaticLeavesBlock extends BlockLeaves {
@@ -116,12 +116,8 @@ public class ChromaticLeavesBlock extends BlockLeaves {
           return false;
         }
       }
-      final Optional<ChromaticColor> optional = ChromaticColor.of(stack);
-      if (!optional.isPresent()) {
-        return false;
-      }
-      final ChromaticColor color = optional.get();
-      if (color == state.getValue(ChromaticFoliage.COLOR)) {
+      final @Nullable ChromaticColor color = ChromaticColor.of(stack);
+      if ((color == null) || (color == state.getValue(ChromaticFoliage.COLOR))) {
         return false;
       }
       if (world.isRemote) {
