@@ -165,6 +165,7 @@ public class ChromaticGrassBlock extends BlockGrass {
       if (world.getLightFromNeighbors(above) < 9) {
         return;
       }
+      final ChromaticColor color = state.getValue(ChromaticFoliage.COLOR);
       for (int i = 0; i < 4; ++i) {
         final int x = rand.nextInt(3) - 1;
         final int y = rand.nextInt(5) - 3;
@@ -173,12 +174,11 @@ public class ChromaticGrassBlock extends BlockGrass {
         if (world.isOutsideBuildHeight(offset)) {
           return;
         }
-        if (!this.canSpreadInto(world, offset) || (world.getLightFromNeighbors(offset.up()) < 4) || (lightOpacity > 2)) {
-          continue;
+        final boolean hasLight = world.getLightFromNeighbors(offset.up()) >= 4;
+        if (this.canSpreadInto(world, offset) && hasLight && (lightOpacity <= 2)) {
+          final IBlockState chromatic = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
+          world.setBlockState(offset, chromatic.withProperty(ChromaticFoliage.COLOR, color), 3);
         }
-        final IBlockState chromatic = ChromaticBlocks.CHROMATIC_GRASS.getDefaultState();
-        final ChromaticColor color = state.getValue(ChromaticFoliage.COLOR);
-        world.setBlockState(offset, chromatic.withProperty(ChromaticFoliage.COLOR, color), 3);
       }
     } else {
       world.setBlockState(pos, Blocks.DIRT.getDefaultState());
