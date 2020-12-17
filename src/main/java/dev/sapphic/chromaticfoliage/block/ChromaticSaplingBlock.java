@@ -12,7 +12,6 @@ import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -67,11 +66,11 @@ public class ChromaticSaplingBlock extends BlockSapling {
     if (ChromaticConfig.General.recolorRecipes) {
       final IBlockState actualState = state.getActualState(world, pos);
       final Block block = actualState.getBlock();
-      if ((block instanceof IGrowable) && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, actualState)) {
-        if ((stack.getItem() == Items.DYE) && (stack.getMetadata() == EnumDyeColor.WHITE.getDyeDamage())) {
-          return false;
-        }
+
+      if ((stack.getItem() == Items.DYE) && (stack.getMetadata() == EnumDyeColor.WHITE.getDyeDamage())) {
+        return false;
       }
+
       final Optional<ChromaticColor> optional = ChromaticColor.of(stack);
       if (!optional.isPresent()) {
         return false;
