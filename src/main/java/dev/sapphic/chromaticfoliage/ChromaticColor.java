@@ -5,11 +5,11 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
-import net.minecraftforge.oredict.DyeUtils;
+import net.minecraftforge.oredict.OreDictionary;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.EnumSet;
 import java.util.Locale;
@@ -37,11 +37,15 @@ public enum ChromaticColor implements IStringSerializable {
   ORANGE("dyeOrange", MapColor.GOLD, EnumDyeColor.ORANGE, config -> config.orange),
   WHITE("dyeWhite", MapColor.SNOW, EnumDyeColor.WHITE, config -> config.white);
 
-  public static final ImmutableSet<ChromaticColor> COLORS =
-    Sets.immutableEnumSet(EnumSet.allOf(ChromaticColor.class));
   private static final ChromaticColor[] VALUES = values();
+
+  public static final ImmutableSet<ChromaticColor> COLORS = Sets.immutableEnumSet(EnumSet.allOf(ChromaticColor.class));
+
   private static final ImmutableMap<EnumDyeColor, ChromaticColor> BY_DYE_COLOR =
     COLORS.stream().collect(Maps.toImmutableEnumMap(ChromaticColor::getDyeColor, Function.identity()));
+
+  private static final ImmutableMap<String, ChromaticColor> BY_ORE_NAME =
+    COLORS.stream().collect(ImmutableMap.toImmutableMap(ChromaticColor::getOreName, Function.identity()));
 
   private final String translationKey;
   private final String oreName;
@@ -94,6 +98,15 @@ public enum ChromaticColor implements IStringSerializable {
   }
 
   public static Optional<ChromaticColor> of(final ItemStack stack) {
-    return stack.isEmpty() ? Optional.empty() : DyeUtils.colorFromStack(stack).map(ChromaticColor::of);
+    if (!stack.isEmpty()) {
+      for (final int id : OreDictionary.getOreIDs(stack)) {
+        final String name = OreDictionary.getOreName(id);
+        final @Nullable ChromaticColor color = BY_ORE_NAME.get(name);
+        if (color != null) {
+          return Optional.of(color);
+        }
+      }
+    }
+    return Optional.empty();
   }
 }
