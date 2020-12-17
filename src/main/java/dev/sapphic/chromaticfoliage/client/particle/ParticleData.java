@@ -1,4 +1,4 @@
-package dev.sapphic.chromaticfoliage.client.network;
+package dev.sapphic.chromaticfoliage.client.particle;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;

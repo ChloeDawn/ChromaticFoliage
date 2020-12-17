@@ -1,7 +1,6 @@
-package dev.sapphic.chromaticfoliage.client.network;
+package dev.sapphic.chromaticfoliage.client.particle;
 
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
-import dev.sapphic.chromaticfoliage.client.particle.ChromaticDustParticle;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;

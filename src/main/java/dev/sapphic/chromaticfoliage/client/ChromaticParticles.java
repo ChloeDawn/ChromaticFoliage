@@ -1,8 +1,8 @@
 package dev.sapphic.chromaticfoliage.client;
 
 import dev.sapphic.chromaticfoliage.ChromaticFoliage;
-import dev.sapphic.chromaticfoliage.client.network.ParticleData;
-import dev.sapphic.chromaticfoliage.client.network.ParticleHandler;
+import dev.sapphic.chromaticfoliage.client.particle.ParticleData;
+import dev.sapphic.chromaticfoliage.client.particle.ParticleHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
