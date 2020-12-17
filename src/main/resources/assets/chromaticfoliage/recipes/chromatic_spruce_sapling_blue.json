@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_spruce_sapling_blue",
+  "ingredients": [
+    {
+      "item": "minecraft:sapling",
+      "data": 1
+    },
+    {
+      "ore": "dyeBlue",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_sapling",
+    "data": 33
+  }
+}

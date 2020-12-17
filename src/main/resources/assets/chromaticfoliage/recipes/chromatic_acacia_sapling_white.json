@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_acacia_sapling_white",
+  "ingredients": [
+    {
+      "item": "minecraft:sapling",
+      "data": 4
+    },
+    {
+      "ore": "dyeWhite",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_sapling",
+    "data": 124
+  }
+}

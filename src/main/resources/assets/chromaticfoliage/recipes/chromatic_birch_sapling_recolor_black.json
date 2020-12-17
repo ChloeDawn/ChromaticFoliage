@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:recoloring"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_birch_sapling_black",
+  "ingredients": [
+    {
+      "ore": "treeSaplingChromatic",
+      "type": "forge:ore_dict"
+    },
+    {
+      "ore": "dyeBlack",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_sapling",
+    "data": 2
+  }
+}

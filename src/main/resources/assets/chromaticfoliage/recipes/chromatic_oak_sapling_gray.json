@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_oak_sapling_gray",
+  "ingredients": [
+    {
+      "item": "minecraft:sapling",
+      "data": 0
+    },
+    {
+      "ore": "dyeGray",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_sapling",
+    "data": 64
+  }
+}

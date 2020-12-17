@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_jungle_sapling_magenta",
+  "ingredients": [
+    {
+      "item": "minecraft:sapling",
+      "data": 3
+    },
+    {
+      "ore": "dyeMagenta",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_sapling",
+    "data": 107
+  }
+}

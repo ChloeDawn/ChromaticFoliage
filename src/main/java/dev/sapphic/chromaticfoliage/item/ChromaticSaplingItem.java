@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ChromaticSaplingItem extends ItemMultiTexture {
   public ChromaticSaplingItem(final Block block) {
-    super(block, block, stack -> BlockPlanks.EnumType.byMetadata(stack.getMetadata() & 6).getName());
+    super(block, block, stack -> BlockPlanks.EnumType.byMetadata(stack.getMetadata() & 7).getName());
   }
 
   @Override

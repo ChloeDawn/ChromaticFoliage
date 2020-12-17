@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "chromaticfoliage:recoloring"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "chromaticfoliage:chromatic_oak_sapling_orange",
+  "ingredients": [
+    {
+      "ore": "treeSaplingChromatic",
+      "type": "forge:ore_dict"
+    },
+    {
+      "ore": "dyeOrange",
+      "type": "forge:ore_dict"
+    }
+  ],
+  "result": {
+    "item": "chromaticfoliage:chromatic_sapling",
+    "data": 112
+  }
+}
