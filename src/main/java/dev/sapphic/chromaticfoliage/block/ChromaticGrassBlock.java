@@ -92,7 +92,7 @@ public class ChromaticGrassBlock extends BlockGrass {
       }
       return true;
     }
-    if (ChromaticConfig.General.recolorRecipes) {
+    if (ChromaticConfig.General.inWorldInteraction) {
       final Block block = state.getBlock();
       if ((block instanceof IGrowable) && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, state)) {
         if ((stack.getItem() == Items.DYE) && (stack.getMetadata() == EnumDyeColor.WHITE.getDyeDamage())) {

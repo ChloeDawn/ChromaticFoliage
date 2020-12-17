@@ -90,7 +90,7 @@ public class ChromaticVineBlock extends BlockVine {
       }
       return true;
     }
-    if (ChromaticConfig.General.recolorRecipes) {
+    if (ChromaticConfig.General.inWorldInteraction) {
       final IBlockState actualState = state.getActualState(world, pos);
       final Block block = actualState.getBlock();
       if ((block instanceof IGrowable) && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, actualState)) {

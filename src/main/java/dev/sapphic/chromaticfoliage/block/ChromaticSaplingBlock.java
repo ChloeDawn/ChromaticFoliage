@@ -63,7 +63,7 @@ public class ChromaticSaplingBlock extends BlockSapling {
     if (!player.canPlayerEdit(pos, facing, stack) || stack.isEmpty()) {
       return false;
     }
-    if (ChromaticConfig.General.recolorRecipes) {
+    if (ChromaticConfig.General.inWorldInteraction) {
       final IBlockState actualState = state.getActualState(world, pos);
       final Block block = actualState.getBlock();
 
