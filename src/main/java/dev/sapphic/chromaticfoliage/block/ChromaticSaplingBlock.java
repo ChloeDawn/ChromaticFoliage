@@ -8,6 +8,7 @@ import dev.sapphic.chromaticfoliage.init.ChromaticBlocks;
 import dev.sapphic.chromaticfoliage.init.ChromaticSounds;
 import dev.sapphic.chromaticfoliage.tree.BigChromaticBigOakGenerator;
 import dev.sapphic.chromaticfoliage.tree.ChromaticAcaciaTreeGenerator;
+import dev.sapphic.chromaticfoliage.tree.ChromaticBigJungleTreeGenerator;
 import dev.sapphic.chromaticfoliage.tree.ChromaticBigSpruceTreeGenerator;
 import dev.sapphic.chromaticfoliage.tree.ChromaticBirchTreeGenerator;
 import dev.sapphic.chromaticfoliage.tree.ChromaticDarkOakTreeGenerator;
@@ -35,7 +36,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMegaJungle;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -153,15 +153,11 @@ public class ChromaticSaplingBlock extends BlockSapling {
         generator = new ChromaticBirchTreeGenerator(color);
         break;
       case JUNGLE:
-        final IBlockState log =
-          Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, EnumType.JUNGLE);
-        final IBlockState leaves = ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES.getDefaultState()
-          .withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(ChromaticFoliage.COLOR, color);
         megaCheck:
         for (x = 0; x >= -1; --x) {
           for (z = 0; z >= -1; --z) {
             if (this.isMega(world, pos, x, z, EnumType.JUNGLE)) {
-              generator = new WorldGenMegaJungle(true, 10, 20, log, leaves);
+              generator = new ChromaticBigJungleTreeGenerator(color);
               mega = true;
               break megaCheck;
             }
@@ -170,6 +166,10 @@ public class ChromaticSaplingBlock extends BlockSapling {
         if (!mega) {
           x = 0;
           z = 0;
+          final IBlockState log =
+            Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, EnumType.JUNGLE);
+          final IBlockState leaves = ChromaticBlocks.CHROMATIC_JUNGLE_LEAVES.getDefaultState()
+            .withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(ChromaticFoliage.COLOR, color);
           generator = new WorldGenTrees(true, 4 + rand.nextInt(7), log, leaves, false);
         }
 
