@@ -46,36 +46,65 @@ public final class ChromaticConfig {
       @Name("snow_layers")
       @Comment("Tint snow layers when above a chromatic grass block")
       @RequiresMcRestart
-      public final boolean snowLayers = true;
+      public boolean snowLayers = true;
 
       @Name("grass_plants")
       @Comment("Tint grass plants when above a chromatic grass block")
       @RequiresMcRestart
-      public final boolean grassPlants = true;
+      public boolean grassPlants = true;
 
       private Blocks() {
       }
     }
 
     public static final class Colors {
-      public final int black = 0x1D1D21;
-      public final int red = 0xB02E26;
-      public final int green = 0x5E7C16;
-      public final int brown = 0x835432;
-      public final int blue = 0x3C44AA;
-      public final int purple = 0x8932B8;
-      public final int cyan = 0x169C9C;
+      @Name("black")
+      public int black = 0x1D1D21;
+
+      @Name("red")
+      public int red = 0xB02E26;
+
+      @Name("green")
+      public int green = 0x5E7C16;
+
+      @Name("brown")
+      public int brown = 0x835432;
+
+      @Name("blue")
+      public int blue = 0x3C44AA;
+
+      @Name("purple")
+      public int purple = 0x8932B8;
+
+      @Name("cyan")
+      public int cyan = 0x169C9C;
+
       @Name("light_gray")
-      public final int lightGray = 0x9D9D97;
-      public final int gray = 0x474F52;
-      public final int pink = 0xF38BAA;
-      public final int lime = 0x80C71F;
-      public final int yellow = 0xFED83D;
+      public int lightGray = 0x9D9D97;
+
+      @Name("gray")
+      public int gray = 0x474F52;
+
+      @Name("pink")
+      public int pink = 0xF38BAA;
+
+      @Name("lime")
+      public int lime = 0x80C71F;
+
+      @Name("yellow")
+      public int yellow = 0xFED83D;
+
       @Name("light_blue")
-      public final int lightBlue = 0x3AB3DA;
-      public final int magenta = 0xC74EBD;
-      public final int orange = 0xF9801D;
-      public final int white = 0xF9FFFE;
+      public int lightBlue = 0x3AB3DA;
+
+      @Name("magenta")
+      public int magenta = 0xC74EBD;
+
+      @Name("orange")
+      public int orange = 0xF9801D;
+
+      @Name("white")
+      public int white = 0xF9FFFE;
 
       private @Nullable IntList lastColors;
       private IntList colors = this.asList();
@@ -119,25 +148,25 @@ public final class ChromaticConfig {
     public static final class Info {
       @Name("tooltip_color")
       @Comment("Display the color variant of the chromatic block in the item tooltip")
-      public final boolean tooltipColor = true;
+      public boolean tooltipColor = true;
 
       @Name("tooltip_illuminated")
       @Comment("Display an additional tooltip for illuminated chromatic blocks")
-      public final boolean tooltipIlluminated = true;
+      public boolean tooltipIlluminated = true;
 
       @Name("waila_color")
       @Comment({
         "Display the color variant of the chromatic block in Hwyla/Waila",
         "This config value is ignored if Hwyla/Waila is not present"
       })
-      public final boolean wailaColor = true;
+      public boolean wailaColor = true;
 
       @Name("waila_illuminated")
       @Comment({
         "Display an additional Hwyla/Waila tooltip for illuminated chromatic blocks",
         "This config value is ignored if Hwyla/Waila is not present"
       })
-      public final boolean wailaIlluminated = true;
+      public boolean wailaIlluminated = true;
 
       private Info() {
       }
